@@ -3,6 +3,7 @@ import os
 from decouple import config
 import  requests
 import json
+from duckduckgo_search import ddg
 
 client = discord.Client()
 
@@ -19,7 +20,6 @@ async def on_message(message):
         await message.channel.send('HECK YEAH')
 
     elif message.content.startswith('_m'):
-
         word_list = message.content.split()
 
         if(len(word_list) > 2): #user has more than 2 words as input
@@ -47,7 +47,6 @@ async def on_message(message):
     elif message.content.startswith('_f'):
 
         fact_token=config('NUMBERS_API')
-
         headers = {
             'x-rapidapi-key': fact_token,
             'x-rapidapi-host': "numbersapi.p.rapidapi.com"
@@ -85,6 +84,21 @@ async def on_message(message):
                 await message.channel.send(data2)
             except:
                 await message.channel.send('Was that even a number? :/')
+    
+    elif message.content.startswith('_search'):
+        hold = 0
+        for i in range(0, len(message.content)):
+            if message.content[i] == ' ':
+                hold = i
+                break
+
+        search_term = message.content[hold:len(message.content)]
+
+        results = str(ddg(search_term, region='wt-wt', safesearch='Off', time='y', max_results=1))
+     
+        index = results.find('\'body\'')
+        result = results[index+9:(len(results)-3)]
+        await message.channel.send(result)
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
