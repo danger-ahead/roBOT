@@ -18,7 +18,7 @@ async def on_message(message):
     if message.content.startswith('roBOT LETS GET TO WORK'):
         await message.channel.send('HECK YEAH')
 
-    if message.content.startswith('_mean'):
+    elif message.content.startswith('_m'):
 
         word_list = message.content.split()
 
@@ -43,6 +43,48 @@ async def on_message(message):
 
             except:
                 await message.channel.send('Didn\'t find the word :/')
+
+    elif message.content.startswith('_f'):
+
+        fact_token=config('NUMBERS_API')
+
+        headers = {
+            'x-rapidapi-key': fact_token,
+            'x-rapidapi-host': "numbersapi.p.rapidapi.com"
+            }
+        
+        querystring = {"json":"true","fragment":"true"}
+
+        lst = message.content.split()
+
+        if lst[1].find('y') != -1:
+            year = lst[2]
+            url = "https://numbersapi.p.rapidapi.com/"+year+"/year"            
+
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            data = json.loads(response.text)
+            pairs = data.items()
+            try:
+                data2 = (data["date"])
+                await message.channel.send('Date: '+data2)
+                data3 = (data["text"])
+                await message.channel.send(data3)
+            except:
+                data3 = (data["text"])
+                await message.channel.send(data3)
+
+        if lst[1].find('m') != -1:
+            math = lst[2]
+            url = "https://numbersapi.p.rapidapi.com/"+math+"/math"
+
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            data = json.loads(response.text)
+            pairs = data.items()
+            try:
+                data2 = (data["text"])
+                await message.channel.send(data2)
+            except:
+                await message.channel.send('Was that even a number? :/')
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
