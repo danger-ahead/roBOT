@@ -33,12 +33,14 @@ async def on_message(message):
                 data = json.loads(r.text)[0]
                 pairs = data.items()
                 data2 = (data["meanings"])
+                
 
                 for definitions in data2:
                     definitions2 = (definitions["definitions"])
-                    definitions2 = str(definitions2)
-                    definitions2 = definitions2.split("\'")
-                    define = definitions2[3]
+                    definitions2 = "&"+ str(definitions2)+"&"
+                    definitions2 = definitions2.split(", ")                                       
+                    define = definitions2[0]
+                    define=define.replace("&[{", "")                    
                     await message.channel.send(define)
 
             except:
