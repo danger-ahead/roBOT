@@ -19,7 +19,7 @@ async def on_message(message):
     if message.content.startswith('roBOT LETS GET TO WORK'):
         await message.channel.send('HECK YEAH')
 
-    elif message.content.startswith('_m'):
+    elif message.content.lower().startswith('_mean'):
         word_list = message.content.split()
 
         if(len(word_list) > 2): #user has more than 2 words as input
@@ -46,7 +46,7 @@ async def on_message(message):
             except:
                 await message.channel.send('Didn\'t find the word :/')
 
-    elif message.content.startswith('_f'):
+    elif message.content.lower().startswith('_f'):
 
         fact_token=config('NUMBERS_API')
         headers = {
@@ -87,7 +87,7 @@ async def on_message(message):
             except:
                 await message.channel.send('Was that even a number? :/')
     
-    elif message.content.startswith('_search'):
+    elif message.content.lower().startswith('_search'):
         hold = 0
         for i in range(0, len(message.content)):
             if message.content[i] == ' ':
@@ -101,6 +101,18 @@ async def on_message(message):
         index = results.find('\'body\'')
         result = results[index+9:(len(results)-3)]
         await message.channel.send(result)
+
+    elif message.content.startswith('_confess'):
+        await message.delete()
+
+        hold = 0
+        for i in range(0, len(message.content)):
+            if message.content[i] == ' ':
+                hold = i
+                break
+
+        embed=discord.Embed(title='Someone just confessed:', description=message.content[hold:len(message.content)], color=discord.Color.blue())
+        await message.channel.send(embed=embed)       
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)

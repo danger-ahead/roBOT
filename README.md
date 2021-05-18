@@ -20,9 +20,11 @@
 
 ## Working
 #### For receiving year and math facts:
-`_f y`followed by the year
-`_f m`followed by the number
+`_f y ` followed by the year
+`_f m ` followed by the number
 #### For performing a search
-`_search`followed by the search phrase
+`_search ` followed by the search phrase
 #### For finding the meaning of a word
-`_mean`followed by the word
+`_mean ` followed by the word
+#### For anonymous confessions (or perhaps anonymous chats ;) )
+`_confess ` followed by the confession
