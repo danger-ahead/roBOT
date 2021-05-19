@@ -2,9 +2,11 @@
 
 ![](https://img.shields.io/github/stars/danger-ahead/roBOT) ![](https://img.shields.io/github/forks/danger-ahead/roBOT) ![](https://img.shields.io/github/issues/danger-ahead/roBOT)
 
-## Prerequisites
-- The bot uses [Numbers](https://rapidapi.com/divad12/api/numbers-1) from [RapidAPI](https://rapidapi.com/marketplace) for displaying year and math facts.
-- The bot uses [DuckDuckGo](https://duckduckgo.com/) for fetching search results
+## Overview
+- Uses [Numbers](https://rapidapi.com/divad12/api/numbers-1) from [RapidAPI](https://rapidapi.com/marketplace) for displaying year and math facts.
+- Uses [Advanced Movie Search](https://rapidapi.com/jakash1997/api/advanced-movie-search ) from [RapidAPI](https://rapidapi.com/marketplace) for fetching movie details.
+- Uses [DuckDuckGo](https://duckduckgo.com/) for fetching search results
+- Uses [Free Dictionary API](https://dictionaryapi.dev/) for fetching meanings
 
 - Python Packages required:
 	- [discord.py](https://pypi.org/project/discord.py/)
@@ -16,7 +18,7 @@
 - Head over to this [freecodecamp tutorial](https://www.freecodecamp.org/news/create-a-discord-bot-with-python/)
 - In the .env  file, paste the required keys as:
 	` TOKEN=YOUR_TOKEN` (replace 'YOUR_TOKEN' with your token)
-	`NUMBERS_API=YOUR_API_KEY` (replace 'YOUR_API_KEY' with your API key)
+	`RAPID_API=YOUR_API_KEY` (replace 'YOUR_API_KEY' with your API key)
 
 ## Working
 #### For receiving year and math facts:
@@ -28,3 +30,5 @@
 `_mean ` followed by the word
 #### For anonymous confessions (or perhaps anonymous chats ;) )
 `_confess ` followed by the confession
+#### For fetching movie details
+`_movie ` followed by the name of the movie
