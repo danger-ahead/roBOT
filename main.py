@@ -40,8 +40,16 @@ async def on_message(message):
                     definitions2 = "&"+ str(definitions2)+"&"
                     definitions2 = definitions2.split(", ")                                       
                     define = definitions2[0]
-                    define=define.replace("&[{", "")                    
+                    define=define.replace("&[{", "")
+                    define=define.replace("}]&", "")
+                    lomba=len(define)
+                    if(define[lomba-1]==""):
+                        define=define+"\'"
+                    elif((define[lomba-1]!="\"")or(define[lomba-1]!="\'")):
+                        define=define+"\'"
+
                     await message.channel.send(define)
+                    
 
             except:
                 await message.channel.send('Didn\'t find the word :/')
