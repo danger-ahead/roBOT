@@ -131,12 +131,19 @@ async def on_message(message):
         await message.channel.send('Overview: '+result_first["overview"])
     elif message.content.lower().startswith('_wea'):
         city_list=message.content.split()
-        
-        URL = "https://api.openweathermap.org/data/2.5/weather?"
-        newurl= URL + "q="+ city_list +"&appid=" + config('OPEN_WEATHER_TOKEN')  
-        response=requests.get(newurl).json()
-        weatherrep=response['weather'][0]['main']
-        await message.channel.send('Weather of '+city_list+'is '+weatherrep)
+        city=''
+        for i in range(1, len(city_list)):
+            city=city+city_list[i]+' '
 
+        newurl= "https://api.openweathermap.org/data/2.5/weather?" + "q="+ city +"&appid=" + config('OPEN_WEATHER_TOKEN') 
+        response=requests.get(newurl).json()
+        weatherrep=response['main']
+        temperature = weatherrep['temp']
+        report = response['weather']
+        humidity = weatherrep['humidity']
+        report_description=str({report[0]['description']})
+        index=report_description.find(''')
+        index2=report_description.find(''',2)
+        await message.channel.send('Weather of '+city+' is '+report_description[(index+1):index2]+'\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%')
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
