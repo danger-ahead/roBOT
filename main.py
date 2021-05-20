@@ -129,6 +129,14 @@ async def on_message(message):
         await message.channel.send('Original title: '+result_first["original_title"]+'\nRelease date: '+result_first["release_date"]+'\nLanguage: '+result_first["original_language"])
         await message.channel.send(result_first["poster_path"])
         await message.channel.send('Overview: '+result_first["overview"])
+    elif message.content.lower().startswith('_wea'):
+        city_list=message.content.split()
+        
+        URL = "https://api.openweathermap.org/data/2.5/weather?"
+        newurl= URL + "q="+ city_list +"&appid=" + config('OPEN_WEATHER_TOKEN')  
+        response=requests.get(newurl).json()
+        weatherrep=response['weather'][0]['main']
+        await message.channel.send('Weather of '+city_list+'is '+weatherrep)
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
