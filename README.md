@@ -7,6 +7,7 @@
 - Uses [Advanced Movie Search](https://rapidapi.com/jakash1997/api/advanced-movie-search ) from [RapidAPI](https://rapidapi.com/marketplace) for fetching movie details.
 - Uses [DuckDuckGo](https://duckduckgo.com/) for fetching search results
 - Uses [Free Dictionary API](https://dictionaryapi.dev/) for fetching meanings
+- Uses [OpenWeatherMap API](https://openweathermap.org/api) for fetching weather details.
 
 - Python Packages required:
 	- [discord.py](https://pypi.org/project/discord.py/)
@@ -19,6 +20,7 @@
 - In the .env  file, paste the required keys as:
 	` TOKEN=YOUR_TOKEN` (replace 'YOUR_TOKEN' with your token)
 	`RAPID_API=YOUR_API_KEY` (replace 'YOUR_API_KEY' with your API key)
+	`OPEN_WEATHER_TOKEN=YOUR_TOKEN` (replace 'YOUR_TOKEN' with your API key)
 
 ## Working
 #### For receiving year and math facts:
@@ -32,3 +34,5 @@
 `_confess ` followed by the confession
 #### For fetching movie details
 `_movie ` followed by the name of the movie
+#### For fetching weather of a city
+`_wea ` followed by the name of the city(kolkata, melbourne etc), country code(au, us, in etc)
