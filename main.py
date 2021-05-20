@@ -4,6 +4,7 @@ from decouple import config
 import  requests
 import json
 from duckduckgo_search import ddg
+import wikipedia as wiki
 
 client = discord.Client()
 
@@ -19,9 +20,9 @@ async def on_message(message):
     if message.content.lower().startswith('_confess'):
         await message.delete()
 
-        hold=message.content.find(' ')
-
-        embed=discord.Embed(title='Someone just confessed:', description=message.content[hold:len(message.content)], color=discord.Color.blue())
+        hold=message.content.find(' ') #searches for the first space after the command
+        
+        embed=discord.Embed(title='Someone just confessed:', description=message.content[(hold+1):len(message.content)], color=discord.Color.blue())
         await message.channel.send(embed=embed)
 
     elif message.content.lower().startswith('_mean'):
@@ -35,7 +36,7 @@ async def on_message(message):
             url = 'https://api.dictionaryapi.dev/api/v2/entries/en_US/' + word
 
             r = requests.get(url)
-            if r.status_code==200:
+            if r.status_code==200: #checks status code of response received, 200 is the success code
                 data = json.loads(r.text)[0]           
 
                 for definitions in (data["meanings"]):
@@ -100,7 +101,7 @@ async def on_message(message):
     elif message.content.lower().startswith('_search'):
         hold=message.content.find(' ')
 
-        results = str(ddg(message.content[hold:len(message.content)], region='wt-wt', safesearch='Off', time='y', max_results=1))
+        results = str(ddg(message.content[(hold+1):len(message.content)], region='wt-wt', safesearch='Off', time='y', max_results=1))
      
         index = results.find('\'body\'')
         await message.channel.send(results[index+9:(len(results)-3)])
@@ -109,7 +110,7 @@ async def on_message(message):
         url = "https://advanced-movie-search.p.rapidapi.com/search/movie"
 
         hold=message.content.find(' ')
-        querystring = {"query":message.content[hold:len(message.content)],"page":"1"}
+        querystring = {"query":message.content[(hold+1):len(message.content)],"page":"1"}
 
         headers = {
             'x-rapidapi-key': config('RAPID_API'),
@@ -148,15 +149,21 @@ async def on_message(message):
             report_description=str({report[0]['description']})
             index=report_description.find('\'')
             index2=report_description.find('\'',2)
-            await message.channel.send('Weather of '+city+' is '+report_description[(index+1):index2]+'\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%')
+            await message.channel.send(report_description[(index+1):index2]+'\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%')
             await message.add_reaction('\U0001f44d')
         else:
             await message.add_reaction('\U0001F44E')
 
-    elif message.content.lower().startswith('_about'):
-        #await message.channel.send(file=discord.File('hi.png'))
-        await message.author.send(file=discord.File('README.md'))
+    elif message.content.lower().startswith('_wiki'):
+        hold=message.content.find(' ')
+        try:
+            await message.channel.send(wiki.summary(message.content[(hold+1):len(message.content)], sentences=4))
+            await message.add_reaction('\U0001f44d')
+        except:
+            await message.add_reaction('\U0001F44E')
 
+    elif message.content.lower().startswith('_hi'):
+        await message.reply('hi'+'\U0001F44B'+'\ncontribute towards my well-being at https://github.com/danger-ahead/roBOT')
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)

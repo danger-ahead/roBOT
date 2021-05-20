@@ -14,6 +14,7 @@
 	- [duckduckgo-search](https://pypi.org/project/duckduckgo-search/)
 	- [requests](https://pypi.org/project/requests/)
 	- [python-decouple](https://pypi.org/project/python-decouple/)
+	- [wikipedia](https://pypi.org/project/wikipedia/)
 
 ## Installation
 - Head over to this [freecodecamp tutorial](https://www.freecodecamp.org/news/create-a-discord-bot-with-python/)
@@ -23,6 +24,7 @@
 	`OPEN_WEATHER_TOKEN=YOUR_TOKEN` (replace 'YOUR_TOKEN' with your API key)
 
 ## Working
+### roBOT reacts 👍 and 👎 after any successful and unsuccessful command execution respectively
 #### For receiving year and math facts:
 `_f y ` followed by the year
 `_f m ` followed by the number
@@ -34,5 +36,9 @@
 `_confess ` followed by the confession
 #### For fetching movie details
 `_movie ` followed by the name of the movie
-#### For fetching weather of a city
+#### For fetching weather details
 `_wea ` followed by the name of the city(kolkata, melbourne etc), country code(au, us, in etc)
+#### For performing search in Wikipedia
+`_wiki ` followed by the search phrase
+#### roBOT
+`_hi`
