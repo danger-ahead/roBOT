@@ -28,13 +28,14 @@ async def on_message(message):
         word_list = message.content.split()
 
         if(len(word_list) > 2): #user has more than 2 words as input
-            await message.channel.send('Enter a single word at a time :/')
+            await message.add_reaction('\U0001F44E')
 
         else:
             word = word_list[1]
-            try:
-                url = 'https://api.dictionaryapi.dev/api/v2/entries/en_US/' + word
-                r = requests.get(url)
+            url = 'https://api.dictionaryapi.dev/api/v2/entries/en_US/' + word
+
+            r = requests.get(url)
+            if r.status_code==200:
                 data = json.loads(r.text)[0]           
 
                 for definitions in (data["meanings"]):
@@ -51,10 +52,10 @@ async def on_message(message):
                     elif((define[lomba-1]!="\"")or(define[lomba-1]!="\'")):
                         define=define+"\'"
 
-                    await message.channel.send(define)          
-
-            except:
-                await message.channel.send('Didn\'t find the word :/')
+                    await message.channel.send(define)
+                    await message.add_reaction('\U0001F44d')         
+            else:
+                await message.add_reaction('\U0001F44E')
 
     elif message.content.lower().startswith('_f'):
 
@@ -72,23 +73,29 @@ async def on_message(message):
             url = "https://numbersapi.p.rapidapi.com/"+year+"/year"            
 
             response = requests.request("GET", url, headers=headers, params=querystring)
-            data = json.loads(response.text)
-            try:
-                await message.channel.send('Date: '+data["date"])
-                await message.channel.send(data["text"])
-            except:
-                await message.channel.send(data["text"])
+            if response.status_code==200:
+                data = json.loads(response.text)
+                try:
+                    await message.channel.send('Date: '+data["date"])
+                    await message.channel.send(data["text"])
+                    await message.add_reaction('\U0001f44d')
+                except:
+                    await message.channel.send(data["text"])
+                    await message.add_reaction('\U0001f44d')
+            else:
+                await message.add_reaction('\U0001F44E')
 
         if lst[1].find('m') != -1:
             math = lst[2]
             url = "https://numbersapi.p.rapidapi.com/"+math+"/math"
 
             response = requests.request("GET", url, headers=headers, params=querystring)
-            data = json.loads(response.text)
-            try:
+            if response.status_code==200:
+                data = json.loads(response.text)
                 await message.channel.send(data["text"])
-            except:
-                await message.channel.send('Was that even a number? :/')
+                await message.add_reaction('\U0001f44d')
+            else:
+                await message.add_reaction('\U0001F44E')
     
     elif message.content.lower().startswith('_search'):
         hold=message.content.find(' ')
@@ -101,11 +108,7 @@ async def on_message(message):
     elif message.content.lower().startswith('_movie'):
         url = "https://advanced-movie-search.p.rapidapi.com/search/movie"
 
-        hold = 0
-        for i in range(0, len(message.content)):
-            if message.content[i] == ' ':
-                hold = i
-                break
+        hold=message.content.find(' ')
         querystring = {"query":message.content[hold:len(message.content)],"page":"1"}
 
         headers = {
@@ -114,9 +117,14 @@ async def on_message(message):
             }
 
         result = requests.request("GET", url, headers=headers, params=querystring)
+
         data=json.loads(result.text)
         results=data["results"]
-        result_first=results[0]
+        try:
+            result_first=results[0]
+            await message.add_reaction('\U0001f44d')
+        except:
+            await message.add_reaction('\U0001F44E')
 
         await message.channel.send('Original title: '+result_first["original_title"]+'\nRelease date: '+result_first["release_date"]+'\nLanguage: '+result_first["original_language"])
         await message.channel.send(result_first["poster_path"])
@@ -129,15 +137,26 @@ async def on_message(message):
             city=city+city_list[i]+' '
 
         newurl= "https://api.openweathermap.org/data/2.5/weather?" + "q="+ city +"&appid=" + config('OPEN_WEATHER_TOKEN') 
-        response=requests.get(newurl).json()
-        weatherrep=response['main']
-        temperature = weatherrep['temp']
-        report = response['weather']
-        humidity = weatherrep['humidity']
-        report_description=str({report[0]['description']})
-        index=report_description.find('\'')
-        index2=report_description.find('\'',2)
-        await message.channel.send('Weather of '+city+' is '+report_description[(index+1):index2]+'\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%')
+        response=requests.get(newurl)
+
+        if response.status_code==200:
+            response=response.json()
+            weatherrep=response['main']
+            temperature = weatherrep['temp']
+            report = response['weather']
+            humidity = weatherrep['humidity']
+            report_description=str({report[0]['description']})
+            index=report_description.find('\'')
+            index2=report_description.find('\'',2)
+            await message.channel.send('Weather of '+city+' is '+report_description[(index+1):index2]+'\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%')
+            await message.add_reaction('\U0001f44d')
+        else:
+            await message.add_reaction('\U0001F44E')
+
+    elif message.content.lower().startswith('_about'):
+        #await message.channel.send(file=discord.File('hi.png'))
+        await message.author.send(file=discord.File('README.md'))
+
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
