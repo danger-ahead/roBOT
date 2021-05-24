@@ -18,6 +18,7 @@
 
 ## Installation
 - Head over to this [freecodecamp tutorial](https://www.freecodecamp.org/news/create-a-discord-bot-with-python/)
+- Run `pip install -r requirements.txt`
 - In the .env  file, paste the required keys as:
 	` TOKEN=YOUR_TOKEN` (replace 'YOUR_TOKEN' with your token)
 	`RAPID_API=YOUR_API_KEY` (replace 'YOUR_API_KEY' with your API key)
