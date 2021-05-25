@@ -130,7 +130,23 @@ async def on_message(message):
         await message.channel.send('Original title: '+result_first["original_title"]+'\nRelease date: '+result_first["release_date"]+'\nLanguage: '+result_first["original_language"])
         await message.channel.send(result_first["poster_path"])
         await message.channel.send('Overview: '+result_first["overview"])
+    elif message.content.lower().startswith('_song'):
+        url = "https://genius.p.rapidapi.com/search"
+        hold=message.content.find(' ')
+        querystring = {"q":message.content[(hold+1):len(message.content)]}
 
+        headers = {
+         'x-rapidapi-key': "SIGN-UP-FOR-KEY",
+        'x-rapidapi-host': "genius.p.rapidapi.com"
+        }
+
+        response = requests.request("GET", url, headers=headers, params=querystring)
+        data=json.loads(response.txt)
+        response=data["response"]
+        hits=response["hits"]
+        
+
+       
     elif message.content.lower().startswith('_wea'):
         city_list=message.content.split()
         city=''
