@@ -136,15 +136,20 @@ async def on_message(message):
         querystring = {"q":message.content[(hold+1):len(message.content)]}
 
         headers = {
-         'x-rapidapi-key': "SIGN-UP-FOR-KEY",
+         'x-rapidapi-key': config('RAPID_API'),
         'x-rapidapi-host': "genius.p.rapidapi.com"
         }
 
         response = requests.request("GET", url, headers=headers, params=querystring)
         data=json.loads(response.txt)
-        response=data["response"]
-        hits=response["hits"]
-        
+        response1=data["response"]
+        hits=response1["hits"]
+        x=hits[0]
+        y=x["result"]
+        await message.channel.send('Name of the song is '+y["full_title"])
+        await message.channel.send('The lyrics of the song is'+y["path"])
+        await message.channel.send(y["song_art_image_thumbnail_url"])    
+        await message.channel.send(y["song_art_image_url"])
 
        
     elif message.content.lower().startswith('_wea'):
