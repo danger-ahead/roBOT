@@ -130,6 +130,7 @@ async def on_message(message):
         await message.channel.send('Original title: '+result_first["original_title"]+'\nRelease date: '+result_first["release_date"]+'\nLanguage: '+result_first["original_language"])
         await message.channel.send(result_first["poster_path"])
         await message.channel.send('Overview: '+result_first["overview"])
+
     elif message.content.lower().startswith('_song'):
         url = "https://genius.p.rapidapi.com/search"
         hold=message.content.find(' ')
@@ -141,14 +142,13 @@ async def on_message(message):
         }
 
         response = requests.request("GET", url, headers=headers, params=querystring)
-        data=json.loads(response.txt)
+        data=json.loads(response.text)
         response1=data["response"]
         hits=response1["hits"]
         x=hits[0]
         y=x["result"]
-        await message.channel.send('Name of the song is '+y["full_title"])
-        await message.channel.send('The lyrics of the song is'+y["path"])
-        await message.channel.send(y["song_art_image_thumbnail_url"])    
+        await message.channel.send('Most famous song:'+y["full_title"])
+        await message.channel.send('Lyrics of the song can be found at: '+y["url"])  
         await message.channel.send(y["song_art_image_url"])
 
        
