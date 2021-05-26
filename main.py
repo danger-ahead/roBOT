@@ -145,13 +145,12 @@ async def on_message(message):
         data=json.loads(response.text)
         response1=data["response"]
         hits=response1["hits"]
-        x=hits[0]
-        y=x["result"]
-        await message.channel.send('Most famous song:'+y["full_title"])
-        await message.channel.send('Lyrics of the song can be found at: '+y["url"])  
-        await message.channel.send(y["song_art_image_url"])
 
-       
+        for i in range (2):
+            x=hits[i]
+            y=x["result"]
+            await message.channel.send('\''+y["full_title"]+'\''+'\nDetails of the song can be found at: '+y["url"]) 
+        
     elif message.content.lower().startswith('_wea'):
         city_list=message.content.split()
         city=''
