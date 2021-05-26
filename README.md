@@ -1,10 +1,12 @@
 # roBOT 🤖
+YOUR OWN LOCALLY HOSTED DISCORD BOT
 
 ![](https://img.shields.io/github/stars/danger-ahead/roBOT) ![](https://img.shields.io/github/forks/danger-ahead/roBOT) ![](https://img.shields.io/github/issues/danger-ahead/roBOT)
 
 ## Overview 🔭
 - Uses [Numbers](https://rapidapi.com/divad12/api/numbers-1) from [RapidAPI](https://rapidapi.com/marketplace) for displaying year and math facts.
 - Uses [Advanced Movie Search](https://rapidapi.com/jakash1997/api/advanced-movie-search ) from [RapidAPI](https://rapidapi.com/marketplace) for fetching movie details.
+- Uses [Genius](https://rapidapi.com/brianiswu/api/genius) from [RapidAPI](https://rapidapi.com/marketplace) for fetching song and artist details.
 - Uses [DuckDuckGo](https://duckduckgo.com/) for fetching search results
 - Uses [Free Dictionary API](https://dictionaryapi.dev/) for fetching meanings
 - Uses [OpenWeatherMap API](https://openweathermap.org/api) for fetching weather details.
@@ -25,7 +27,7 @@
 	`OPEN_WEATHER_TOKEN=YOUR_TOKEN` (replace 'YOUR_TOKEN' with your API key)
 
 ## Working 🤔
-### roBOT reacts with 👍 or 👎 based on whether the last command execution was successful
+### roBOT reacts with 👍 or 👎 based on whether the last command execution was successful or not
 #### For receiving year and math facts:
 `_f y ` followed by the year
 `_f m ` followed by the number
@@ -51,4 +53,5 @@
 <a href="https://imgur.com/iPy1jzm"><img src="https://i.imgur.com/iPy1jzm.png" title="source: imgur.com" /></a>
 <a href="https://imgur.com/Sws275p"><img src="https://i.imgur.com/Sws275p.png" title="source: imgur.com" /></a>
 <a href="https://imgur.com/ccXMNRZ"><img src="https://i.imgur.com/ccXMNRZ.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/ZJw4MKx"><img src="https://i.imgur.com/ZJw4MKx.png" title="source: imgur.com" /></a>
 <a href="https://imgur.com/15XX4dl"><img src="https://i.imgur.com/15XX4dl.png" title="source: imgur.com" /></a>

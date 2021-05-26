@@ -37,26 +37,48 @@ async def on_message(message):
 
             r = requests.get(url)
             if r.status_code==200: #checks status code of response received, 200 is the success code
-                data = json.loads(r.text)[0]           
+                data = json.loads(r.text)   #dict
 
-                for definitions in (data["meanings"]):
-                    definitions2 = (definitions["definitions"])
-                    definitions2 = "&"+ str(definitions2)+"&"
-                    definitions2 = definitions2.split(", ")                                       
-                    define = definitions2[0]
-                    define=define.replace("&[{", "")
-                    define=define.replace("}]&", "")
-                    lomba=len(define)
+                output = ''
+                for key in data:
+                    first_dict = key["phonetics"]
+                    for phonetics in first_dict:
+                        output += 'phonetics: '+phonetics["text"]+'\n'
+                    
+                    output += '\n'
 
-                    if(define[lomba-1]==""):
-                        define=define+"\'"
-                    elif((define[lomba-1]!="\"")or(define[lomba-1]!="\'")):
-                        define=define+"\'"
+                    first_dict = key["meanings"]
+                    for meaning in first_dict:  #list
+                        definitions = meaning["partOfSpeech"]
+                        output += definitions + ' :\n'
+                        definitions = meaning["definitions"] #list
 
-                    await message.channel.send(define)
-                    await message.add_reaction('\U0001F44d')         
+                        i = 1
+                        for definition in definitions:  #list
+                            define = definition["definition"]
+                            output += str(i) + '. ' +define + '\n'
+
+                            try:
+                                example = definition["example"]
+                                output += 'example: '+example + '\n'
+                            except:
+                                pass
+
+                            try:
+                                synonyms = definition["synonyms"]
+                                output += 'synonyms: '
+                                for synonym in synonyms:
+                                    output += synonym + ', '
+                                output += '\n'
+                            except:
+                                pass
+                            i += 1
+                        output += '\n'
+
+                await message.add_reaction('\U0001F44d')      
+                await message.channel.send(output)
             else:
-                await message.add_reaction('\U0001F44E')
+                await message.add_reaction('\U0001F44E')            
 
     elif message.content.lower().startswith('_f'):
 
