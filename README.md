@@ -10,6 +10,7 @@ YOUR OWN LOCALLY HOSTED DISCORD BOT
 - Uses [DuckDuckGo](https://duckduckgo.com/) for fetching search results
 - Uses [Free Dictionary API](https://dictionaryapi.dev/) for fetching meanings
 - Uses [OpenWeatherMap API](https://openweathermap.org/api) for fetching weather details.
+- Uses [math.js web service](https://api.mathjs.org/) for solving mathematical expressions.
 
 - Python Packages required:
 	- [discord.py](https://pypi.org/project/discord.py/)
@@ -31,6 +32,8 @@ YOUR OWN LOCALLY HOSTED DISCORD BOT
 #### For receiving year and math facts:
 `_f y ` followed by the year
 `_f m ` followed by the number
+#### For solving mathematical expressions
+`_math ` followed by the expression
 #### For performing a search
 `_search ` followed by the search phrase
 #### For finding the meaning of a word

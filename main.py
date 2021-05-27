@@ -5,6 +5,7 @@ import  requests
 import json
 from duckduckgo_search import ddg
 import wikipedia as wiki
+import urllib
 
 client = discord.Client()
 
@@ -119,6 +120,17 @@ async def on_message(message):
                 await message.add_reaction('\U0001f44d')
             else:
                 await message.add_reaction('\U0001F44E')
+
+    elif message.content.lower().startswith('_math'):
+        hold=message.content.find(' ')
+        header = {'content-type': 'application/json'}
+        querystring = urllib.parse.quote_plus(message.content[(hold+1):len(message.content)])
+        result = requests.get("http://api.mathjs.org/v4/?expr="+querystring, headers=header)
+        if result.status_code==200:
+            await message.add_reaction('\U0001f44d')
+            await message.channel.send(result.text)
+        else:
+            await message.add_reaction('\U0001F44E')
     
     elif message.content.lower().startswith('_search'):
         hold=message.content.find(' ')
@@ -126,6 +138,7 @@ async def on_message(message):
         results = str(ddg(message.content[(hold+1):len(message.content)], region='wt-wt', safesearch='Off', time='y', max_results=1))
      
         index = results.find('\'body\'')
+        await message.add_reaction('\U0001f44d')
         await message.channel.send(results[index+9:(len(results)-3)])
 
     elif message.content.lower().startswith('_movie'):
@@ -164,14 +177,18 @@ async def on_message(message):
         }
 
         response = requests.request("GET", url, headers=headers, params=querystring)
-        data=json.loads(response.text)
-        response1=data["response"]
-        hits=response1["hits"]
+        try:
+            data=json.loads(response.text)
+            response1=data["response"]
+            hits=response1["hits"]
 
-        for i in range (2):
-            x=hits[i]
-            y=x["result"]
-            await message.channel.send('\''+y["full_title"]+'\''+'\nDetails of the song can be found at: '+y["url"]) 
+            for i in range (2):
+                x=hits[i]
+                y=x["result"]
+                await message.channel.send('\''+y["full_title"]+'\''+'\nDetails of the song can be found at: '+y["url"])
+            await message.add_reaction('\U0001f44d')
+        except:
+            await message.add_reaction('\U0001F44E')
         
     elif message.content.lower().startswith('_wea'):
         city_list=message.content.split()
