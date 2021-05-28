@@ -6,8 +6,10 @@ import json
 from duckduckgo_search import ddg
 import wikipedia as wiki
 import urllib
+import database
 
 client = discord.Client()
+database = database.database()
 
 @client.event
 async def on_ready():
