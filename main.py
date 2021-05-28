@@ -1,13 +1,16 @@
 import discord
 import os
 from decouple import config
+from discord import channel
 import  requests
 import json
 from duckduckgo_search import ddg
 import wikipedia as wiki
 import urllib
+import quiz
 
 client = discord.Client()
+quiz = quiz.Quiz(client)
 
 @client.event
 async def on_ready():
@@ -223,6 +226,28 @@ async def on_message(message):
 
     elif message.content.lower().startswith('_hi'):
         await message.reply('hi comrade'+'\U0001F44B'+'\ncontribute towards my well-being at https://github.com/danger-ahead/roBOT')
+
+    elif message.content.startswith('_logoff'):
+        await client.send_message(message.channel, 'Leaving server. BYE!')
+        await client.close()
+        exit()
+        
+    elif (message.content.startswith('_halt') or 
+          message.content.startswith('_stop')):
+        await quiz.stop(message,channel)
+    elif (message.content.startswith('_reset')):
+        await quiz.reset(channel)        
+    elif (message.content.startswith('_quiz') or 
+          message.content.startswith('_ask')):
+        await quiz.start(message.channel)      
+    elif (message.content.startswith('_scores')):
+        await quiz.print_scores(channel)    
+    elif (message.content.startswith('_next')):
+        await quiz.next_question(message.channel)
+    elif quiz is not None and quiz.started():
+        #check if we have a question pending
+        await quiz.answer_question(message,channel)
+        #check quiz question correct
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
