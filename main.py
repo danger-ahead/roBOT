@@ -7,8 +7,10 @@ import json
 from duckduckgo_search import ddg
 import wikipedia as wiki
 import urllib
+import database
 import quiz
 
+db = database.Database()
 client = discord.Client()
 quiz = quiz.Quiz(client)
 
@@ -295,6 +297,9 @@ async def on_message(message):
         #check if we have a question pending
         await quiz.answer_question(message,channel)
         #check quiz question correct
+
+    if message.content.startswith('_'):
+        await db.score_up(message.author.id)
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
