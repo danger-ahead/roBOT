@@ -132,6 +132,53 @@ async def on_message(message):
         else:
             await message.add_reaction('\U0001F44E')
     
+    elif message.content.lower().startswith('_drive'):
+        hold1 = message.content.find(' ')
+        hold2 = message.content.find('--')
+        place=[]
+        place.append(message.content[(hold1+1):(hold2-1)].strip())
+        place.append(message.content[(hold2+3):len(message.content)].strip())
+        
+        lat=[]
+        lon=[]
+        try:
+            data = {
+                'key': config('LOCATION_IQ'),
+                'q': place[0],
+                'format': 'json'
+            }
+            result = requests.get("https://us1.locationiq.com/v1/search.php", params=data)
+            data=json.loads(result.text)[0]
+            lat.append(float(data['lat']))
+            lon.append(float(data['lon']))
+            data = {
+                'key': config('LOCATION_IQ'),
+                'q': place[1],
+                'format': 'json'
+            }
+            result2 = requests.get("https://us1.locationiq.com/v1/search.php", params=data)
+            data=json.loads(result2.text)[0]
+            lat.append(float(data['lat']))
+            lon.append(float(data['lon']))
+
+            body = {"locations":[[lon[1],lat[1]],[lon[0],lat[0]]],"metrics":["distance"],"units":"km"}
+
+            headers = {
+                'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
+                'Authorization': config('OPEN_ROUTE_SERVICE'),
+                'Content-Type': 'application/json; charset=utf-8'
+            }
+            call = requests.post('https://api.openrouteservice.org/v2/matrix/driving-car', json=body, headers=headers)
+            data = json.loads(call.text)
+            if str(data['distances'][0][1])=='0.0':
+                await message.channel.send('Not reachable by car :/')
+                await message.add_reaction('\U0001f44E')
+            else:
+                await message.channel.send(str(data['distances'][0][1])+' km')
+                await message.add_reaction('\U0001f44d')
+        except:
+            await message.add_reaction('\U0001f44E')
+
     elif message.content.lower().startswith('_search'):
         hold=message.content.find(' ')
 
