@@ -222,7 +222,7 @@ async def on_message(message):
             await message.add_reaction('\U0001F44E')
 
     elif message.content.lower().startswith('_hi'):
-        await message.reply('hi'+'\U0001F44B'+'\ncontribute towards my well-being at https://github.com/danger-ahead/roBOT')
+        await message.reply('hi comrade'+'\U0001F44B'+'\ncontribute towards my well-being at https://github.com/danger-ahead/roBOT')
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
