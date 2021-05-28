@@ -1,0 +1,621 @@
+#
+# $Id: questions.ollypomm.en,v 1.2 2002/07/05 19:09:10 chat Exp $
+#
+# ------------------------------------------------------------------------------
+#
+#  Author:  	OllyPomm
+#  Editor:  	stanstime
+#  Last edited: $Date: 2002/07/05 19:09:10 $
+#
+#  Comment:     OllyPomm has submitted about 200 questions with more to come
+#
+# ------------------------------------------------------------------------------
+
+## Demo-Entry:
+#  ----------
+#  Category: History
+#  Question: Chinese philosopher (um 500 v. Chr.) ?
+#  Answer: Konfuzius
+#  Regexp: [ck]onfu(ts|z)ius
+#  Author: anonymous
+#  Level: hard
+#  Comment: demo-entry, ÄÖÜäöüß ^° !"§$%&/()=? `´
+#  Score: 5
+#  Tip: Kon......
+#  Tip: ...fuz...
+#  Tip: ......ius
+
+## valid keys:
+#  ----------
+#  Category?                              (should always be on top!)
+#  Question                               (should always stand after Category)
+#  Answer                                 (will be matched if no regexp is provided)
+#  Regexp?                                (use UNIX-style expressions)
+#  Author?                                (the brain behind this question)
+#  Level? [baby|easy|normal|hard|extreme] (difficulty)
+#  Comment?                               (comment line)
+#  Score? [#]                             (credits for answering this question)
+#  Tip*                                   (provide one or more hints)
+#  TipCycle? [#]                          (Specify number of generated tips)
+
+## WARNING:
+#  -------
+#  DO NOT ADD COMMENTS BEYOND THIS LINE, since they might get lost.
+#  you may add as much comments as you want into the part above
+#  <!========================================================!>
+
+Category: Animals
+Question: An unusual feature of the wombats pouch is that it .......?
+Answer: faces backwards
+Author: OllyPomm
+
+Category: Animals
+Question: How many nipples does an echidna have?
+Answer: None
+Regexp: (None|0|Zero|Nill)
+Author: OllyPomm
+
+Category: Animals
+Question: The thylacine (considered extinct) is more commonly know as the?
+Answer: Tasmanian Tiger
+Author: OllyPomm
+
+Category: Animals
+Question: What is a monotreme?
+Answer: An egg laying mammal
+Author: OllyPomm
+
+Category: Morse Code
+Question: What letter of the alphabet does 'dash dash' represent?
+Answer: M
+Author: OllyPomm
+
+Category: Morse Code
+Question: What letter of the alphabet does 'dash dot' represent?
+Answer: N
+Author: OllyPomm
+
+Category: Morse Code
+Question: What letter of the alphabet does 'dash dash dot' represent?
+Answer: G
+Author: OllyPomm
+
+Category: Morse Code
+Question: What letter of the alphabet does 'dash dash dot dot' represent?
+Answer: Z
+Author: OllyPomm
+
+Category: Morse Code
+Question: What letter of the alphabet does 'dot dot' represent?
+Answer: I
+Author: OllyPomm
+
+Category: Sport
+Question: The Melbourne Cup horse race is held on the first ------- in November.?
+Answer: Tuesday
+Author: OllyPomm
+
+Category: Sport
+Question: Over what distance is the Melbourne Cup horse race ran (in metres)?
+Answer: 3200
+Author: OllyPomm
+
+Category: Pot Pourri
+Question: How many weeks until Christmas Day if it is the 25th September?
+Answer: 13 weeks
+Author: OllyPomm
+
+Category: Sport
+Question: What famous race was established in 1903?
+Answer: The Tour de France
+Author: OllyPomm
+
+Category: History
+Question: In 1893, this country was the first to give women the vote.?
+Answer: New Zealand
+Author: OllyPomm
+
+Category: Metals
+Question: The largest pure gold nugget (weighing 70.92kg) ever discovered was called...?
+Answer: The Welcome Stranger
+Regexp: (The )?Welcome Stranger
+Author: OllyPomm
+
+Category: Medicine
+Question: In 1665 the first ----- ----------- was performed by Dr Richard Lower.?
+Answer: Blood Transfusion
+Author: OllyPomm
+
+Category: Pot Pourri
+Question: If it's 12.00 noon GMT - what time is it in Sydney, Australia?
+Answer: 10.00pm
+Author: OllyPomm
+
+Category: History
+Question: Considered to be the last full blooded Tasmanian aborigine, (died 1876 - aged 73), her name is.....?
+Answer: Truganini
+Author: OllyPomm
+
+Category: Olympics
+Question: In what city is the Olympic torch first lit?
+Answer: Olympia
+Author: OllyPomm
+
+Category: Olympics
+Question: What is the latin Olympic motto?
+Answer: Citius Altius Fortius
+Author: OllyPomm
+
+Category: Olympics
+Question: What does the latin Olympic motto - Citius Altius Fortius stand for?
+Answer: Faster Higher Stronger
+Author: OllyPomm
+
+Category: Olympics
+Question: What are the colours of the Olympics rings (in order).?
+Answer: Blue Yellow Black Green Red
+Author: OllyPomm
+
+Category: Olympics
+Question: How many mascots did the Sydney Olympics have?
+Answer: 3
+Regexp: (3|Three)
+Author: OllyPomm
+
+Category: Olympics
+Question: The Sydney Olympics had 3 mascots. What type of animals were they?
+Answer: Kookaburra Echidna Platypus
+Author: OllyPomm
+
+Catgory: Olympics
+Question: What were the names of the 3 mascots at the Sydney Olympic Games?
+Answer: Ollie Millie Syd
+Author: OllyPomm
+
+Category: Quotes
+Question: Who said "Come up and see me sometime"?
+Answer: Mae West
+Author: OllyPomm
+
+Category: Quotes
+Question: Who said "Tha tha that's all folks"?
+Answer: Porky Pig
+Author: OllyPomm
+
+Category: Quotes
+Question: Who said "Go ahead - make my day" (character name)?
+Answer: Harry Callaghan
+Author: OllyPomm
+
+Category: Sport
+Question: What sport do the following terms belong to - "Tight End & Wide Receiver"?
+Answer: #American Football# (Gridiron)
+Author: OllyPomm
+
+Category: Sport
+Question: What sport do the following terms belong to - "Pull & Lolly"?
+Answer: Cricket
+Author: OllyPomm
+
+Category: Sport
+Question: What sport do the following terms belong to - "Jerk & Snatch"?
+Answer: Weightlifting
+Author: OllyPomm
+
+Category: Sport
+Question: What sport do the following terms belong to - "Hotdog & Bottom Trun"?
+Answer: Surfing
+Author: OllyPomm
+
+Category: Sport
+Question: What sport do the following terms belong to - "Toucher & Dead Length"?
+Answer: Lawn or Indoor Bowls
+Regexp: (Lawn)?(Indoor Bowls)?
+Author: OllyPomm
+
+Category: Sport
+Question: What sport do the following terms belong to - "Pist & Telemark"?
+Answer: Skiing
+Author: OllyPomm
+
+Category: Sport
+Question: What sport do the following terms belong to - "Touches & Lunges"?
+Answer: Fencing
+Author: OllyPomm
+
+Category: Sport
+Question: What sport do the following terms belong to - "Behind & Banana Kick"?
+Answer: Australian Football League
+Author: OllyPomm
+
+Category: Sport
+Question: What sport do the following terms belong to - "Sweeper & Advantage Rule"?
+Answer: Soccer
+Author: OllyPomm
+
+Category: Astronomy
+Question: How many stars make up the 'Southern Cross'?
+Answer: 5
+Regexp: (5|Five)
+Author: OllyPomm
+
+Category: Astronomy
+Question: How many Earths would it take to match the size of the sun? Over 1000, 100,000 or 1,000,000?
+Answer: 1,000,000
+Author: OllyPomm
+
+Category: Astronomy
+Question: What planet position is the Earth from the Sun?
+Answer: 3rd
+Author: OllyPomm
+
+Category: Astronomy
+Question: How long does it take for Earth to travel around the Sun?
+Answer: 1 Year
+Author: OllyPomm
+
+Category: Astronomy
+Question: The Moon orbits around the Earth -Tue or False.?
+Answer: True
+Author: OllyPomm
+
+Category: Famous Aliases
+Question: By what name is Maurice Micklewhite better known as?
+Answer: Michael Caine
+Author: OllyPomm
+
+Category: Famous Aliases
+Question: By what name is Arthur Leech better known as?
+Answer: Cary Grant
+Author: OllyPomm
+
+Category: Famous Aliases
+Question: By what name is Robert Zimmerman better known as?
+Answer: Bob Dylan
+Author: OllyPomm
+
+Category: Famous Aliases
+Question: By what name is Francis Gumm better known as?
+Answer: Judy Garland
+Author: OllyPomm
+
+Category: Famous Aliases
+Question: By what name is Richard Starkey better known as?
+Answer: Ringo Starr
+Author: OllyPomm
+
+Category: Famous Aliases
+Question: By what name is Allan Stewart Konisburg better known as?
+Answer: Woody Allan
+Author: OllyPomm
+
+Category: Famous Aliases
+Question: By what name is Marion Morrison better known as?
+Answer: John Wayne
+Author: OllyPomm
+
+Category: Famous Aliases
+Question: By what name is Reginald Dwight better known as?
+Answer: Elton John
+Author: OllyPomm
+
+Category: Famous Aliases
+Question: By what name is Norma Jean Baker better known as?
+Answer: Marilyn Monroe
+Author: OllyPomm
+
+Category: Food & Drink
+Question: What is the main ingredient in the soup Borscht?
+Answer: Beetroot
+Author: OllyPomm
+
+Category: General
+Question: How many axles does an 18 wheeler truck have?
+Answer: 5
+Regexp: (5|Five)
+Author: OllyPomm
+
+Category: Animals
+Question: What bird has the biggest wingspan?
+Answer: Albatross
+Author: OllyPomm
+
+Category: Animals
+Question: What do you call a group of rhinocerus?
+Answer: A Crash
+Author: OllyPomm
+
+Category: Geography
+Question: What country is Mt Etna in?
+Answer: Italy
+Author: OllyPomm
+
+Category: Plants
+Question: What genus of tree does the wattle belong?
+Answer: Acacia
+Author: OllyPomm
+
+Category: Plants
+Question: What do you offer someone as a peace gesture?
+Answer: An Olive Branch
+Author: OllyPomm
+
+Category: Plants
+Question: What word describes part of your hand and a type of tree?
+Answer: Palm
+Author: OllyPomm
+
+Category: Plants
+Question: What is the name given to the art of miniaturising trees and maintaining their small size?
+Answer: Bonsai
+Author: OllyPomm
+
+Category: Plants
+Question: What part of a rhubarb plant is poisonous?
+Answer: The Leaves
+Author: OllyPomm
+
+Category: Flags
+Question: What are the 2 background colours of the Welsh flag?
+Answer: Green and White
+Author: OllyPomm
+
+Category: Flags
+Question: What creature is depicted on the Welsh Flag?
+Answer: A Red Dragon
+Author: OllyPomm
+
+Category: Emblems
+Question: What is the flower emblem of Wales?
+Answer: Daffodil
+Author: OllyPomm
+
+Category: Saints
+Question: Who is the patron saint of Wales?
+Answer: St David
+Author: OllyPomm
+
+Category: Food & Drink
+Question: What nut is used to make marzipan?
+Answer: Almond
+Author: OllyPomm
+
+Category: Flags
+Question: What 3 colours are featured on the Australian Aboriginal flag?
+Answer: Black Red Yellow
+Author: OllyPomm
+
+Category: Music
+Question: What other well known singer shares the same birthday as Elvis Presley (Jan 8)?
+Answer: David Bowie
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Add It Up, Blister In The Sun, Kiss Off"?
+Answer: Violet Femmes
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Baby I Don't Care, I Want Your Love"?
+Answer: Transvision Vamp
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Strange Brew, White Room"?
+Answer: Cream
+Author: OllyPomm
+
+Category: Anniversaries
+Question: What gift is associated with the 60th Wedding Anniversary?
+Answer: Diamonds
+Author: OllyPomm
+
+Category: Anniversaries
+Question: What gift is associated with the 20th Wedding Anniversary?
+Answer: China
+Author: OllyPomm
+
+Category: Anniversaries
+Question: What gift is associated with the 30th Wedding Anniversary?
+Answer: Pearls
+Author: OllyPomm
+
+Category: Anniversaries
+Question: What gift is associated with the 40th Wedding Anniversary?
+Answer: Rubies
+Author: OllyPomm
+
+Category: General
+Question: Bowline, Figure Eight & Square are all types of what?
+Answer: Knots
+Author: OllyPomm
+
+Category: Honours & Awards
+Question: What does OBE stand for?
+Answer: Officer of the Order of the British Empire
+Author: OllyPomm
+
+Category: Dates
+Question: What is celebrated on April 1st?
+Answer: April Fools Day
+Author: OllyPomm
+
+Category: Dates
+Question: What famous playwrite has his birthday on 23rd April?
+Answer: William Shakespeare
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 17th May?
+Answer: Norway
+Author: OllyPomm
+
+Category: Dates
+Question: What famous battle was fought on 4th June 1942?
+Answer: The Battle of Midway
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 6th June?
+Answer: Sweden
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 2nd June?
+Answer: Italy
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 17th June?
+Answer: Iceland
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 25th June?
+Answer: Slovenia
+Author: OllyPomm
+
+Category: Dates
+Question: What was signed on 15th June 1215?
+Answer: The Magna Carta
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 14th July?
+Answer: France
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 21st July?
+Answer: Belgium
+Author: OllyPomm
+
+Category: Date
+Question: This date is the date in the middle of the year.?
+Answer: 2nd July
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 25th August?
+Answer: Uruguay
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 29th October?
+Answer: Turkey
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 12th October?
+Answer: Spain
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 26th October?
+Answer: Austria
+Author: OllyPomm
+
+Category: Flags
+Question: What 3 flags does the Union Jack comprise of?
+Answer: England Scotland Ireland
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrates its National Day on 29th October?
+Answer: Turkey
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrated its National Day on 1st March?
+Answer: Wales
+Author: OllyPomm
+
+Category: Dates
+Question: What country celebrated its National Day on 15th March?
+Answer: Hungary
+Author: OllyPomm
+
+Category: Dates
+Question: What well known bard (poems & songs) was born on 25th January 1759?
+Answer: Robert Burns
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Aqualung, Thick as a Brick"?
+Answer: Jethro Tull
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Mystify, Listen Like Thieves, Original Sin"?
+Answer: INXS
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Heart of Glass, The Tide is High"?
+Answer: Blondie
+Author: OllyPomm
+
+Category: Music
+Question: Name the singer - songs include "Me & Bobby McGee, Mercedes Benz"?
+Answer: Janis Joplin
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Black Night, Smoke On The Water"?
+Answer: Deep Purple
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Monday Monday, California Dreamin'"?
+Answer: The Mamas and the Papas
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Light My Fire, Love Her Madly"?
+Answer: The Doors
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Let's Stick Together, The Price of Love"?
+Answer: Bryan Ferry
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Psycho Killer, Road To Nowhere"?
+Answer: Talkingheads
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Get Down & Get With It, Mama We're All Crazy Now"?
+Answer: Slade
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Forgiven Not Forgotten, Runaway"?
+Answer: The Coors
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Doctor Doctor, Hold Me Now, Don't Mess With Dr Dream"?
+Answer: Thompson Twins
+Author: OllyPomm
+
+Category: Music
+Question: Name the band - songs include "Sex & Drugs & Rock & Roll, I Want To Be Straight"?
+Answer: Ian Drury and The Blockheads
+Author: OllyPomm
+
+Category: Music
+Question: A graphical representation of the guitar fingerboard, used to teach someone to play a guitar without actually learning how to read musical notes.?
+Answer: Tablature
+Author: OllyPomm
+
+Category: Riddles?
+Question: How do you name 3 consecutive days without saying Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or Sunday?
+Answer: Yesterday Today and Tomorrow
+Author: OllyPomm
+
+Catgory: Riddles?
+Question: What was the highest mountain before Mt Everest was discovered?
+Answer: Mt Everest
+Author: OllyPomm
