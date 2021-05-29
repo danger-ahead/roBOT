@@ -3,3 +3,4 @@ duckduckgo-search==0.4
 python-decouple==3.4
 requests==2.25.1
 wikipedia==1.4.0
+pymongo==3.11.4
