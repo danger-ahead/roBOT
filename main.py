@@ -30,7 +30,7 @@ async def on_message(message):
         
         embed=discord.Embed(title='Someone just confessed:', description=message.content[(hold+1):len(message.content)], color=discord.Color.blue())
         await message.channel.send(embed=embed)
-        await db.score_up(message.author.id, message, channel)
+        await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.lower().startswith('_mean'):
         word_list = message.content.split()
@@ -87,7 +87,7 @@ async def on_message(message):
             else:
                 await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel)           
+        await db.score_up(message.author.id, message, channel, client)           
 
     elif message.content.lower().startswith('_f'):
 
@@ -129,7 +129,7 @@ async def on_message(message):
             else:
                 await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel)
+        await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.lower().startswith('_math'):
         hold=message.content.find(' ')
@@ -142,7 +142,7 @@ async def on_message(message):
         else:
             await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel)
+        await db.score_up(message.author.id, message, channel, client)
     
     elif message.content.lower().startswith('_drive'):
         hold1 = message.content.find(' ')
@@ -191,7 +191,7 @@ async def on_message(message):
         except:
             await message.add_reaction('\U0001f44E')
 
-        await db.score_up(message.author.id, message, channel)
+        await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.lower().startswith('_search'):
         hold=message.content.find(' ')
@@ -202,7 +202,7 @@ async def on_message(message):
         await message.add_reaction('\U0001f44d')
         await message.channel.send(results[index+9:(len(results)-3)])
 
-        await db.score_up(message.author.id, message, channel)
+        await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.lower().startswith('_movie'):
         url = "https://advanced-movie-search.p.rapidapi.com/search/movie"
@@ -229,7 +229,7 @@ async def on_message(message):
         await message.channel.send(result_first["poster_path"])
         await message.channel.send('Overview: '+result_first["overview"])
 
-        await db.score_up(message.author.id, message, channel)
+        await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.lower().startswith('_song'):
         url = "https://genius.p.rapidapi.com/search"
@@ -255,7 +255,7 @@ async def on_message(message):
         except:
             await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel)
+        await db.score_up(message.author.id, message, channel, client)
         
     elif message.content.lower().startswith('_wea'):
         city_list=message.content.split()
@@ -280,7 +280,7 @@ async def on_message(message):
         else:
             await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel)
+        await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.lower().startswith('_wiki'):
         hold=message.content.find(' ')
@@ -290,16 +290,16 @@ async def on_message(message):
         except:
             await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel)
+        await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.lower().startswith('_hi'):
         await message.reply('hi comrade'+'\U0001F44B'+'\ncontribute towards my well-being at https://github.com/danger-ahead/roBOT')
 
-        await db.score_up(message.author.id, message, channel)
+        await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.startswith('_logoff'):
-        await client.send_message(message.channel, 'Leaving server. BYE!')
-        await client.close()
+        await message.channel.send('Leaving server. BYE!')
+        await message.guild.leave()
         exit()
         
     elif (message.content.startswith('_halt') or 
@@ -313,7 +313,7 @@ async def on_message(message):
           message.content.startswith('_ask')):
         await quiz.start(message.channel)
 
-        await db.score_up(message.author.id, message, channel)
+        await db.score_up(message.author.id, message, channel, client)
 
     elif (message.content.startswith('_scores')):
         await quiz.print_scores(channel)
@@ -328,6 +328,9 @@ async def on_message(message):
 
     elif message.content.startswith('_rank'):
         await db.rank_query(message.author.id, message, channel)
+
+    if message.content.startswith('_configure'):
+        await db.server_config(message.guild.id, message.channel.id, message)
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
