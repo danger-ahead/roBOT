@@ -258,7 +258,7 @@ class Quiz:
             if len(leaders) == 1:
                 await message.channel.send('Current leader: {}'.format(leaders[0]))
             else:
-                await message.channel.send('Print leaders: {}'.format(leaders))
+                await message.channel.send('Print leaders: '+ leaders[0]+' '+leaders[1])
         
             
     
