@@ -294,6 +294,9 @@ async def on_message(message):
             await message.add_reaction('\U0001F44E')
 
         await db.score_up(message.author.id, message, channel, client)
+    if message.content.startswith('_wiki india') or message.content.startswith('_wiki India'):
+        await message.channel.send('India, country that occupies the greater part of South Asia. It is a constitutional republic that represents a highly diverse population consisting of thousands of ethnic groups. Its capital is New Delhi. With roughly one-sixth of the world\'s total population, it is the second most populous country, after China.')
+
 
     elif message.content.lower().startswith('_wiki'):
         hold=message.content.find(' ')
@@ -344,6 +347,7 @@ async def on_message(message):
 
     elif message.content.startswith('_configure'):
         await db.server_config(message.guild.id, message.channel.id, message)
+    
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
