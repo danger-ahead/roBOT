@@ -90,12 +90,10 @@ async def on_message(message):
         await db.score_up(message.author.id, message, channel, client)           
 
     elif message.content.lower().startswith('_f'):
-
         headers = {
             'x-rapidapi-key': config('RAPID_API'),
             'x-rapidapi-host': "numbersapi.p.rapidapi.com"
             }
-        
         querystring = {"json":"true","fragment":"true"}
 
         lst = message.content.split()
@@ -143,6 +141,24 @@ async def on_message(message):
             await message.add_reaction('\U0001F44E')
 
         await db.score_up(message.author.id, message, channel, client)
+
+    elif message.content.lower().startswith('_joke'):
+        querystring = {"api_key":config('RANDOM_STUFF_API')}
+        headers = {
+            'x-rapidapi-key': "b1264b02bfmsh99f6f8bebf118abp137ec8jsnb3ed934770cb",
+            'x-rapidapi-host': "random-stuff-api.p.rapidapi.com"
+            }
+        try:
+            response = requests.request("GET", "https://random-stuff-api.p.rapidapi.com/joke/any", headers=headers, params=querystring)
+            data=json.loads(response.text)
+            if data["type"] == 'single':
+                await message.channel.send(data["joke"])
+            elif data["type"] == 'twopart':
+                await message.channel.send(data["setup"]+'\n'+data["delivery"])
+            await message.channel.send('category: '+data["category"])
+            await message.add_reaction('\U0001f44d')
+        except:
+            await message.add_reaction('\U0001F44E')
     
     elif message.content.lower().startswith('_drive'):
         hold1 = message.content.find(' ')
@@ -205,8 +221,6 @@ async def on_message(message):
         await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.lower().startswith('_movie'):
-        url = "https://advanced-movie-search.p.rapidapi.com/search/movie"
-
         hold=message.content.find(' ')
         querystring = {"query":message.content[(hold+1):len(message.content)],"page":"1"}
 
@@ -215,7 +229,7 @@ async def on_message(message):
             'x-rapidapi-host': "advanced-movie-search.p.rapidapi.com"
             }
 
-        result = requests.request("GET", url, headers=headers, params=querystring)
+        result = requests.request("GET", "https://advanced-movie-search.p.rapidapi.com/search/movie", headers=headers, params=querystring)
 
         data=json.loads(result.text)
         results=data["results"]
@@ -232,7 +246,6 @@ async def on_message(message):
         await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.lower().startswith('_song'):
-        url = "https://genius.p.rapidapi.com/search"
         hold=message.content.find(' ')
         querystring = {"q":message.content[(hold+1):len(message.content)]}
 
@@ -241,7 +254,7 @@ async def on_message(message):
         'x-rapidapi-host': "genius.p.rapidapi.com"
         }
 
-        response = requests.request("GET", url, headers=headers, params=querystring)
+        response = requests.request("GET", "https://genius.p.rapidapi.com/search", headers=headers, params=querystring)
         try:
             data=json.loads(response.text)
             response1=data["response"]
@@ -329,7 +342,7 @@ async def on_message(message):
     elif message.content.startswith('_rank'):
         await db.rank_query(message.author.id, message, channel)
 
-    if message.content.startswith('_configure'):
+    elif message.content.startswith('_configure'):
         await db.server_config(message.guild.id, message.channel.id, message)
 
 DISCORD_TOKEN=config('TOKEN')
