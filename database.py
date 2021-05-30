@@ -44,3 +44,16 @@ class Database:
         else:
             self.collection2.update_one({"_id":server}, {"$set":{"channel":channel}})
             await message.channel.send('roBOT configuration updated!')        
+
+    async def leave_server(self, server, channel, message):
+        channell = ''
+        query = {"_id": server}
+        user = self.collection2.find(query)
+        for result in user:
+            channell = result["channel"]
+
+        if channell == channel:
+            await message.channel.send('Don\'t want me? Fine!')
+            await message.guild.leave()
+        else:
+            await message.channel.send('I\'ll only leave if instructed from <#'+str(channell)+'>')
