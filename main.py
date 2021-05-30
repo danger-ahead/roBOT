@@ -141,6 +141,24 @@ async def on_message(message):
             await message.add_reaction('\U0001F44E')
 
         await db.score_up(message.author.id, message, channel, client)
+
+    elif message.content.lower().startswith('_joke'):
+        querystring = {"api_key":config('RANDOM_STUFF_API')}
+        headers = {
+            'x-rapidapi-key': "b1264b02bfmsh99f6f8bebf118abp137ec8jsnb3ed934770cb",
+            'x-rapidapi-host': "random-stuff-api.p.rapidapi.com"
+            }
+        try:
+            response = requests.request("GET", "https://random-stuff-api.p.rapidapi.com/joke/any", headers=headers, params=querystring)
+            data=json.loads(response.text)
+            if data["type"] == 'single':
+                await message.channel.send(data["joke"])
+            elif data["type"] == 'twopart':
+                await message.channel.send(data["setup"]+'\n'+data["delivery"])
+            await message.channel.send('category: '+data["category"])
+            await message.add_reaction('\U0001f44d')
+        except:
+            await message.add_reaction('\U0001F44E')
     
     elif message.content.lower().startswith('_drive'):
         hold1 = message.content.find(' ')
