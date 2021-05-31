@@ -294,6 +294,9 @@ async def on_message(message):
             await message.add_reaction('\U0001F44E')
 
         await db.score_up(message.author.id, message, channel, client)
+    if message.content.startswith('_wiki india') or message.content.startswith('_wiki India'):
+        await message.channel.send('India, country that occupies the greater part of South Asia. It is a constitutional republic that represents a highly diverse population consisting of thousands of ethnic groups. Its capital is New Delhi. With roughly one-sixth of the world\'s total population, it is the second most populous country, after China.')
+
 
     elif message.content.lower().startswith('_wiki'):
         hold=message.content.find(' ')
@@ -306,9 +309,15 @@ async def on_message(message):
         await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.lower().startswith('_hi'):
-        await message.reply('hi comrade'+'\U0001F44B'+'\ncontribute towards my well-being at https://github.com/danger-ahead/roBOT')
-
+        embed=discord.Embed(title='Hello comrade!!, Meet myself roBOT!', description= 'an amatuer bot by amatuer Developers!! XD \n The full list of commands can be found here: \n https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n have a great time interacting and having fun with me!!\n for details about how to contribute to this bot use  \'_contribute\' ' , color=discord.Color.blue())
+        await message.channel.send(embed=embed)
         await db.score_up(message.author.id, message, channel, client)
+
+    elif message.content.lower().startswith('_contribute'):
+        embed=discord.Embed(title='Interested about open-source contribution ? ', description= 'Looks like you are interested to help my fellow amatuer creators in order to make myself more polished and funky !!\n Here is the link to my repo: https://github.com/danger-ahead/roBOT \n Feel free to give your suggestion as issues and submit PR requests with improvements!! \n waiting for you PR peeps!! ' , color=discord.Color.blue())
+        await message.channel.send(embed=embed)
+        await db.score_up(message.author.id, message, channel, client)
+
 
     elif message.content.startswith('_logoff'):
         await db.leave_server(message.guild.id, message.channel.id, message)
@@ -342,6 +351,7 @@ async def on_message(message):
 
     elif message.content.startswith('_configure'):
         await db.server_config(message.guild.id, message.channel.id, message)
+    
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
