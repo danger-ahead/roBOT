@@ -311,9 +311,7 @@ async def on_message(message):
         await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.startswith('_logoff'):
-        await message.channel.send('Leaving server. BYE!')
-        await message.guild.leave()
-        exit()
+        await db.leave_server(message.guild.id, message.channel.id, message)
         
     elif (message.content.startswith('_halt') or 
           message.content.startswith('_stop')):
