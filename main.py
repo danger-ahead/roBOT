@@ -17,6 +17,8 @@ quiz = quiz.Quiz(client)
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+    activity=discord.Activity(type=discord.ActivityType.listening, name="_hi")
+    await client.change_presence(status=discord.Status.online, activity=activity)
 
 @client.event
 async def on_message(message):
@@ -310,7 +312,7 @@ async def on_message(message):
     elif message.content.startswith('_leave'):
         await db.leave_server(message.guild.id, message.channel.id, message)
         
-    elif message.content.startswith('_stop'):
+    elif message.content.startswith('_qstop'):
         await quiz.stop(message,channel)
 
     elif (message.content.startswith('_reset')):

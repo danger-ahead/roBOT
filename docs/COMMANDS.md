@@ -1,7 +1,9 @@
 | **roBOT** commands  | Description |
 | :-------------: | :-------------: |
 | _configure | Configures **roBOT** to use a particular channel for admin commands |
-| _configure confess | Configures **roBOT** to use a particular channel for the confessions |
+| _deconfigure | Deconfigures **roBOT** from using the configured channel for admin commands |
+| _configconfess | Configures **roBOT** to use a particular channel for the confessions |
+| _deconfigconfess | Deconfigures **roBOT** from using the configured confession channel for the confessions |
 | _rank | Tells the current friendship level of **roBOT** with the user |
 | _hi | Provides the user with a link to find **roBOT**'s commands |
 | _contribute  | Provides the user with a link to **roBOT**'s source code |
