@@ -25,11 +25,8 @@ async def on_message(message):
 
     if message.content.lower().startswith('_confess'):
         await message.delete()
-
         hold=message.content.find(' ') #searches for the first space after the command
-        
-        embed=discord.Embed(title='Someone just confessed:', description=message.content[(hold+1):len(message.content)], color=discord.Color.blue())
-        await message.channel.send(embed=embed)
+        await db.confess(client, discord, message.content[(hold+1):len(message.content)], message)
         await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.lower().startswith('_mean'):
@@ -310,18 +307,16 @@ async def on_message(message):
 
         await db.score_up(message.author.id, message, channel, client)
 
-    elif message.content.startswith('_logoff'):
+    elif message.content.startswith('_leave'):
         await db.leave_server(message.guild.id, message.channel.id, message)
         
-    elif (message.content.startswith('_halt') or 
-          message.content.startswith('_stop')):
+    elif message.content.startswith('_stop'):
         await quiz.stop(message,channel)
 
     elif (message.content.startswith('_reset')):
         await quiz.reset(channel)
 
-    elif (message.content.startswith('_quiz') or 
-          message.content.startswith('_ask')):
+    elif message.content.startswith('_quiz'):
         await quiz.start(message.channel)
 
         await db.score_up(message.author.id, message, channel, client)
@@ -342,6 +337,15 @@ async def on_message(message):
 
     elif message.content.startswith('_configure'):
         await db.server_config(message.guild.id, message.channel.id, message)
+
+    elif message.content.startswith('_configconfess'):
+        await db.confess_config(message.guild.id, message.channel.id, message)
+
+    elif message.content.startswith('_deconfigure'):
+        await db.server_deconfig(message.guild.id, message.channel.id, message)
+
+    elif message.content.startswith('_deconfigconfess'):
+        await db.confess_deconfig(message.guild.id, message.channel.id, message)
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)

@@ -38,12 +38,58 @@ class Database:
         await message.channel.send(message.author.mention+', you\'re my level '+str(int(score/15))+ ' friend!')
 
     async def server_config(self, server, channel, message):
-        if (self.collection2.count_documents({"_id":server}) == 0):
-            self.collection2.insert_one({"_id":server, "channel":channel})
-            await message.channel.send('roBOT configured!')
+        channell = ''
+        query = {"_id": server}
+        user = self.collection2.find(query)
+        for result in user:
+            channell = result["channel"]
+
+        if channell != '':
+            await message.channel.send('I\'m already configured on <#'+str(channell)+'>')
         else:
-            self.collection2.update_one({"_id":server}, {"$set":{"channel":channel}})
-            await message.channel.send('roBOT configuration updated!')        
+            self.collection2.insert_one({"_id":server, "channel":channel, "confess":0})
+            await message.channel.send('I just got configured!')
+
+    async def server_deconfig(self, server, channel, message):
+        channell = ''
+        query = {"_id": server}
+        user = self.collection2.find(query)
+        for result in user:
+            channell = result["channel"]
+
+        if channell == channel:
+            self.collection2.delete_one( {"_id": server})
+            await message.channel.send('I\'ve been deconfigured!')
+        elif channell != channel:
+            await message.channel.send('I\'m configured on <#'+str(channell)+'> \nI can\'t deconfigure here!')
+
+    async def confess_config(self, server, channel, message):
+        confess = 0
+        query = {"_id": server}
+        user = self.collection2.find(query)
+        for result in user:
+            confess = result["confess"]
+            channell = result["channel"]
+
+        if confess != 0:
+            await message.channel.send('I\'m already configured on <#'+str(confess)+'>')
+        else:
+            self.collection2.update_one({"_id" : server}, {"$set" : {"_id" : server, "channel" : channell, "confess":channel}})
+            await message.channel.send('I just got the confession channel configured!')
+
+    async def confess_deconfig(self, server, channel, message):
+        confess = 0
+        query = {"_id": server}
+        user = self.collection2.find(query)
+        for result in user:
+            confess = result["confess"]
+            channell = result["channel"]
+
+        if confess == channel:
+            self.collection2.update_one({"_id" : server}, {"$set" : {"_id" : server, "channel" : channell, "confess":0}})
+            await message.channel.send('My confession channel has been deconfigured!')
+        elif confess != channel:
+            await message.channel.send('My confession channel is configured on <#'+str(confess)+'> \nI can\'t deconfigure here!')
 
     async def leave_server(self, server, channel, message):
         channell = ''
@@ -55,5 +101,19 @@ class Database:
         if channell == channel:
             await message.channel.send('Don\'t want me? Fine!')
             await message.guild.leave()
+        elif channell == '':
+            await message.channel.send('Configure me first!')
         else:
             await message.channel.send('I\'ll only leave if instructed from <#'+str(channell)+'>')
+
+    async def confess(self, client, discord, confession, message):
+        channell = 0
+        user = self.collection2.find({"_id":message.guild.id})
+        for result in user:
+            channell = result["confess"]
+
+        if channell != 0:
+            embed=discord.Embed(title='Someone just confessed:', description=confession, color=discord.Color.blue())
+            await client.get_channel(channell).send(embed=embed)
+        else:
+            await message.channel.send('My confession channel hasn\'t been configured!')
