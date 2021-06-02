@@ -10,6 +10,7 @@ import urllib
 import database
 import quiz
 
+
 db = database.Database()
 client = discord.Client()
 quiz = quiz.Quiz(client)
@@ -86,7 +87,24 @@ async def on_message(message):
             else:
                 await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel, client)           
+        await db.score_up(message.author.id, message, channel, client) 
+    elif message.content.startswith('_covrep'):
+      
+       query = message.content[8:]
+       url = "https://coronavirus-map.p.rapidapi.com/v1/spots/week"
+       querystring = {"region":query}
+       headers = {
+        'x-rapidapi-key': config('RAPID_API'),
+        'x-rapidapi-host': "coronavirus-map.p.rapidapi.com"
+       }
+       response = requests.request("GET", url, headers=headers, params=querystring)
+       json_data = json.loads(response.text)
+       count=0
+       for key in json_data['data']:
+         await message.channel.send('Covid report of date : ' + str(key) + '\n' + 'Total No of Cases: ' + str(json_data['data'][str(key)]['total_cases']) + ' ,' + 'Deaths: '+ str(json_data['data'][str(key)]['deaths']) + ' ,' + 'Recoverd: ' + str(json_data['data'][str(key)]['recovered'])+' ,' + 'Tested: ' + str(json_data['data'][str(key)]['tested']))
+         count=count+1
+         if count==5:
+             break
 
     elif message.content.lower().startswith('_f'):
         headers = {
