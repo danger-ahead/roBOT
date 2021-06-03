@@ -82,8 +82,9 @@ async def on_message(message):
                             i += 1
                         output += '\n'
 
-                await message.add_reaction('\U0001F44d')      
-                await message.channel.send(output)
+                await message.add_reaction('\U0001F44d')
+                embed=discord.Embed(title=word,description=output,color=discord.Color.blue())      
+                await message.channel.send(embed=embed)
             else:
                 await message.add_reaction('\U0001F44E')
 
@@ -233,7 +234,8 @@ async def on_message(message):
      
         index = results.find('\'body\'')
         await message.add_reaction('\U0001f44d')
-        await message.channel.send(results[index+9:(len(results)-3)])
+        embed=discord.Embed(title="Search results for : "+(message.content[(hold+1):len(message.content)]),description=results[index+9:(len(results)-3)],color=discord.Color.blue())
+        await message.channel.send(embed=embed)
 
         await db.score_up(message.author.id, message, channel, client)
 
@@ -312,13 +314,16 @@ async def on_message(message):
 
         await db.score_up(message.author.id, message, channel, client)
     if message.content.startswith('_wiki india') or message.content.startswith('_wiki India'):
-        await message.channel.send('India, country that occupies the greater part of South Asia. It is a constitutional republic that represents a highly diverse population consisting of thousands of ethnic groups. Its capital is New Delhi. With roughly one-sixth of the world\'s total population, it is the second most populous country, after China.')
+        embed=discord.Embed(title="India",description= 'India, country that occupies the greater part of South Asia. It is a constitutional republic that represents a highly diverse population consisting of thousands of ethnic groups. Its capital is New Delhi. With roughly one-sixth of the world\'s total population, it is the second most populous country, after China.' , color=discord.Color.blue())
+        await message.channel.send(embed=embed)
 
 
     elif message.content.lower().startswith('_wiki'):
         hold=message.content.find(' ')
         try:
-            await message.channel.send(wiki.summary(message.content[(hold+1):len(message.content)], sentences=4))
+            
+            embed=discord.Embed(title=message.content[(hold+1):len(message.content)], description=wiki.summary(message.content[(hold+1):len(message.content)], sentences=4),color=discord.Color.blue())
+            await message.channel.send(embed=embed)
             await message.add_reaction('\U0001f44d')
         except:
             await message.add_reaction('\U0001F44E')
