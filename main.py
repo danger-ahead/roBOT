@@ -101,10 +101,15 @@ async def on_message(message):
        response = requests.request("GET", url, headers=headers, params=querystring)
        json_data = json.loads(response.text)
        count=0
+       rpt=""
        for key in json_data['data']:
-         await message.channel.send('Covid report of date : ' + str(key) + '\n' + 'Total No of Cases: ' + str(json_data['data'][str(key)]['total_cases']) + ' ,' + 'Deaths: '+ str(json_data['data'][str(key)]['deaths']) + ' ,' + 'Recoverd: ' + str(json_data['data'][str(key)]['recovered'])+' ,' + 'Tested: ' + str(json_data['data'][str(key)]['tested']))
+         rpt= str(rpt) +str("\n"+'Covid report of date : ' + str(key) + '\n' + 'Total No of Cases: ' + str(json_data['data'][str(key)]['total_cases']) + ' ,' + 'Deaths: '+ str(json_data['data'][str(key)]['deaths']) + ' ,' + 'Recoverd: ' + str(json_data['data'][str(key)]['recovered'])+' ,' + 'Tested: ' + str(json_data['data'][str(key)]['tested']))
+        
          count=count+1
          if count==5:
+             embed=discord.Embed(title = "Covid stats of : "+ query.capitalize(),description=rpt,color=discord.Color.blue())
+
+             await message.channel.send(embed=embed)
              break
 
     elif message.content.lower().startswith('_f'):
