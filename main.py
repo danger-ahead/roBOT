@@ -10,7 +10,6 @@ import urllib
 import database
 import quiz
 
-
 db = database.Database()
 client = discord.Client()
 quiz = quiz.Quiz(client)
@@ -88,29 +87,32 @@ async def on_message(message):
             else:
                 await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel, client) 
-    elif message.content.startswith('_covrep'):
-      
-       query = message.content[8:]
-       url = "https://coronavirus-map.p.rapidapi.com/v1/spots/week"
-       querystring = {"region":query}
-       headers = {
-        'x-rapidapi-key': config('RAPID_API'),
-        'x-rapidapi-host': "coronavirus-map.p.rapidapi.com"
-       }
-       response = requests.request("GET", url, headers=headers, params=querystring)
-       json_data = json.loads(response.text)
-       count=0
-       rpt=""
-       for key in json_data['data']:
-         rpt= str(rpt) +str("\n"+'Covid report of date : ' + str(key) + '\n' + 'Total No of Cases: ' + str(json_data['data'][str(key)]['total_cases']) + ' ,' + 'Deaths: '+ str(json_data['data'][str(key)]['deaths']) + ' ,' + 'Recoverd: ' + str(json_data['data'][str(key)]['recovered'])+' ,' + 'Tested: ' + str(json_data['data'][str(key)]['tested']))
-        
-         count=count+1
-         if count==5:
-             embed=discord.Embed(title = "Covid stats of : "+ query.capitalize(),description=rpt,color=discord.Color.blue())
+        await db.score_up(message.author.id, message, channel, client)
 
-             await message.channel.send(embed=embed)
-             break
+    elif message.content.startswith('_covrep'):
+        query = message.content[8:]
+        url = "https://coronavirus-map.p.rapidapi.com/v1/spots/week"
+        querystring = {"region":query}
+        headers = {
+         'x-rapidapi-key': config('RAPID_API'),
+         'x-rapidapi-host': "coronavirus-map.p.rapidapi.com"
+        }
+        try:
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            json_data = json.loads(response.text)
+            count=0
+            rpt=""
+            for key in json_data['data']:
+                rpt= str(rpt) +str("\n"+'Covid report of date : ' + str(key) + '\n' + 'Total No of Cases: ' + str(json_data['data'][str(key)]['total_cases']) + ' ,' + 'Deaths: '+ str(json_data['data'][str(key)]['deaths']) + ' ,' + 'Recoverd: ' + str(json_data['data'][str(key)]['recovered'])+' ,' + 'Tested: ' + str(json_data['data'][str(key)]['tested']))
+                
+                count=count+1
+                if count==5:
+                    embed=discord.Embed(title = "Covid stats of : "+ query.capitalize(),description=rpt,color=discord.Color.blue())
+
+                    await message.channel.send(embed=embed)
+                    break
+        except:
+            pass
 
     elif message.content.lower().startswith('_f'):
         headers = {
@@ -371,20 +373,20 @@ async def on_message(message):
         #check quiz question correct
 
     elif message.content.startswith('_rank'):
-        await db.rank_query(message.author.id, message, channel)
+        await db.rank_query(message.author.id, message)
 
     elif message.content.startswith('_configure'):
-        await db.server_config(message.guild.id, message.channel.id, message)
+        await db.server_config(message.guild.id, message)
     
 
     elif message.content.startswith('_configconfess'):
-        await db.confess_config(message.guild.id, message.channel.id, message)
+        await db.confess_config(message.guild.id, message)
 
     elif message.content.startswith('_deconfigure'):
-        await db.server_deconfig(message.guild.id, message.channel.id, message)
+        await db.server_deconfig(message.guild.id, message)
 
     elif message.content.startswith('_deconfigconfess'):
-        await db.confess_deconfig(message.guild.id, message.channel.id, message)
+        await db.confess_deconfig(message.guild.id, message)
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)

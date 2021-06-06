@@ -3,11 +3,14 @@ from decouple import config
 
 class Database:
     def __init__(self):
-        self.cluster = pm.MongoClient("mongodb+srv://danger-ahead:"+config('MONGO')+"@cluster0.z0zou.mongodb.net/test")
-        self.db = self.cluster["roBOT"]
-        self.collection = self.db["user_score"]
-        self.collection2 = self.db["servers"]
-        print('Running: Database module [database.py]\n')       #prints the message after successfully initializing the connection with mongoDB
+        try:
+            self.cluster = pm.MongoClient("mongodb+srv://danger-ahead:"+config('MONGO')+"@cluster0.z0zou.mongodb.net/test")
+            self.db = self.cluster["roBOT"]
+            self.collection = self.db["user_score"]
+            self.collection2 = self.db["servers"]
+            print('Running: Database module [database.py]\n')       #prints the message after successfully initializing the connection with mongoDB
+        except:
+            print('Failed to run Database module [database.py]\n')            
 
     async def score_up(self, id, message, channel, client):     #increases the score of the user
         score = -1
@@ -30,14 +33,14 @@ class Database:
         else:
             self.collection.insert_one({"_id":id, "score":1})   #if the user has interacted for the 1st time, sets the user's score to 1
 
-    async def rank_query(self, id, message, channel):   #searches and messages rank of the user
+    async def rank_query(self, id, message):   #searches and messages rank of the user
         query = {"_id": id}
         user = self.collection.find(query)
         for result in user:
             score = result["score"]
         await message.channel.send(message.author.mention+', you\'re my level '+str(int(score/15))+ ' friend!')
 
-    async def server_config(self, server, channel, message):    #sets the channel for roBOT's admin commands, also initializes the confess key with 0
+    async def server_config(self, server, message):    #sets the channel for roBOT's admin commands, also initializes the confess key with 0
         channell = ''
         query = {"_id": server}
         user = self.collection2.find(query)
@@ -47,23 +50,25 @@ class Database:
         if channell != '':
             await message.channel.send('I\'m already configured on <#'+str(channell)+'>')
         else:
-            self.collection2.insert_one({"_id":server, "channel":channel, "confess":0})
+            self.collection2.insert_one({"_id":server, "channel":message.channel.id, "confess":0})
             await message.channel.send('I just got configured!')
 
-    async def server_deconfig(self, server, channel, message):      #deletes the discord server's details
+    async def server_deconfig(self, server, message):      #deletes the discord server's details
         channell = ''
         query = {"_id": server}
         user = self.collection2.find(query)
         for result in user:
             channell = result["channel"]
 
-        if channell == channel:
+        if channell == message.channel.id:
             self.collection2.delete_one( {"_id": server})
             await message.channel.send('I\'ve been deconfigured!')
-        elif channell != channel:
+        elif channell == '':
+            await message.channel.send('Configure me first!')
+        elif channell != message.channel.id:
             await message.channel.send('I\'m configured on <#'+str(channell)+'> \nI can\'t deconfigure here!')
 
-    async def confess_config(self, server, channel, message):       #configures the confession channel
+    async def confess_config(self, server, message):       #configures the confession channel
         confess = 0
         query = {"_id": server}
         user = self.collection2.find(query)
@@ -74,10 +79,10 @@ class Database:
         if confess != 0:
             await message.channel.send('I\'m already configured on <#'+str(confess)+'>')
         else:
-            self.collection2.update_one({"_id" : server}, {"$set" : {"_id" : server, "channel" : channell, "confess":channel}})
+            self.collection2.update_one({"_id" : server}, {"$set" : {"_id" : server, "channel" : channell, "confess":message.channel.id}})
             await message.channel.send('I just got the confession channel configured!')
 
-    async def confess_deconfig(self, server, channel, message):     #sets the confession channel's id to 0
+    async def confess_deconfig(self, server, message):     #sets the confession channel's id to 0
         confess = 0
         query = {"_id": server}
         user = self.collection2.find(query)
@@ -85,10 +90,12 @@ class Database:
             confess = result["confess"]
             channell = result["channel"]
 
-        if confess == channel:
+        if confess == message.channel.id:
             self.collection2.update_one({"_id" : server}, {"$set" : {"_id" : server, "channel" : channell, "confess":0}})
             await message.channel.send('My confession channel has been deconfigured!')
-        elif confess != channel:
+        elif confess == 0:
+            await message.channel.send('Configure my confession channel first!')
+        elif confess != message.channel.id:
             await message.channel.send('My confession channel is configured on <#'+str(confess)+'> \nI can\'t deconfigure here!')
 
     async def leave_server(self, server, channel, message):     #function for leaving the server on command from pre-configured channel
