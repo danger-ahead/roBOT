@@ -98,14 +98,14 @@ class Database:
         elif confess != message.channel.id:
             await message.channel.send('My confession channel is configured on <#'+str(confess)+'> \nI can\'t deconfigure here!')
 
-    async def leave_server(self, server, channel, message):     #function for leaving the server on command from pre-configured channel
+    async def leave_server(self, server, message):     #function for leaving the server on command from pre-configured channel
         channell = ''
         query = {"_id": server}
         user = self.collection2.find(query)
         for result in user:
             channell = result["channel"]
 
-        if channell == channel:
+        if channell == message.channel.id:
             await message.channel.send('Don\'t want me? Fine!')
             await message.guild.leave()
         elif channell == '':

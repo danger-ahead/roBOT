@@ -170,7 +170,7 @@ async def on_message(message):
     elif message.content.lower().startswith('_joke'):
         querystring = {"api_key":config('RANDOM_STUFF_API')}
         headers = {
-            'x-rapidapi-key': "b1264b02bfmsh99f6f8bebf118abp137ec8jsnb3ed934770cb",
+            'x-rapidapi-key': config('RAPID_API'),
             'x-rapidapi-host': "random-stuff-api.p.rapidapi.com"
             }
         try:
@@ -286,7 +286,7 @@ async def on_message(message):
             response1=data["response"]
             hits=response1["hits"]
 
-            for i in range (2):
+            for i in range (1):
                 x=hits[i]
                 y=x["result"]
                 await message.channel.send('\''+y["full_title"]+'\''+'\nDetails of the song can be found at: '+y["url"])
@@ -348,7 +348,7 @@ async def on_message(message):
         await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.startswith('_leave'):
-        await db.leave_server(message.guild.id, message.channel.id, message)
+        await db.leave_server(message.guild.id, message)
         
     elif message.content.startswith('_qstop'):
         await quiz.stop(message,channel)
