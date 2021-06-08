@@ -1,7 +1,7 @@
 # **roBOT** 🤖
 YOUR OWN LOCALLY HOSTED DISCORD BOT
 
-![](https://img.shields.io/github/stars/danger-ahead/roBOT) ![](https://img.shields.io/github/forks/danger-ahead/roBOT) ![](https://img.shields.io/github/issues/danger-ahead/roBOT) ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) ![](https://img.shields.io/badge/discord-py-blue.svg)
+![](https://img.shields.io/github/stars/danger-ahead/roBOT) ![](https://img.shields.io/github/forks/danger-ahead/roBOT) ![](https://img.shields.io/github/issues/danger-ahead/roBOT) ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) ![](https://img.shields.io/badge/discord-py-blue.svg) ![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/)
 
 ## [Screenshots of **roBOT** in action](https://github.com/danger-ahead/roBOT/blob/master/docs/SCREENSHOTS.md)
 

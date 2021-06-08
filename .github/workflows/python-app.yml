@@ -42,6 +42,4 @@ jobs:
         echo ::set-output name=exit_code::$?
 
     - name: Run exit_code check
-
-      - name: Check
-        if: steps.build.outputs.exit_code == 0
+      if: steps.build.outputs.exit_code == 0

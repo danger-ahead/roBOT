@@ -81,12 +81,38 @@ async def on_message(message):
                             i += 1
                         output += '\n'
 
-                await message.add_reaction('\U0001F44d')      
-                await message.channel.send(output)
+                await message.add_reaction('\U0001F44d')
+                embed=discord.Embed(title=word,description=output,color=discord.Color.blue())      
+                await message.channel.send(embed=embed)
             else:
                 await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel, client)           
+        await db.score_up(message.author.id, message, channel, client)
+
+    elif message.content.startswith('_covrep'):
+        query = message.content[8:]
+        url = "https://coronavirus-map.p.rapidapi.com/v1/spots/week"
+        querystring = {"region":query}
+        headers = {
+         'x-rapidapi-key': config('RAPID_API'),
+         'x-rapidapi-host': "coronavirus-map.p.rapidapi.com"
+        }
+        try:
+            response = requests.request("GET", url, headers=headers, params=querystring)
+            json_data = json.loads(response.text)
+            count=0
+            rpt=""
+            for key in json_data['data']:
+                rpt= str(rpt) +str("\n"+'Covid report of date : ' + str(key) + '\n' + 'Total No of Cases: ' + str(json_data['data'][str(key)]['total_cases']) + ' ,' + 'Deaths: '+ str(json_data['data'][str(key)]['deaths']) + ' ,' + 'Recoverd: ' + str(json_data['data'][str(key)]['recovered'])+' ,' + 'Tested: ' + str(json_data['data'][str(key)]['tested']))
+                
+                count=count+1
+                if count==5:
+                    embed=discord.Embed(title = "Covid stats of : "+ query.capitalize(),description=rpt,color=discord.Color.blue())
+
+                    await message.channel.send(embed=embed)
+                    break
+        except:
+            pass
 
     elif message.content.lower().startswith('_f'):
         headers = {
@@ -144,7 +170,7 @@ async def on_message(message):
     elif message.content.lower().startswith('_joke'):
         querystring = {"api_key":config('RANDOM_STUFF_API')}
         headers = {
-            'x-rapidapi-key': "b1264b02bfmsh99f6f8bebf118abp137ec8jsnb3ed934770cb",
+            'x-rapidapi-key': config('RAPID_API'),
             'x-rapidapi-host': "random-stuff-api.p.rapidapi.com"
             }
         try:
@@ -215,7 +241,8 @@ async def on_message(message):
      
         index = results.find('\'body\'')
         await message.add_reaction('\U0001f44d')
-        await message.channel.send(results[index+9:(len(results)-3)])
+        embed=discord.Embed(title="Search results for : "+(message.content[(hold+1):len(message.content)]),description=results[index+9:(len(results)-3)],color=discord.Color.blue())
+        await message.channel.send(embed=embed)
 
         await db.score_up(message.author.id, message, channel, client)
 
@@ -259,7 +286,7 @@ async def on_message(message):
             response1=data["response"]
             hits=response1["hits"]
 
-            for i in range (2):
+            for i in range (1):
                 x=hits[i]
                 y=x["result"]
                 await message.channel.send('\''+y["full_title"]+'\''+'\nDetails of the song can be found at: '+y["url"])
@@ -294,13 +321,16 @@ async def on_message(message):
 
         await db.score_up(message.author.id, message, channel, client)
     if message.content.startswith('_wiki india') or message.content.startswith('_wiki India'):
-        await message.channel.send('India, country that occupies the greater part of South Asia. It is a constitutional republic that represents a highly diverse population consisting of thousands of ethnic groups. Its capital is New Delhi. With roughly one-sixth of the world\'s total population, it is the second most populous country, after China.')
+        embed=discord.Embed(title="India",description= 'India, country that occupies the greater part of South Asia. It is a constitutional republic that represents a highly diverse population consisting of thousands of ethnic groups. Its capital is New Delhi. With roughly one-sixth of the world\'s total population, it is the second most populous country, after China.' , color=discord.Color.blue())
+        await message.channel.send(embed=embed)
 
 
     elif message.content.lower().startswith('_wiki'):
         hold=message.content.find(' ')
         try:
-            await message.channel.send(wiki.summary(message.content[(hold+1):len(message.content)], sentences=4))
+            
+            embed=discord.Embed(title=message.content[(hold+1):len(message.content)], description=wiki.summary(message.content[(hold+1):len(message.content)], sentences=4),color=discord.Color.blue())
+            await message.channel.send(embed=embed)
             await message.add_reaction('\U0001f44d')
         except:
             await message.add_reaction('\U0001F44E')
@@ -318,7 +348,7 @@ async def on_message(message):
         await db.score_up(message.author.id, message, channel, client)
 
     elif message.content.startswith('_leave'):
-        await db.leave_server(message.guild.id, message.channel.id, message)
+        await db.leave_server(message.guild.id, message)
         
     elif message.content.startswith('_qstop'):
         await quiz.stop(message,channel)
@@ -343,20 +373,20 @@ async def on_message(message):
         #check quiz question correct
 
     elif message.content.startswith('_rank'):
-        await db.rank_query(message.author.id, message, channel)
+        await db.rank_query(message.author.id, message)
 
     elif message.content.startswith('_configure'):
-        await db.server_config(message.guild.id, message.channel.id, message)
+        await db.server_config(message.guild.id, message)
     
 
     elif message.content.startswith('_configconfess'):
-        await db.confess_config(message.guild.id, message.channel.id, message)
+        await db.confess_config(message.guild.id, message)
 
     elif message.content.startswith('_deconfigure'):
-        await db.server_deconfig(message.guild.id, message.channel.id, message)
+        await db.server_deconfig(message.guild.id, message)
 
     elif message.content.startswith('_deconfigconfess'):
-        await db.confess_deconfig(message.guild.id, message.channel.id, message)
+        await db.confess_deconfig(message.guild.id, message)
 
 DISCORD_TOKEN=config('TOKEN')
 client.run(DISCORD_TOKEN)
