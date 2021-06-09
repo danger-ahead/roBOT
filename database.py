@@ -10,20 +10,20 @@ class Database:
             self.collection2 = self.db["servers"]
             print('Running: Database module [database.py]\n')       #prints the message after successfully initializing the connection with mongoDB
         except:
-            print('Failed to run Database module [database.py]\n')            
+            print('Failed to run Database module [database.py]\n')
 
-    async def score_up(self, id, message, channel, client):     #increases the score of the user
+    async def score_up(self, message, client):     #increases the score of the user
         score = -1
-        query = {"_id": id}
+        query = {"_id": message.author.id}
         user = self.collection.find(query)
         for result in user:
             score = result["score"]
 
         if score > 0:
             score = score + 1
-            self.collection.update_one({"_id":id}, {"$set":{"score":score}})
+            self.collection.update_one({"_id":message.author.id}, {"$set":{"score":score}})
 
-            if(score%15 == 0):  #user levels up every 15 points
+            if score%15 == 0:  #user levels up every 15 points
                 user = self.collection2.find({"_id":message.guild.id})
                 for result in user:
                     channell = result["channel"]
@@ -31,10 +31,10 @@ class Database:
                 chanell = client.get_channel(channell)
                 await chanell.send(message.author.mention+', you\'re my level '+str(int(score/15))+ ' friend now!')
         else:
-            self.collection.insert_one({"_id":id, "score":1})   #if the user has interacted for the 1st time, sets the user's score to 1
+            self.collection.insert_one({"_id":message.author.id, "score":1})   #if the user has interacted for the 1st time, sets the user's score to 1
 
-    async def rank_query(self, id, message):   #searches and messages rank of the user
-        query = {"_id": id}
+    async def rank_query(self, message):   #searches and messages rank of the user
+        query = {"_id": message.author.id}
         user = self.collection.find(query)
         for result in user:
             score = result["score"]
@@ -61,7 +61,7 @@ class Database:
             channell = result["channel"]
 
         if channell == message.channel.id:
-            self.collection2.delete_one( {"_id": server})
+            self.collection2.delete_one({"_id": server})
             await message.channel.send('I\'ve been deconfigured!')
         elif channell == '':
             await message.channel.send('Configure me first!')
