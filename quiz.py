@@ -15,7 +15,6 @@ from discord import message
 
 #todo: probably need to remove punctuation from answers
 
-
 class Quiz:
     
     def __init__(self, client, win_limit=10, hint_time=30):

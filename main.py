@@ -103,11 +103,16 @@ async def on_message(message):
             count=0
             rpt=""
             for key in json_data['data']:
-                rpt= str(rpt) +str("\n"+'Covid report of date : ' + str(key) + '\n' + 'Total No of Cases: ' + str(json_data['data'][str(key)]['total_cases']) + ' ,' + 'Deaths: '+ str(json_data['data'][str(key)]['deaths']) + ' ,' + 'Recoverd: ' + str(json_data['data'][str(key)]['recovered'])+' ,' + 'Tested: ' + str(json_data['data'][str(key)]['tested']))
+                rpt= str(rpt) +str("\n"+'Covid report of date : '+str(key)+
+                '\n'+'Total No of Cases: '+str(json_data['data'][str(key)]['total_cases'])+' ,'+
+                ' Deaths: '+str(json_data['data'][str(key)]['deaths'])+' ,'+
+                ' Recoverd: '+str(json_data['data'][str(key)]['recovered'])+' ,'+
+                ' Tested: '+str(json_data['data'][str(key)]['tested']))
 
                 count=count+1
                 if count==5:
-                    embed=discord.Embed(title = "Covid stats of : "+ query.capitalize(),description=rpt,color=discord.Color.blue())
+                    embed=discord.Embed(title="Covid stats of : "
+                    +query.capitalize(),description=rpt,color=discord.Color.blue())
 
                     await message.channel.send(embed=embed)
                     break
@@ -237,11 +242,14 @@ async def on_message(message):
     elif message.content.lower().startswith('_search'):
         hold=message.content.find(' ')
 
-        results = str(ddg(message.content[(hold+1):len(message.content)], region='wt-wt', safesearch='Off', time='y', max_results=1))
+        results = str(ddg(message.content[(hold+1):len(message.content)], region='wt-wt', 
+        safesearch='Off', time='y', max_results=1))
      
         index = results.find('\'body\'')
         await message.add_reaction('\U0001f44d')
-        embed=discord.Embed(title="Search results for : "+(message.content[(hold+1):len(message.content)]),description=results[index+9:(len(results)-3)],color=discord.Color.blue())
+        embed=discord.Embed(title="Search results for : "
+        +(message.content[(hold+1):len(message.content)]), 
+        description=results[index+9:(len(results)-3)], color=discord.Color.blue())
         await message.channel.send(embed=embed)
 
         await db.score_up(message, client)
@@ -255,7 +263,8 @@ async def on_message(message):
             'x-rapidapi-host': "advanced-movie-search.p.rapidapi.com"
             }
 
-        result = requests.request("GET", "https://advanced-movie-search.p.rapidapi.com/search/movie", headers=headers, params=querystring)
+        result = requests.request("GET", "https://advanced-movie-search.p.rapidapi.com/search/movie",
+        headers=headers, params=querystring)
 
         data=json.loads(result.text)
         results=data["results"]
@@ -265,7 +274,10 @@ async def on_message(message):
         except:
             await message.add_reaction('\U0001F44E')
 
-        await message.channel.send('Original title: '+result_first["original_title"]+'\nRelease date: '+result_first["release_date"]+'\nLanguage: '+result_first["original_language"])
+        await message.channel.send('Original title: '+result_first["original_title"]+
+        '\nRelease date: '+result_first["release_date"]+'\nLanguage: '+
+        result_first["original_language"])
+
         await message.channel.send(result_first["poster_path"])
         await message.channel.send('Overview: '+result_first["overview"])
 
@@ -280,7 +292,8 @@ async def on_message(message):
         'x-rapidapi-host': "genius.p.rapidapi.com"
         }
 
-        response = requests.request("GET", "https://genius.p.rapidapi.com/search", headers=headers, params=querystring)
+        response = requests.request("GET", "https://genius.p.rapidapi.com/search", 
+        headers=headers, params=querystring)
         try:
             data=json.loads(response.text)
             response1=data["response"]
@@ -289,7 +302,8 @@ async def on_message(message):
             for i in range (1):
                 x=hits[i]
                 y=x["result"]
-                await message.channel.send('\''+y["full_title"]+'\''+'\nDetails of the song can be found at: '+y["url"])
+                await message.channel.send('\''+y["full_title"]+'\''+
+                '\nDetails of the song can be found at: '+y["url"])
             await message.add_reaction('\U0001f44d')
         except:
             await message.add_reaction('\U0001F44E')
@@ -302,7 +316,8 @@ async def on_message(message):
         for i in range(1, len(city_list)):
             city=city+city_list[i]+' '
 
-        newurl= "https://api.openweathermap.org/data/2.5/weather?" + "q="+ city +"&appid=" + config('OPEN_WEATHER_TOKEN')
+        newurl= "https://api.openweathermap.org/data/2.5/weather?"+ \
+        "q="+ city +"&appid=" + config('OPEN_WEATHER_TOKEN')
         response=requests.get(newurl)
 
         if response.status_code==200:
@@ -314,21 +329,29 @@ async def on_message(message):
             report_description=str({report[0]['description']})
             index=report_description.find('\'')
             index2=report_description.find('\'',2)
-            await message.channel.send(report_description[(index+1):index2]+'\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%')
+            await message.channel.send(report_description[(index+1):index2]+
+            '\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%')
             await message.add_reaction('\U0001f44d')
         else:
             await message.add_reaction('\U0001F44E')
 
         await db.score_up(message, client)
+        
     if message.content.lower().startswith('_wiki india'):
-        embed=discord.Embed(title="India",description= 'India, country that occupies the greater part of South Asia. It is a constitutional republic that represents a highly diverse population consisting of thousands of ethnic groups. Its capital is New Delhi. With roughly one-sixth of the world\'s total population, it is the second most populous country, after China.' , color=discord.Color.blue())
+        embed=discord.Embed(title="India",
+        description='India, country that occupies the greater part of South Asia. \
+        It is a constitutional republic that represents a highly diverse population consisting of\
+             thousands of ethnic groups. Its capital is New Delhi. With roughly one-sixth of \
+                 the world\'s total population, it is the second most populous country, after China.'
+                 , color=discord.Color.blue())
         await message.channel.send(embed=embed)
 
     elif message.content.lower().startswith('_wiki'):
         hold=message.content.find(' ')
         try:
-            
-            embed=discord.Embed(title=message.content[(hold+1):len(message.content)], description=wiki.summary(message.content[(hold+1):len(message.content)], sentences=4),color=discord.Color.blue())
+            embed=discord.Embed(title=message.content[(hold+1):len(message.content)], 
+            description=wiki.summary(message.content[(hold+1):len(message.content)], sentences=4), 
+            color=discord.Color.blue())
             await message.channel.send(embed=embed)
             await message.add_reaction('\U0001f44d')
         except:
@@ -337,12 +360,20 @@ async def on_message(message):
         await db.score_up(message, client)
 
     elif message.content.lower().startswith('_hi'):
-        embed=discord.Embed(title='Hello comrade!!, Meet myself roBOT!', description= 'an amatuer bot by amatuer Developers!! XD \n The full list of commands can be found here: \n https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n have a great time interacting and having fun with me!!\n for details about how to contribute to this bot use  \'_contribute\' ' , color=discord.Color.blue())
+        embed=discord.Embed(title='Hello comrade!!, Meet myself roBOT!',
+         description= 'an amatuer bot by amatuer Developers!! XD \n The full list of commands \
+             can be found here: \n https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n\
+              have a great time interacting and having fun with me!!\n for details about how to contribute to \
+                  this bot use  \'_contribute\' ', color=discord.Color.blue())
         await message.channel.send(embed=embed)
         await db.score_up(message, client)
 
     elif message.content.lower().startswith('_contribute'):
-        embed=discord.Embed(title='Interested about open-source contribution ? ', description= 'Looks like you are interested to help my fellow amatuer creators in order to make myself more polished and funky !!\n Here is the link to my repo: https://github.com/danger-ahead/roBOT \n Feel free to give your suggestion as issues and submit PR requests with improvements!! \n waiting for you PR peeps!! ' , color=discord.Color.blue())
+        embed=discord.Embed(title='Interested about open-source contribution ? ',
+         description= 'Looks like you\'re interested to help my fellow amatuer creators in order to make\
+              myself more polished and funky !!\n Here\'s the link to repo: https://github.com/danger-ahead/roBOT\
+                  \n Feel free to give your suggestion as issues and submit PR requests with improvements!!\
+                   \n waiting for you PR peeps!! ', color=discord.Color.blue())
         await message.channel.send(embed=embed)
         await db.score_up(message, client)
 
@@ -350,25 +381,24 @@ async def on_message(message):
         await db.leave_server(message.guild.id, message)
         
     elif message.content.startswith('_qstop'):
-        await quiz.stop(message,channel)
+        await quiz.stop(message.channel)
 
     elif (message.content.startswith('_reset')):
         await quiz.reset(message.channel)
 
     elif message.content.startswith('_quiz'):
         await quiz.start(message.channel)
-
         await db.score_up(message, client)
 
     elif (message.content.startswith('_scores')):
-        await quiz.print_scores(message)
+        await quiz.print_scores(message.channel)
 
     elif (message.content.startswith('_next')):
         await quiz.next_question(message.channel)
 
     elif quiz is not None and quiz.started():
         #check if we have a question pending
-        await quiz.answer_question(message,channel)
+        await quiz.answer_question(message, channel)
         #check quiz question correct
 
     elif message.content.startswith('_rank'):
