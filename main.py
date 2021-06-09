@@ -29,7 +29,7 @@ async def on_message(message):
         await message.delete()
         hold=message.content.find(' ') #searches for the first space after the command
         await db.confess(client, discord, message.content[(hold+1):len(message.content)], message)
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
 
     elif message.content.lower().startswith('_mean'):
         word_list = message.content.split()
@@ -87,7 +87,7 @@ async def on_message(message):
             else:
                 await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
 
     elif message.content.startswith('_covrep'):
         query = message.content[8:]
@@ -104,7 +104,7 @@ async def on_message(message):
             rpt=""
             for key in json_data['data']:
                 rpt= str(rpt) +str("\n"+'Covid report of date : ' + str(key) + '\n' + 'Total No of Cases: ' + str(json_data['data'][str(key)]['total_cases']) + ' ,' + 'Deaths: '+ str(json_data['data'][str(key)]['deaths']) + ' ,' + 'Recoverd: ' + str(json_data['data'][str(key)]['recovered'])+' ,' + 'Tested: ' + str(json_data['data'][str(key)]['tested']))
-                
+
                 count=count+1
                 if count==5:
                     embed=discord.Embed(title = "Covid stats of : "+ query.capitalize(),description=rpt,color=discord.Color.blue())
@@ -152,7 +152,7 @@ async def on_message(message):
             else:
                 await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
 
     elif message.content.lower().startswith('_math'):
         hold=message.content.find(' ')
@@ -165,7 +165,7 @@ async def on_message(message):
         else:
             await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
 
     elif message.content.lower().startswith('_joke'):
         querystring = {"api_key":config('RANDOM_STUFF_API')}
@@ -232,7 +232,7 @@ async def on_message(message):
         except:
             await message.add_reaction('\U0001f44E')
 
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
 
     elif message.content.lower().startswith('_search'):
         hold=message.content.find(' ')
@@ -244,7 +244,7 @@ async def on_message(message):
         embed=discord.Embed(title="Search results for : "+(message.content[(hold+1):len(message.content)]),description=results[index+9:(len(results)-3)],color=discord.Color.blue())
         await message.channel.send(embed=embed)
 
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
 
     elif message.content.lower().startswith('_movie'):
         hold=message.content.find(' ')
@@ -269,7 +269,7 @@ async def on_message(message):
         await message.channel.send(result_first["poster_path"])
         await message.channel.send('Overview: '+result_first["overview"])
 
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
 
     elif message.content.lower().startswith('_song'):
         hold=message.content.find(' ')
@@ -294,7 +294,7 @@ async def on_message(message):
         except:
             await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
         
     elif message.content.lower().startswith('_wea'):
         city_list=message.content.split()
@@ -302,7 +302,7 @@ async def on_message(message):
         for i in range(1, len(city_list)):
             city=city+city_list[i]+' '
 
-        newurl= "https://api.openweathermap.org/data/2.5/weather?" + "q="+ city +"&appid=" + config('OPEN_WEATHER_TOKEN') 
+        newurl= "https://api.openweathermap.org/data/2.5/weather?" + "q="+ city +"&appid=" + config('OPEN_WEATHER_TOKEN')
         response=requests.get(newurl)
 
         if response.status_code==200:
@@ -319,11 +319,10 @@ async def on_message(message):
         else:
             await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel, client)
-    if message.content.startswith('_wiki india') or message.content.startswith('_wiki India'):
+        await db.score_up(message, client)
+    if message.content.lower().startswith('_wiki india'):
         embed=discord.Embed(title="India",description= 'India, country that occupies the greater part of South Asia. It is a constitutional republic that represents a highly diverse population consisting of thousands of ethnic groups. Its capital is New Delhi. With roughly one-sixth of the world\'s total population, it is the second most populous country, after China.' , color=discord.Color.blue())
         await message.channel.send(embed=embed)
-
 
     elif message.content.lower().startswith('_wiki'):
         hold=message.content.find(' ')
@@ -335,17 +334,17 @@ async def on_message(message):
         except:
             await message.add_reaction('\U0001F44E')
 
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
 
     elif message.content.lower().startswith('_hi'):
         embed=discord.Embed(title='Hello comrade!!, Meet myself roBOT!', description= 'an amatuer bot by amatuer Developers!! XD \n The full list of commands can be found here: \n https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n have a great time interacting and having fun with me!!\n for details about how to contribute to this bot use  \'_contribute\' ' , color=discord.Color.blue())
         await message.channel.send(embed=embed)
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
 
     elif message.content.lower().startswith('_contribute'):
         embed=discord.Embed(title='Interested about open-source contribution ? ', description= 'Looks like you are interested to help my fellow amatuer creators in order to make myself more polished and funky !!\n Here is the link to my repo: https://github.com/danger-ahead/roBOT \n Feel free to give your suggestion as issues and submit PR requests with improvements!! \n waiting for you PR peeps!! ' , color=discord.Color.blue())
         await message.channel.send(embed=embed)
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
 
     elif message.content.startswith('_leave'):
         await db.leave_server(message.guild.id, message)
@@ -354,15 +353,17 @@ async def on_message(message):
         await quiz.stop(message,channel)
 
     elif (message.content.startswith('_reset')):
-        await quiz.reset(channel)
+        await quiz.reset(message.channel)
 
     elif message.content.startswith('_quiz'):
         await quiz.start(message.channel)
 
-        await db.score_up(message.author.id, message, channel, client)
+        await db.score_up(message, client)
 
     elif (message.content.startswith('_scores')):
+
         await quiz.print_scores(message,channel)
+
 
     elif (message.content.startswith('_next')):
         await quiz.next_question(message.channel)
@@ -373,7 +374,7 @@ async def on_message(message):
         #check quiz question correct
 
     elif message.content.startswith('_rank'):
-        await db.rank_query(message.author.id, message)
+        await db.rank_query(message)
 
     elif message.content.startswith('_configure'):
         await db.server_config(message.guild.id, message)
