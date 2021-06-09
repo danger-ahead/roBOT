@@ -1,7 +1,7 @@
 # **roBOT** 🤖
 YOUR OWN LOCALLY HOSTED DISCORD BOT
 
-![](https://img.shields.io/github/stars/danger-ahead/roBOT) ![](https://img.shields.io/github/forks/danger-ahead/roBOT) ![](https://img.shields.io/github/issues/danger-ahead/roBOT) ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) ![](https://img.shields.io/badge/discord-py-blue.svg) ![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/)
+![](https://img.shields.io/github/stars/danger-ahead/roBOT) ![](https://img.shields.io/github/forks/danger-ahead/roBOT) ![](https://img.shields.io/github/issues/danger-ahead/roBOT) ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) ![](https://img.shields.io/badge/discord-py-blue.svg) ![](https://img.shields.io/badge/python-3.9-blue.svg) ![](https://www.code-inspector.com/project/23569/score/svg) ![](https://www.code-inspector.com/project/23569/status/svg)
 
 ## [Screenshots of **roBOT** in action](https://github.com/danger-ahead/roBOT/blob/master/docs/SCREENSHOTS.md)
 
@@ -22,7 +22,7 @@ YOUR OWN LOCALLY HOSTED DISCORD BOT
 * Solving Math problems
 * Updates on COVID-19 or weather
 
-(the list only keeps expanding 😜)...
+(the list will only keep expanding 😜)...
 #### [Full list of commands here](https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md)
 
 ## [Dependencies](https://github.com/danger-ahead/roBOT/blob/master/docs/DEPENDENCIES.md)
