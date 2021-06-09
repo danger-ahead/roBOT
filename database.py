@@ -4,7 +4,9 @@ from decouple import config
 class Database:
     def __init__(self):
         try:
-            self.cluster = pm.MongoClient("mongodb+srv://danger-ahead:"+config('MONGO')+"@cluster0.z0zou.mongodb.net/test")
+            self.cluster = pm.MongoClient("mongodb+srv://danger-ahead:"
+            +config('MONGO')+"@cluster0.z0zou.mongodb.net/test")
+
             self.db = self.cluster["roBOT"]
             self.collection = self.db["user_score"]
             self.collection2 = self.db["servers"]
@@ -29,7 +31,8 @@ class Database:
                     channell = result["channel"]
 
                 chanell = client.get_channel(channell)
-                await chanell.send(message.author.mention+', you\'re my level '+str(int(score/15))+ ' friend now!')
+                await chanell.send(message.author.mention+', you\'re my level '
+                +str(int(score/15))+ ' friend now!')
         else:
             self.collection.insert_one({"_id":message.author.id, "score":1})   #if the user has interacted for the 1st time, sets the user's score to 1
 
@@ -38,7 +41,8 @@ class Database:
         user = self.collection.find(query)
         for result in user:
             score = result["score"]
-        await message.channel.send(message.author.mention+', you\'re my level '+str(int(score/15))+ ' friend!')
+        await message.channel.send(message.author.mention+', you\'re my level '
+        +str(int(score/15))+ ' friend!')
 
     async def server_config(self, server, message):    #sets the channel for roBOT's admin commands, also initializes the confess key with 0
         channell = ''
@@ -66,7 +70,8 @@ class Database:
         elif channell == '':
             await message.channel.send('Configure me first!')
         elif channell != message.channel.id:
-            await message.channel.send('I\'m configured on <#'+str(channell)+'> \nI can\'t deconfigure here!')
+            await message.channel.send('I\'m configured on <#'
+            +str(channell)+'> \nI can\'t deconfigure here!')
 
     async def confess_config(self, server, message):       #configures the confession channel
         confess = 0
@@ -79,7 +84,8 @@ class Database:
         if confess != 0:
             await message.channel.send('I\'m already configured on <#'+str(confess)+'>')
         else:
-            self.collection2.update_one({"_id" : server}, {"$set" : {"_id" : server, "channel" : channell, "confess":message.channel.id}})
+            self.collection2.update_one({"_id" : server},
+            {"$set" : {"_id" : server, "channel" : channell, "confess":message.channel.id}})
             await message.channel.send('I just got the confession channel configured!')
 
     async def confess_deconfig(self, server, message):     #sets the confession channel's id to 0
@@ -91,12 +97,14 @@ class Database:
             channell = result["channel"]
 
         if confess == message.channel.id:
-            self.collection2.update_one({"_id" : server}, {"$set" : {"_id" : server, "channel" : channell, "confess":0}})
+            self.collection2.update_one({"_id" : server},
+            {"$set" : {"_id" : server, "channel" : channell, "confess":0}})
             await message.channel.send('My confession channel has been deconfigured!')
         elif confess == 0:
             await message.channel.send('Configure my confession channel first!')
         elif confess != message.channel.id:
-            await message.channel.send('My confession channel is configured on <#'+str(confess)+'> \nI can\'t deconfigure here!')
+            await message.channel.send('My confession channel is configured on <#'
+            +str(confess)+'> \nI can\'t deconfigure here!')
 
     async def leave_server(self, server, message):     #function for leaving the server on command from pre-configured channel
         channell = ''
@@ -120,7 +128,8 @@ class Database:
             channell = result["confess"]
 
         if channell != 0:
-            embed=discord.Embed(title='Someone just confessed:', description=confession, color=discord.Color.blue())
+            embed=discord.Embed(title='Someone just confessed:',
+            description=confession, color=discord.Color.blue())
             await client.get_channel(channell).send(embed=embed)
         else:
             await message.channel.send('My confession channel hasn\'t been configured!')

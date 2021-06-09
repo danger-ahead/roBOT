@@ -1,14 +1,15 @@
-import discord
 import os
+import urllib
+import json
+import  requests
+import discord
 from decouple import config
 from discord import channel
-import  requests
-import json
 from duckduckgo_search import ddg
 import wikipedia as wiki
-import urllib
 import database
 import quiz
+from scripts import poll
 
 db = database.Database()
 client = discord.Client()
@@ -34,7 +35,7 @@ async def on_message(message):
     elif message.content.lower().startswith('_mean'):
         word_list = message.content.split()
 
-        if(len(word_list) > 2): #user has more than 2 words as input
+        if len(word_list) > 2: #user has more than 2 words as input
             await message.add_reaction('\U0001F44E')
 
         else:
@@ -50,7 +51,7 @@ async def on_message(message):
                     first_dict = key["phonetics"]
                     for phonetics in first_dict:
                         output += 'phonetics: '+phonetics["text"]+'\n'
-                    
+
                     output += '\n'
 
                     first_dict = key["meanings"]
@@ -82,14 +83,14 @@ async def on_message(message):
                         output += '\n'
 
                 await message.add_reaction('\U0001F44d')
-                embed=discord.Embed(title=word,description=output,color=discord.Color.blue())      
+                embed=discord.Embed(title=word, description=output, color=discord.Color.blue())
                 await message.channel.send(embed=embed)
             else:
                 await message.add_reaction('\U0001F44E')
 
         await db.score_up(message, client)
 
-    elif message.content.startswith('_covrep'):
+    elif message.content.lower().startswith('_covrep'):
         query = message.content[8:]
         url = "https://coronavirus-map.p.rapidapi.com/v1/spots/week"
         querystring = {"region":query}
@@ -130,7 +131,7 @@ async def on_message(message):
 
         if lst[1].find('y') != -1:
             year = lst[2]
-            url = "https://numbersapi.p.rapidapi.com/"+year+"/year"            
+            url = "https://numbersapi.p.rapidapi.com/"+year+"/year"
 
             response = requests.request("GET", url, headers=headers, params=querystring)
             if response.status_code==200:
@@ -189,14 +190,14 @@ async def on_message(message):
             await message.add_reaction('\U0001f44d')
         except:
             await message.add_reaction('\U0001F44E')
-    
+
     elif message.content.lower().startswith('_drive'):
         hold1 = message.content.find(' ')
         hold2 = message.content.find('--')
         place=[]
         place.append(message.content[(hold1+1):(hold2-1)].strip())
         place.append(message.content[(hold2+3):len(message.content)].strip())
-        
+
         lat=[]
         lon=[]
         try:
@@ -242,13 +243,13 @@ async def on_message(message):
     elif message.content.lower().startswith('_search'):
         hold=message.content.find(' ')
 
-        results = str(ddg(message.content[(hold+1):len(message.content)], region='wt-wt', 
+        results = str(ddg(message.content[(hold+1):len(message.content)], region='wt-wt',
         safesearch='Off', time='y', max_results=1))
-     
+
         index = results.find('\'body\'')
         await message.add_reaction('\U0001f44d')
         embed=discord.Embed(title="Search results for : "
-        +(message.content[(hold+1):len(message.content)]), 
+        +(message.content[(hold+1):len(message.content)]),
         description=results[index+9:(len(results)-3)], color=discord.Color.blue())
         await message.channel.send(embed=embed)
 
@@ -263,7 +264,7 @@ async def on_message(message):
             'x-rapidapi-host': "advanced-movie-search.p.rapidapi.com"
             }
 
-        result = requests.request("GET", "https://advanced-movie-search.p.rapidapi.com/search/movie",
+        result=requests.request("GET", "https://advanced-movie-search.p.rapidapi.com/search/movie",
         headers=headers, params=querystring)
 
         data=json.loads(result.text)
@@ -309,7 +310,7 @@ async def on_message(message):
             await message.add_reaction('\U0001F44E')
 
         await db.score_up(message, client)
-        
+
     elif message.content.lower().startswith('_wea'):
         city_list=message.content.split()
         city=''
@@ -336,7 +337,7 @@ async def on_message(message):
             await message.add_reaction('\U0001F44E')
 
         await db.score_up(message, client)
-        
+
     if message.content.lower().startswith('_wiki india'):
         embed=discord.Embed(title="India",
         description='India, country that occupies the greater part of South Asia. \
@@ -359,6 +360,9 @@ async def on_message(message):
 
         await db.score_up(message, client)
 
+    elif message.content.lower().startswith('_poll'):
+        await poll._create_poll(discord, message)
+
     elif message.content.lower().startswith('_hi'):
         embed=discord.Embed(title='Hello comrade!!, Meet myself roBOT!',
          description= 'an amatuer bot by amatuer Developers!! XD \n The full list of commands \
@@ -370,7 +374,7 @@ async def on_message(message):
 
     elif message.content.lower().startswith('_contribute'):
         embed=discord.Embed(title='Interested about open-source contribution ? ',
-         description= 'Looks like you\'re interested to help my fellow amatuer creators in order to make\
+        description='Looks like you\'re interested to help my fellow amatuer creators in order to make\
               myself more polished and funky !!\n Here\'s the link to repo: https://github.com/danger-ahead/roBOT\
                   \n Feel free to give your suggestion as issues and submit PR requests with improvements!!\
                    \n waiting for you PR peeps!! ', color=discord.Color.blue())
@@ -379,21 +383,21 @@ async def on_message(message):
 
     elif message.content.startswith('_leave'):
         await db.leave_server(message.guild.id, message)
-        
+
     elif message.content.startswith('_qstop'):
         await quiz.stop(message.channel)
 
-    elif (message.content.startswith('_reset')):
+    elif message.content.startswith('_reset'):
         await quiz.reset(message.channel)
 
     elif message.content.startswith('_quiz'):
         await quiz.start(message.channel)
         await db.score_up(message, client)
 
-    elif (message.content.startswith('_scores')):
+    elif message.content.startswith('_scores'):
         await quiz.print_scores(message.channel)
 
-    elif (message.content.startswith('_next')):
+    elif message.content.startswith('_next'):
         await quiz.next_question(message.channel)
 
     elif quiz is not None and quiz.started():
@@ -406,7 +410,6 @@ async def on_message(message):
 
     elif message.content.startswith('_configure'):
         await db.server_config(message.guild.id, message)
-    
 
     elif message.content.startswith('_configconfess'):
         await db.confess_config(message.guild.id, message)
