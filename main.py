@@ -361,9 +361,7 @@ async def on_message(message):
         await db.score_up(message, client)
 
     elif (message.content.startswith('_scores')):
-
-        await quiz.print_scores(message,channel)
-
+        await quiz.print_scores(message)
 
     elif (message.content.startswith('_next')):
         await quiz.next_question(message.channel)

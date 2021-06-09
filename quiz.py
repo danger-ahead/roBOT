@@ -11,7 +11,7 @@ import random
 import re
 import os
 
-from discord import channel, message
+from discord import message
 
 #todo: probably need to remove punctuation from answers
 
@@ -121,9 +121,7 @@ class Quiz:
     async def reset(self, channel):
         if self.__running:
             #stop
-
-            await self.stop(message,channel)
-
+            await self.stop(channel)
         
         #reset the scores
         self.current_question = None
