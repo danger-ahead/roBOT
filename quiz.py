@@ -16,7 +16,7 @@ from discord import message
 #todo: probably need to remove punctuation from answers
 
 class Quiz:
-    
+
     def __init__(self, client, win_limit=10, hint_time=30):
         #initialises the quiz
         self.__running = False
@@ -29,8 +29,7 @@ class Quiz:
         self._client = client
         self._quiz_channel = None
         self._cancel_callback = True
-       
-        
+
         #load in some questions
         datafiles = os.listdir('quizdata')
         for df in datafiles:
@@ -38,18 +37,18 @@ class Quiz:
             self._load_questions(filepath)
             print('Loaded: ' + filepath)
         print('Quiz data loading complete.\n')
-        
+
     def _load_questions(self, question_file):
         # loads in the questions for the quiz
         with open(question_file, encoding='utf-8',errors='replace') as qfile:
             lines = qfile.readlines()
-            
+
         question = None
         category = None
-        answer = None      
+        answer = None
         regex = None
         position = 0
-        
+
         while position < len(lines):
             if lines[position].strip().startswith('#'):
                 #skip
@@ -58,10 +57,10 @@ class Quiz:
             if lines[position].strip() == '': #blank line
                 #add question
                 if question is not None and answer is not None:
-                    q = Question(question=question, answer=answer, 
+                    q = Question(question=question, answer=answer,
                                  category=category, regex=regex)
                     self._questions.append(q)
-                    
+
                 #reset everything
                 question = None
                 category = None
@@ -69,7 +68,7 @@ class Quiz:
                 regex = None
                 position += 1
                 continue
-                
+
             if lines[position].strip().lower().startswith('category'):
                 category = lines[position].strip()[lines[position].find(':') + 1:].strip()
             elif lines[position].strip().lower().startswith('question'):
@@ -80,28 +79,28 @@ class Quiz:
                 regex = lines[position].strip()[lines[position].find(':') + 1:].strip()
             #else ignore
             position += 1
-                
+
     def started(self):
         #finds out whether a quiz is running
         return self.__running
-    
+
     def question_in_progress(self):
         #finds out whether a question is currently in progress
-        return self.__current_question is not None
-    
+        return self.current_question is not None
+
     async def _hint(self, hint_question, hint_number,message,channel):
         #offers a hint to the user
         if self.__running and self.current_question is not None:
             await asyncio.sleep(self._hint_time)
-            if (self.current_question == hint_question 
+            if (self.current_question == hint_question
                  and self._cancel_callback == False):
                 if (hint_number >= 5):
                     await self.next_question(self._channel)
-                
+
                 hint = self.current_question.get_hint(hint_number)
                 await channel.send('Hint {}: {}'.format(hint_number, hint))
                 if hint_number < 5:
-                    await self._hint(hint_question, hint_number + 1,message,channel) 
+                    await self._hint(hint_question, hint_number + 1,message,channel)
     
     async def start(self, channel):
         #starts the quiz in the given channel.
@@ -182,7 +181,7 @@ class Quiz:
                 self._cancel_callback = True
                 await self.ask_question(message,channel)
 
-    async def answer_question(self, message,channel):
+    async def answer_question(self, message, channel):
         #checks the answer to a question
         if self.__running and self.current_question is not None:
             if message.channel != self._channel:
@@ -208,22 +207,21 @@ class Quiz:
                     await channel.send( '{} has won! Congratulations.'.format(message.author.name))
                     self._questions.append(self._asked)
                     self._asked = []
-                    self.__running = False                    
-                
+                    self.__running = False
+
                 #print totals?
                 elif len(self._asked) % 5 == 0:
-                    await self.print_scores(message.channel)                    
-                
-                    
+                    await self.print_scores(message.channel)
+
                 await self.ask_question1(message,channel)
-              
+
     async def print_scores(self, channel):
         #prints out a table of scores.
         if self.__running:
             await channel.send('Current quiz results:')
         else:
             await channel.send('Most recent quiz results:')
-            
+
         highest = 0
         for name in self.scores:
             await channel.send('{}:\t{}'.format(name,self.scores[name]))
@@ -232,12 +230,12 @@ class Quiz:
                 
         if len(self.scores) == 0:
             await channel.send('No results to display.')
-                
+
         leaders = []
         for name in self.scores:
             if self.scores[name] == highest:
                 leaders.append(name)
-                
+
         if len(leaders) > 0:
             if len(leaders) == 1:
                 await channel.send('Current leader : {}'.format(leaders[0]))

@@ -10,7 +10,7 @@ class Database:
             self.db = self.cluster["roBOT"]
             self.collection = self.db["user_score"]
             self.collection2 = self.db["servers"]
-            print('Running: Database module [database.py]\n')       #prints the message after successfully initializing the connection with mongoDB
+            print('Running: Database module [database.py]')       #prints the message after successfully initializing the connection with mongoDB
         except:
             print('Failed to run Database module [database.py]\n')
 

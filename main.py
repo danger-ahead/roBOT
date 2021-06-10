@@ -12,6 +12,7 @@ import quiz
 from scripts import poll
 
 db = database.Database()
+poll = poll.Poll()
 client = discord.Client()
 quiz = quiz.Quiz(client)
 
@@ -361,7 +362,9 @@ async def on_message(message):
         await db.score_up(message, client)
 
     elif message.content.lower().startswith('_poll'):
-        await poll._create_poll(discord, message)
+        await message.delete()
+        await poll._create_poll(discord, client, message)
+        await db.score_up(message, client)
 
     elif message.content.lower().startswith('_hi'):
         embed=discord.Embed(title='Hello comrade!!, Meet myself roBOT!',
