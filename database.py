@@ -10,7 +10,8 @@ class Database:
             self.db = self.cluster["roBOT"]
             self.collection = self.db["user_score"]
             self.collection2 = self.db["servers"]
-            print('Running: Database module [database.py]')       #prints the message after successfully initializing the connection with mongoDB
+            #prints the message after successfully initializing the connection with mongoDB
+            print('Running: Database module [database.py]')
         except:
             print('Failed to run Database module [database.py]\n')
 
@@ -34,7 +35,8 @@ class Database:
                 await chanell.send(message.author.mention+', you\'re my level '
                 +str(int(score/15))+ ' friend now!')
         else:
-            self.collection.insert_one({"_id":message.author.id, "score":1})   #if the user has interacted for the 1st time, sets the user's score to 1
+            #if the user has interacted for the 1st time, sets the user's score to 1
+            self.collection.insert_one({"_id":message.author.id, "score":1})
 
     async def rank_query(self, message):   #searches and messages rank of the user
         query = {"_id": message.author.id}
@@ -44,7 +46,8 @@ class Database:
         await message.channel.send(message.author.mention+', you\'re my level '
         +str(int(score/15))+ ' friend!')
 
-    async def server_config(self, server, message):    #sets the channel for roBOT's admin commands, also initializes the confess key with 0
+#sets the channel for roBOT's admin commands, also initializes the confess key with 0
+    async def server_config(self, server, message):
         channell = ''
         query = {"_id": server}
         user = self.collection2.find(query)
@@ -106,7 +109,8 @@ class Database:
             await message.channel.send('My confession channel is configured on <#'
             +str(confess)+'> \nI can\'t deconfigure here!')
 
-    async def leave_server(self, server, message):     #function for leaving the server on command from pre-configured channel
+#function for leaving the server on command from pre-configured channel
+    async def leave_server(self, server, message):
         channell = ''
         query = {"_id": server}
         user = self.collection2.find(query)
@@ -121,15 +125,16 @@ class Database:
         else:
             await message.channel.send('I\'ll only leave if instructed from <#'+str(channell)+'>')
 
-    async def confess(self, client, discord, confession, message):      #function for forwarding the confession
+#function for forwarding the confession
+    async def confess(self, client, discord, confession, message):
         channell = 0
         user = self.collection2.find({"_id":message.guild.id})
         for result in user:
             channell = result["confess"]
 
         if channell != 0:
-            embed=discord.Embed(title='Someone just confessed:',
-            description=confession, color=discord.Color.blue())
+            embed = discord.Embed(title='Someone just confessed:',
+            description = confession, color=discord.Color.blue())
             await client.get_channel(channell).send(embed=embed)
         else:
             await message.channel.send('My confession channel hasn\'t been configured!')
