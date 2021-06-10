@@ -30,3 +30,7 @@
 | _scores | Tells the current scores of the quiz participants |
 | _next  | Skips to the next question in quiz |
 | _reset | Resets the quiz |
+
+| Poll commands  | Description |
+| :-------------: | :-------------: |
+| _poll < topic >,,< choice1 >,,< choice2 >,,...,,< upto choice9 >,,< poll duration > | Creates a poll and the users vote by reacting (clicking) on the respective choice's emoji |

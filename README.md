@@ -1,7 +1,10 @@
-# **roBOT** 🤖
-YOUR OWN LOCALLY HOSTED DISCORD BOT
+<p align="center"><img align="justify" src="https://socialify.git.ci/danger-ahead/roBOT/image?description=1&font=Source%20Code%20Pro&forks=1&issues=1&language=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark" alt="roBOT" width="640" height="320" />
+</p>
 
-![](https://img.shields.io/github/stars/danger-ahead/roBOT) ![](https://img.shields.io/github/forks/danger-ahead/roBOT) ![](https://img.shields.io/github/issues/danger-ahead/roBOT) ![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) ![](https://img.shields.io/badge/discord-py-blue.svg) ![](https://img.shields.io/badge/python-3.9-blue.svg) ![](https://www.code-inspector.com/project/23569/score/svg) ![](https://www.code-inspector.com/project/23569/status/svg)
+<p align="center">
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"><img src="https://img.shields.io/badge/discord-py-blue.svg"><img src="https://img.shields.io/badge/python-3.9-blue.svg"><img src="https://www.code-inspector.com/project/23569/score/svg"><img src="https://www.code-inspector.com/project/23569/status/svg">
+  <p align="center">your own locally hosted discord bot :D</p>
+</p>
 
 ## [Screenshots of **roBOT** in action](https://github.com/danger-ahead/roBOT/blob/master/docs/SCREENSHOTS.md)
 
@@ -18,6 +21,7 @@ YOUR OWN LOCALLY HOSTED DISCORD BOT
 #### You can use **roBOT** for:
 * Trivia and jokes
 * Quiz
+* Polls
 * Searching (Wikipedia, DuckDuckGo, movies, music, word meanings, etc)
 * Solving Math problems
 * Updates on COVID-19 or weather

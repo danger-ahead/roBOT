@@ -363,7 +363,7 @@ async def on_message(message):
 
     elif message.content.lower().startswith('_poll'):
         await message.delete()
-        await poll._create_poll(discord, client, message)
+        await poll._create_poll(discord, message)
         await db.score_up(message, client)
 
     elif message.content.lower().startswith('_hi'):

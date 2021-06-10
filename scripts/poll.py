@@ -7,7 +7,7 @@ class Poll:
         self.content_list = []
         print('Running: Poll module [poll.py]\n')
 
-    async def _create_poll(self, discord, client, message):
+    async def _create_poll(self, discord, message):
         self.content = message.content[message.content.find(' '):]
         self.content_list = self.content.split(',,')
 
