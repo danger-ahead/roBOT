@@ -22,6 +22,7 @@
 * Trivia and jokes
 * Quiz
 * Polls
+* Cleaning up a channel's chats
 * Searching (Wikipedia, DuckDuckGo, movies, music, word meanings, etc)
 * Solving Math problems
 * Updates on COVID-19 or weather

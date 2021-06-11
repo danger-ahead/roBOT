@@ -7,9 +7,9 @@ from decouple import config
 from discord import channel
 from duckduckgo_search import ddg
 import wikipedia as wiki
-import database
 import quiz
 from scripts import poll
+from scripts import database
 
 db = database.Database()
 poll = poll.Poll()
@@ -339,7 +339,11 @@ async def on_message(message):
 
         await db.score_up(message, client)
 
-    if message.content.lower().startswith('_wiki india'):
+    elif message.content.lower().startswith('_clean'):
+        await message.channel.purge(limit=100)
+        await db.score_up(message, client)
+
+    elif message.content.lower().startswith('_wiki india'):
         embed = discord.Embed(title="India",
         description='India, country that occupies the greater part of South Asia. \
         It is a constitutional republic that represents a highly diverse population consisting of\
