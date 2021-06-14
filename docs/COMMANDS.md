@@ -21,7 +21,8 @@
 | _search < query > | Searches DuckDuckGo for the query |
 | _movie < movie > | Tells the details of the movie |
 | _song < song or artist > | Tells the details of the song or finds the most famous song of the artist |
-| _confess < confession > | roBOT deletes the user's confession message and forwards the confession message to configured confession channel anonymously  |
+| _confess < confession > | **roBOT** deletes the user's confession message and forwards the confession message to configured confession channel anonymously  |
+| _clean | **roBOT** deletes the previous 100 chats from the channel |
 
 | Quiz commands  | Description |
 | :-------------: | :-------------: |
@@ -30,3 +31,7 @@
 | _scores | Tells the current scores of the quiz participants |
 | _next  | Skips to the next question in quiz |
 | _reset | Resets the quiz |
+
+| Poll commands  | Description |
+| :-------------: | :-------------: |
+| _poll < topic >,,< choice1 >,,< choice2 >,,...,,< upto choice9 >,,< poll duration > | Creates a poll and the users vote by reacting (clicking) on the respective choice's emoji |
