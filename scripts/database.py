@@ -57,7 +57,8 @@ class Database:
         if channell != '':
             await message.channel.send('I\'m already configured on <#'+str(channell)+'>')
         else:
-            self.collection2.insert_one({"_id":server, "channel":message.channel.id, "confess":0})
+            self.collection2.insert_one({"_id":server, "channel":message.channel.id,
+            "confess":0, "mod":0})
             await message.channel.send('I just got configured!')
 
     async def server_deconfig(self, server, message):      #deletes the discord server's details
@@ -82,13 +83,12 @@ class Database:
         user = self.collection2.find(query)
         for result in user:
             confess = result["confess"]
-            channell = result["channel"]
 
         if confess != 0:
             await message.channel.send('I\'m already configured on <#'+str(confess)+'>')
         else:
             self.collection2.update_one({"_id" : server},
-            {"$set" : {"_id" : server, "channel" : channell, "confess":message.channel.id}})
+            {"$set" : {"_id" : server, "confess":message.channel.id}})
             await message.channel.send('I just got the confession channel configured!')
 
     async def confess_deconfig(self, server, message):     #sets the confession channel's id to 0
@@ -138,3 +138,28 @@ class Database:
             await client.get_channel(channell).send(embed=embed)
         else:
             await message.channel.send('My confession channel hasn\'t been configured!')
+
+# function that enables moderation service on a server
+    async def moderation_service(self, server, message):
+        mod = 0
+        query = {"_id": server}
+        user = self.collection2.find(query)
+        for result in user:
+            mod = result["mod"]
+
+        if mod == 1:
+                await message.channel.send('Moderation service running')
+        else:
+            self.collection2.update_one({"_id" : server},
+                {"$set" : {"_id" : server, "mod":1}})
+            await message.channel.send('Moderation service started!')
+
+# function to check moderation status of server
+    async def check_server_moderation(self, server):
+        mod = -1
+        query = {"_id": server}
+        user = self.collection2.find(query)
+        for result in user:
+            mod = result["mod"]
+
+        return mod

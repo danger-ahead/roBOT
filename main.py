@@ -10,11 +10,13 @@ import wikipedia as wiki
 import quiz
 from scripts import poll
 from scripts import database
+from scripts import moderator
 
 db = database.Database()
 poll = poll.Poll()
 client = discord.Client()
 quiz = quiz.Quiz(client)
+moderator = moderator.Moderator()
 
 @client.event
 async def on_ready():
@@ -421,11 +423,17 @@ async def on_message(message):
     elif message.content.startswith('_configconfess'):
         await db.confess_config(message.guild.id, message)
 
+    elif message.content.startswith('_moderation'):
+        await db.moderation_service(message.guild.id, message)
+
     elif message.content.startswith('_deconfigure'):
         await db.server_deconfig(message.guild.id, message)
 
     elif message.content.startswith('_deconfigconfess'):
         await db.confess_deconfig(message.guild.id, message)
+
+    if await db.check_server_moderation(message.guild.id) == 1:
+        await moderator.check(message)
 
 DISCORD_TOKEN = config('TOKEN')
 client.run(DISCORD_TOKEN)

@@ -30,6 +30,7 @@
 ## Working 🤔
 ### **roBOT** reacts with 👍 or 👎 after each successful or unsuccessful command execution
 #### You can use **roBOT** for:
+* Channel moderations
 * Trivia and jokes
 * Quiz
 * Polls
