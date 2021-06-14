@@ -32,3 +32,5 @@
 
 ### [Dependencies](https://github.com/danger-ahead/roBOT/blob/master/docs/DEPENDENCIES.md)
 ### Contributions are always welcome. Visit our [contributing guidelines](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTING.md) before making any contributions.
+
+### [**roBOT's** Contributors](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTORS.md)
