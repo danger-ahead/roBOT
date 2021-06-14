@@ -9,7 +9,18 @@
 ## [Screenshots of **roBOT** in action](https://github.com/danger-ahead/roBOT/blob/master/docs/SCREENSHOTS.md)
 
 ## Installation 🧐
-- Head over to this [freecodecamp tutorial](https://www.freecodecamp.org/news/create-a-discord-bot-with-python/)
+- Make sure you’re logged on to the [Discord](https://discord.com).
+- Navigate to the Discord Developer's [Application Page](https://discord.com/developers/applications).
+- Click on the `New Application` button.
+- Give the Application a Name and click on `Create`.
+- Go to the `Bot` Tab and then click `Add Bot`. You will have to confirm by clicking `Yes, do it!`.
+- Keep the default settings for Public Bot (checked) and Require OAuth2 Code Grant (unchecked).
+- `Copy` the token from 'Bot' Tab. (Don't share it with anybody)
+- Go to the `OAuth2` Tab. Then select `Bot` under the `scopes` section.
+- Now choose the permissions you want for the bot. (Be careful with the `Administrator` permission.)
+- Copy the URL by clicking `Copy` button above the permissions.
+- Paste the URL into your browser, choose a server to invite the bot to, and click `Authorize`.(To add the bot, your account needs `Manage Server` permissions.)
+- Now you've created the bot user and added it into a server. Now start writing the Python code for the bot.
 - Run `pip install -r requirements.txt`
 - In the .env  file, paste the required keys as:
 	` TOKEN=YOUR_TOKEN` (replace 'YOUR_TOKEN' with your token)
