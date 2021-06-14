@@ -1,23 +1,12 @@
-# roBOT 🤖
-YOUR OWN LOCALLY HOSTED DISCORD BOT
+<p align="center"><img align="justify" src="https://socialify.git.ci/danger-ahead/roBOT/image?description=1&font=Source%20Code%20Pro&forks=1&issues=1&language=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark" alt="roBOT" width="640" height="320" />
+</p>
 
-![](https://img.shields.io/github/stars/danger-ahead/roBOT) ![](https://img.shields.io/github/forks/danger-ahead/roBOT) ![](https://img.shields.io/github/issues/danger-ahead/roBOT)
+<p align="center">
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"><img src="https://img.shields.io/badge/discord-py-blue.svg"><img src="https://img.shields.io/badge/python-3.9-blue.svg"><img src="https://www.code-inspector.com/project/23569/score/svg"><img src="https://www.code-inspector.com/project/23569/status/svg">
+  <p align="center">your own locally hosted discord bot :D</p>
+</p>
 
-## Overview 🔭
-- Uses [Numbers](https://rapidapi.com/divad12/api/numbers-1) from [RapidAPI](https://rapidapi.com/marketplace) for displaying year and math facts.
-- Uses [Advanced Movie Search](https://rapidapi.com/jakash1997/api/advanced-movie-search ) from [RapidAPI](https://rapidapi.com/marketplace) for fetching movie details.
-- Uses [Genius](https://rapidapi.com/brianiswu/api/genius) from [RapidAPI](https://rapidapi.com/marketplace) for fetching song and artist details.
-- Uses [DuckDuckGo](https://duckduckgo.com/) for fetching search results
-- Uses [Free Dictionary API](https://dictionaryapi.dev/) for fetching meanings
-- Uses [OpenWeatherMap API](https://openweathermap.org/api) for fetching weather details.
-- Uses [math.js web service](https://api.mathjs.org/) for solving mathematical expressions.
-
-- Python Packages required:
-	- [discord.py](https://pypi.org/project/discord.py/)
-	- [duckduckgo-search](https://pypi.org/project/duckduckgo-search/)
-	- [requests](https://pypi.org/project/requests/)
-	- [python-decouple](https://pypi.org/project/python-decouple/)
-	- [wikipedia](https://pypi.org/project/wikipedia/)
+## [Screenshots of **roBOT** in action](https://github.com/danger-ahead/roBOT/blob/master/docs/SCREENSHOTS.md)
 
 ## Installation 🧐
 - Make sure you’re logged on to the [Discord](https://discord.com).
@@ -39,33 +28,20 @@ YOUR OWN LOCALLY HOSTED DISCORD BOT
 	`OPEN_WEATHER_TOKEN=YOUR_TOKEN` (replace 'YOUR_TOKEN' with your API key)
 
 ## Working 🤔
-### roBOT reacts with 👍 or 👎 based on whether the last command execution was successful or not
-#### For receiving year and math facts:
-`_f y ` followed by the year
-`_f m ` followed by the number
-#### For solving mathematical expressions
-`_math ` followed by the expression
-#### For performing a search
-`_search ` followed by the search phrase
-#### For finding the meaning of a word
-`_mean ` followed by the word
-#### For anonymous confessions (or perhaps anonymous chats ;) )
-`_confess ` followed by the confession
-#### For fetching movie details
-`_movie ` followed by the name of the movie
-#### For fetching song or artist details
-`_song ` followed by the song or artist name
-#### For fetching weather details
-`_wea ` followed by the name of the city(kolkata, melbourne etc), country code(au, us, in etc)
-#### For performing search in Wikipedia
-`_wiki ` followed by the search phrase
-#### roBOT
-`_hi`
+### **roBOT** reacts with 👍 or 👎 after each successful or unsuccessful command execution
+#### You can use **roBOT** for:
+* Trivia and jokes
+* Quiz
+* Polls
+* Cleaning up a channel's chats
+* Searching (Wikipedia, DuckDuckGo, movies, music, word meanings, etc)
+* Solving Math problems
+* Updates on COVID-19 or weather
 
-## Screenshots of roBOT in action 😎
-<a href="https://imgur.com/wwBXHb6"><img src="https://i.imgur.com/wwBXHb6.png" title="source: imgur.com" /></a>
-<a href="https://imgur.com/iPy1jzm"><img src="https://i.imgur.com/iPy1jzm.png" title="source: imgur.com" /></a>
-<a href="https://imgur.com/Sws275p"><img src="https://i.imgur.com/Sws275p.png" title="source: imgur.com" /></a>
-<a href="https://imgur.com/ccXMNRZ"><img src="https://i.imgur.com/ccXMNRZ.png" title="source: imgur.com" /></a>
-<a href="https://imgur.com/ZJw4MKx"><img src="https://i.imgur.com/ZJw4MKx.png" title="source: imgur.com" /></a>
-<a href="https://imgur.com/15XX4dl"><img src="https://i.imgur.com/15XX4dl.png" title="source: imgur.com" /></a>
+(the list will only keep expanding 😜)...
+### [Full list of commands here](https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md)
+
+### [Dependencies](https://github.com/danger-ahead/roBOT/blob/master/docs/DEPENDENCIES.md)
+### Contributions are always welcome. Visit our [contributing guidelines](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTING.md) before making any contributions.
+
+### [**roBOT's** Contributors](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTORS.md)

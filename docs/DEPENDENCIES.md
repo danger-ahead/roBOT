@@ -1,0 +1,18 @@
+- Python Packages required:
+	- [discord.py](https://pypi.org/project/discord.py/)
+	- [duckduckgo-search](https://pypi.org/project/duckduckgo-search/)
+	- [requests](https://pypi.org/project/requests/)
+	- [python-decouple](https://pypi.org/project/python-decouple/)
+	- [wikipedia](https://pypi.org/project/wikipedia/)
+	- [dnspython](https://pypi.org/project/dnspython/)
+	- [pymongo](https://pypi.org/project/pymongo/)
+
+- Uses [Numbers](https://rapidapi.com/divad12/api/numbers-1) for displaying year and math facts.
+- Uses [Advanced Movie Search](https://rapidapi.com/jakash1997/api/advanced-movie-search ) for fetching movie details.
+- Uses [Genius](https://rapidapi.com/brianiswu/api/genius) for fetching song and artist details.
+- Uses [DuckDuckGo](https://duckduckgo.com/) for fetching search results
+- Uses [Free Dictionary API](https://dictionaryapi.dev/) for fetching meanings
+- Uses [OpenWeatherMap API](https://openweathermap.org/api) for fetching weather details.
+- Uses [math.js web service](https://api.mathjs.org/) for solving mathematical expressions.
+- Uses [random-stuff-api](https://rapidapi.com/pgamerxdev/api/random-stuff-api/) for fetching jokes.
+- 
