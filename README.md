@@ -28,6 +28,7 @@
 * Updates on COVID-19 or weather
 
 (the list will only keep expanding 😜)...
-#### [Full list of commands here](https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md)
+### [Full list of commands here](https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md)
 
-## [Dependencies](https://github.com/danger-ahead/roBOT/blob/master/docs/DEPENDENCIES.md)
+### [Dependencies](https://github.com/danger-ahead/roBOT/blob/master/docs/DEPENDENCIES.md)
+### Contributions are always welcome. Visit our [contributing guidelines](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTING.md) before making any contributions.
