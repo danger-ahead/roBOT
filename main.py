@@ -118,7 +118,7 @@ async def on_message(message):
 
                     await message.channel.send(embed=embed)
                     break
-            await message.add_reaction('\U0001F44d')    
+            await message.add_reaction('\U0001F44d')
         except:
             await message.add_reaction('\U0001F44E')
 
