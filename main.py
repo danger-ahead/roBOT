@@ -109,9 +109,9 @@ async def on_message(message):
                 prevnum = 0
                 prevnum = int(copy[8:10])-1
                 prevstr = copy[0:8]
-                prev = prevstr+str(prevnum) 
+                prev = prevstr+str(prevnum)
                 diffcase = json_data['data'][str(key)]['total_cases']-json_data['data'][str(prev)]['total_cases']
-                diffdeath = json_data['data'][str(key)]['deaths']-json_data['data'][prev]['deaths']    
+                diffdeath = json_data['data'][str(key)]['deaths']-json_data['data'][prev]['deaths']
                 if diffcase < 0:
                     diffcase = 0
                 if diffdeath < 0:
