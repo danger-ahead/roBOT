@@ -122,6 +122,8 @@ async def on_message(message):
         except:
             await message.add_reaction('\U0001F44E')
 
+        await db.score_up(message, client)
+
     elif message.content.lower().startswith('_f'):
         headers = {
             'x-rapidapi-key': config('RAPID_API'),
