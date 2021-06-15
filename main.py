@@ -105,11 +105,24 @@ async def on_message(message):
             count = 0
             rpt = ""
             for key in json_data['data']:
+                copy=str(key)
+                prevnum=0
+                prevnum=int(copy[8:10])-1
+                prevstr=copy[0:8]
+                prev=prevstr + str(prevnum) 
+                diffcase=json_data['data'][str(key)]['total_cases']-json_data['data'][str(prev)]['total_cases']
+                diffdeath=json_data['data'][str(key)]['deaths']-json_data['data'][prev]['deaths']    
+                if diffcase<0:
+                    diffcase=0
+                if diffdeath<0:
+                    diffdeath=0
+
                 rpt = str(rpt) +str("\n"+'Covid report of date : '+str(key)+
                 '\n'+'Total No of Cases: '+str(json_data['data'][str(key)]['total_cases'])+' ,'+
                 ' Deaths: '+str(json_data['data'][str(key)]['deaths'])+' ,'+
                 ' Recoverd: '+str(json_data['data'][str(key)]['recovered'])+' ,'+
-                ' Tested: '+str(json_data['data'][str(key)]['tested']))
+                ' Tested: '+str(json_data['data'][str(key)]['tested']))+' ,'+' New Cases: '+str(diffcase)+' ,'+' New Deaths: '+str(diffdeath)+'\n'
+                
 
                 count = count+1
                 if count == 5:
