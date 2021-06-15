@@ -6,6 +6,8 @@
   <p align="center">your own locally hosted discord bot :D</p>
 </p>
 
+## [Add](https://discord.com/api/oauth2/authorize?client_id=843553315442130985&permissions=2148002880&scope=bot) **roBOT** to your server!
+
 ## [Screenshots of **roBOT** in action](https://github.com/danger-ahead/roBOT/blob/master/docs/SCREENSHOTS.md)
 
 ## Installation 🧐
@@ -32,6 +34,7 @@
 #### You can use **roBOT** for:
 * Channel moderations
 * Trivia and jokes
+* Play games (tossing a coin, rolling a dice, rock paper scissors, etc)
 * Quiz
 * Polls
 * Cleaning up a channel's chats
