@@ -1,6 +1,9 @@
 import os
 
 class Moderator:
+    """
+    Class for all the moderation functions
+    """
     def __init__(self):
         # relative path to scripts directory
         os.chdir('scripts')

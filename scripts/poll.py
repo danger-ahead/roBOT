@@ -1,6 +1,9 @@
 import asyncio
 
 class Poll:
+    """
+    Class for creating and checking the results of polls
+    """
     def __init__(self):
         self.emoji = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣']
         self.content = ''
@@ -60,7 +63,7 @@ class Poll:
                     total += self.emoji[i] + ' , '
 
             embed = discord.Embed(title='Poll results',
-            description = total[:len(total)-3]+' got the maximum votes!', color=discord.Color.blue())
+            description=total[:len(total)-3]+' got the maximum votes!', color=discord.Color.blue())
             await embed_message.reply(embed=embed)
         else:
             await embed_message.reply('No votes were cast!')

@@ -2,6 +2,9 @@ import pymongo as pm
 from decouple import config
 
 class Database:
+    """
+    Class for all the database functions
+    """
     def __init__(self):
         try:
             self.cluster = pm.MongoClient("mongodb+srv://danger-ahead:"
@@ -134,7 +137,7 @@ class Database:
 
         if channell != 0:
             embed = discord.Embed(title='Someone just confessed:',
-            description = confession, color=discord.Color.blue())
+            description=confession, color=discord.Color.blue())
             await client.get_channel(channell).send(embed=embed)
         else:
             await message.channel.send('My confession channel hasn\'t been configured!')
