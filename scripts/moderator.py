@@ -1,4 +1,5 @@
 import os
+import discord
 
 class Moderator:
     def __init__(self):
@@ -18,5 +19,6 @@ class Moderator:
         for word in message_word_list:
             # searches for each word from message
             if word in self.read_file:
-                await message.reply('You\'re being warned!')
+                embed = discord.Embed(title="WARNING!",description="You are being warned! \n DO NOT SWEAR!! ",color=discord.Color.blue())
+                await message.reply(embed=embed)
                 break
