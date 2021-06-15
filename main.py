@@ -46,7 +46,7 @@ async def on_message(message):
             url = 'https://api.dictionaryapi.dev/api/v2/entries/en_US/' + word
 
             r = requests.get(url)
-            if r.status_code == 200: #checks status code of response received, 200 is the success code
+            if r.status_code == 200: #checks status code of response received, 200 is success code
                 data = json.loads(r.text)   #dict
 
                 output = ''
@@ -118,7 +118,7 @@ async def on_message(message):
                     diffcase = 0
                 if diffdeath < 0:
                     diffdeath = 0
-                rpt = str(rpt) +str("\n"+'Covid report of date : '+str(key)+
+                rpt = str(rpt) + str("\n"+'Covid report of date : ' + str(key) +
                 '\n'+'Total No of Cases: '+str(json_data['data'][str(key)]['total_cases'])+' ,'+
                 ' Deaths: '+str(json_data['data'][str(key)]['deaths'])+' ,'+
                 ' Recoverd: '+str(json_data['data'][str(key)]['recovered'])+' ,'+
@@ -126,7 +126,7 @@ async def on_message(message):
                 count = count+1
                 if count == 5:
                     embed = discord.Embed(title="Covid stats of : "
-                    +query.capitalize(),description=rpt,color=discord.Color.blue())
+                    +query.capitalize(),description=rpt, color=discord.Color.blue())
 
                     await message.channel.send(embed=embed)
                     break
@@ -141,7 +141,7 @@ async def on_message(message):
             'x-rapidapi-key': config('RAPID_API'),
             'x-rapidapi-host': "numbersapi.p.rapidapi.com"
             }
-        querystring = {"json":"true","fragment":"true"}
+        querystring = {"json":"true", "fragment":"true"}
 
         lst = message.content.split()
 
@@ -181,7 +181,7 @@ async def on_message(message):
         header = {'content-type': 'application/json'}
         querystring = urllib.parse.quote_plus(message.content[(hold+1):len(message.content)])
         result = requests.get("http://api.mathjs.org/v4/?expr="+querystring, headers=header)
-        if result.status_code==200:
+        if result.status_code == 200:
             await message.add_reaction('\U0001f44d')
             await message.channel.send(result.text)
         else:
@@ -196,7 +196,8 @@ async def on_message(message):
             'x-rapidapi-host': "random-stuff-api.p.rapidapi.com"
             }
         try:
-            response = requests.request("GET", "https://random-stuff-api.p.rapidapi.com/joke/any", headers=headers, params=querystring)
+            response = requests.request("GET", "https://random-stuff-api.p.rapidapi.com/joke/any",
+            headers=headers, params=querystring)
             data = json.loads(response.text)
             if data["type"] == 'single':
                 await message.channel.send(data["joke"])
@@ -370,9 +371,9 @@ async def on_message(message):
     elif message.content.lower().startswith('_wiki'):
         hold = message.content.find(' ')
         try:
-            embed = discord.Embed(title=message.content[(hold+1):len(message.content)], 
-            description = wiki.summary(message.content[(hold+1):len(message.content)], sentences=4), 
-            color = discord.Color.blue())
+            embed = discord.Embed(title=message.content[(hold+1):len(message.content)],
+            description=wiki.summary(message.content[(hold+1):len(message.content)], sentences=4),
+            color=discord.Color.blue())
             await message.channel.send(embed=embed)
             await message.add_reaction('\U0001f44d')
         except:

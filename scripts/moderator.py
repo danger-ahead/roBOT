@@ -7,7 +7,7 @@ class Moderator:
         # opens, reads and adds the contents of the file to a list
         file = open("moderate_words.txt", "r")  #add words of your choice in moderate_words
         self.read_file = file.read().split()
-        # changes back to project directory
+        # changes back to project directory`
         os.chdir('..')
         print('Loaded: scripts/moderate_words.txt')
         print('Running: Moderator module [moderator.py]\n')
