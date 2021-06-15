@@ -120,8 +120,9 @@ async def on_message(message):
 
                     await message.channel.send(embed=embed)
                     break
+            await message.add_reaction('\U0001F44d')
         except:
-            pass
+            await message.add_reaction('\U0001F44E')
 
     elif message.content.lower().startswith('_f'):
         headers = {
