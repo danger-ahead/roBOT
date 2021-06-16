@@ -41,6 +41,22 @@ async def on_message(message):
             await db.confess(client, discord, message.content[(hold+1):len(message.content)], message)
             await db.score_up(message, client)
 
+        elif message.content.lower().startswith('_hi'):
+                embed = discord.Embed(title='Hello comrade!!, Meet myself roBOT!',
+                description = 'an amatuer bot by amatuer Developers!! XD \n The full list of commands \
+                    can be found here: \n https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n\
+                    have a great time interacting and having fun with me!!\n for details about how to contribute to \
+                        this bot use  \'_contribute\' ', color=discord.Color.blue())
+                await message.channel.send(embed=embed)
+
+        elif message.content.lower().startswith('_contribute'):
+                embed = discord.Embed(title='Interested about open-source contribution ? ',
+                description='Looks like you\'re interested to help my fellow amatuer creators in order to make\
+                    myself more polished and funky !!\n Here\'s the link to repo: https://github.com/danger-ahead/roBOT\
+                        \n Feel free to give your suggestion as issues and submit PR requests with improvements!!\
+                        \n waiting for you PR peeps!! ', color=discord.Color.blue())
+                await message.channel.send(embed=embed)
+
         elif message.content.lower().startswith('_mean'):
             word_list = message.content.split()
 
@@ -319,13 +335,19 @@ async def on_message(message):
                 report_description = str({report[0]['description']})
                 index = report_description.find('\'')
                 index2 = report_description.find('\'', 2)
-                await message.channel.send(report_description[(index+1):index2]+
-                '\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%')
+                embed = discord.Embed(title="Weather update for :  "+city,
+                description=report_description[(index+1):index2]+
+                '\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%',
+                color=discord.Color.blue())
+                await message.channel.send(embed=embed)
                 await message.add_reaction('\U0001f44d')
             else:
                 await message.add_reaction('\U0001F44E')
 
             await db.score_up(message, client)
+
+        if message.content.startswith('_rank'):
+            await db.rank_query(message)
 
         elif message.content.lower().startswith('_wiki india'):
             embed = discord.Embed(title="India",
@@ -373,11 +395,10 @@ async def on_message(message):
 
     #admin command block
     elif message.content.startswith('$'):
-        if message.content.startswith('$rank'):
-            await db.rank_query(message)
+        
 
         #checks for administrator rights
-        elif message.author.guild_permissions.administrator:
+        if message.author.guild_permissions.administrator:
             if message.content.lower().startswith('$clean'):
                 await message.channel.purge(limit=100)
                 await db.score_up(message, client)
@@ -411,21 +432,7 @@ async def on_message(message):
             elif message.content.startswith('$deconfigconfess'):
                 await db.confess_deconfig(message.guild.id, message)
 
-            elif message.content.lower().startswith('$hi'):
-                embed = discord.Embed(title='Hello comrade!!, Meet myself roBOT!',
-                description = 'an amatuer bot by amatuer Developers!! XD \n The full list of commands \
-                    can be found here: \n https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n\
-                    have a great time interacting and having fun with me!!\n for details about how to contribute to \
-                        this bot use  \'_contribute\' ', color=discord.Color.blue())
-                await message.channel.send(embed=embed)
-
-            elif message.content.lower().startswith('$contribute'):
-                embed = discord.Embed(title='Interested about open-source contribution ? ',
-                description='Looks like you\'re interested to help my fellow amatuer creators in order to make\
-                    myself more polished and funky !!\n Here\'s the link to repo: https://github.com/danger-ahead/roBOT\
-                        \n Feel free to give your suggestion as issues and submit PR requests with improvements!!\
-                        \n waiting for you PR peeps!! ', color=discord.Color.blue())
-                await message.channel.send(embed=embed)
+            
 
             elif message.content.startswith('$leave'):
                 await db.leave_server(message.guild.id, message)
