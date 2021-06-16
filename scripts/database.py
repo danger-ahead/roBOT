@@ -1,5 +1,6 @@
 import pymongo as pm
 from decouple import config
+import discord
 
 class Database:
     """
@@ -35,8 +36,11 @@ class Database:
                     channell = result["channel"]
 
                 chanell = client.get_channel(channell)
-                await chanell.send(message.author.mention+', you\'re my level '
-                +str(int(score/15))+ ' friend now!')
+                embed = discord.Embed(title="Level UP!",
+                description=message.author.mention+', you\'re my level '
+                +str(int(score/15))+ ' friend now!',
+                color=discord.Color.blue())
+                await chanell.send(embed=embed)
         else:
             #if the user has interacted for the 1st time, sets the user's score to 1
             self.collection.insert_one({"_id":message.author.id, "score":1})
@@ -46,10 +50,12 @@ class Database:
         user = self.collection.find(query)
         for result in user:
             score = result["score"]
-        await message.channel.send(message.author.mention+', you\'re my level '
-        +str(int(score/15))+ ' friend!')
-
-#sets the channel for roBOT's admin commands, also initializes the confess key with 0
+        embed = discord.Embed(title="Friendship Stats!!",
+        description=message.author.mention+', you\'re my level '
+        +str(int(score/15))+ ' friend!',
+        color=discord.Color.blue())
+        await message.channel.send(embed=embed)
+    #sets the channel for roBOT's admin commands, also initializes the confess key with 0
     async def server_config(self, server, message):
         channell = ''
         query = {"_id": server}

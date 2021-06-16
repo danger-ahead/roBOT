@@ -9,13 +9,13 @@
 | $unmute @< user > | **roBOT** unmutes the mentioned user |
 | $moderation | Instructs **roBOT** to activate chat moderation on the server |
 | $rank | Tells the current friendship level of **roBOT** with the user |
-| $hi | Provides the user with a link to find **roBOT**'s commands |
-| $contribute  | Provides the user with a link to **roBOT**'s source code |
 | $leave | Instructs **roBOT** to leave the server (works only in the channel configured with `$configure` command) |
 | $clean | **roBOT** deletes the previous 100 chats from the channel |
 
 | Commands | Description |
 | :-------------: | :-------------: |
+| _hi | Provides the user with a link to find **roBOT**'s commands |
+| _contribute  | Provides the user with a link to **roBOT**'s source code |
 | _mean  < word >  | Finds the meaning of the word |
 | _math < problem >  | Solves the Math Problem |
 | _f m < number >  | Tells an interesting fact about the number |
