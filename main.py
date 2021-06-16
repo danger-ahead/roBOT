@@ -33,7 +33,7 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    # checks if the message begins with '_' (bot command)
+# checks if the message begins with '_' (bot command)
     if message.content.startswith('_'):
         if message.content.lower().startswith('_confess'):
             await message.delete()
@@ -132,7 +132,7 @@ async def on_message(message):
                     count = count+1
                     if count == 5:
                         embed = discord.Embed(title="Covid stats of : "
-                        +query.capitalize(),description=rpt, color=discord.Color.blue())
+                        +query.capitalize(), description=rpt, color=discord.Color.blue())
 
                         await message.channel.send(embed=embed)
                         break
@@ -214,6 +214,11 @@ async def on_message(message):
             except:
                 await message.add_reaction('\U0001F44E')
 
+        elif message.content.lower().startswith('_poll'):
+            await message.delete()
+            await poll._create_poll(discord, message)
+            await db.score_up(message, client)
+
         elif message.content.lower().startswith('_rolldice'):
             await games.roll_a_dice(message)
             await message.add_reaction('\U0001f44d')
@@ -232,7 +237,7 @@ async def on_message(message):
 
             index = results.find('\'body\'')
             await message.add_reaction('\U0001f44d')
-            embed=discord.Embed(title="Search results for : "
+            embed = discord.Embed(title="Search results for : "
             +(message.content[(hold+1):len(message.content)]),
             description=results[index+9:(len(results)-3)], color=discord.Color.blue())
             await message.channel.send(embed=embed)
@@ -241,7 +246,7 @@ async def on_message(message):
 
         elif message.content.lower().startswith('_movie'):
             hold = message.content.find(' ')
-            querystring = {"query":message.content[(hold+1):len(message.content)],"page":"1"}
+            querystring = {"query":message.content[(hold+1):len(message.content)], "page":"1"}
 
             headers = {
                 'x-rapidapi-key': config('RAPID_API'),
@@ -277,14 +282,14 @@ async def on_message(message):
             'x-rapidapi-host': "genius.p.rapidapi.com"
             }
 
-            response = requests.request("GET", "https://genius.p.rapidapi.com/search", 
+            response = requests.request("GET", "https://genius.p.rapidapi.com/search",
             headers=headers, params=querystring)
             try:
                 data = json.loads(response.text)
                 response1 = data["response"]
                 hits = response1["hits"]
 
-                for i in range (1):
+                for i in range(1):
                     x = hits[i]
                     y = x["result"]
                     await message.channel.send('\''+y["full_title"]+'\''+
@@ -313,7 +318,7 @@ async def on_message(message):
                 humidity = weatherrep['humidity']
                 report_description = str({report[0]['description']})
                 index = report_description.find('\'')
-                index2 = report_description.find('\'',2)
+                index2 = report_description.find('\'', 2)
                 await message.channel.send(report_description[(index+1):index2]+
                 '\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%')
                 await message.add_reaction('\U0001f44d')
@@ -321,13 +326,6 @@ async def on_message(message):
                 await message.add_reaction('\U0001F44E')
 
             await db.score_up(message, client)
-
-        elif message.content.lower().startswith('_clean'):
-            if message.author.guild_permissions.administrator:
-                await message.channel.purge(limit=100)
-                await db.score_up(message, client)
-            else:
-                await message.channel.send('<@'+str(message.author.id)+'> lacks admin rights!')
 
         elif message.content.lower().startswith('_wiki india'):
             embed = discord.Embed(title="India",
@@ -352,11 +350,6 @@ async def on_message(message):
 
             await db.score_up(message, client)
 
-        elif message.content.lower().startswith('_poll'):
-            await message.delete()
-            await poll._create_poll(discord, message)
-            await db.score_up(message, client)
-
         elif message.content.startswith('_qstop'):
             await quiz.stop(message.channel)
 
@@ -378,60 +371,67 @@ async def on_message(message):
             await quiz.answer_question(message, channel)
             #check quiz question correct
 
-        elif message.content.startswith('_rank'):
+    #admin command block
+    elif message.content.startswith('$'):
+        if message.content.startswith('$rank'):
             await db.rank_query(message)
 
-        elif message.content.startswith('_configure'):
-            if message.author.guild_permissions.administrator:
+        #checks for administrator rights
+        elif message.author.guild_permissions.administrator:
+            if message.content.lower().startswith('$clean'):
+                await message.channel.purge(limit=100)
+                await db.score_up(message, client)
+
+            # elif message.content.startswith('$mute'):
+            #     if (message.mentions.__len__()>0):
+            #         for user in message.mentions:
+            #             user = await message.guild.query_members(user_ids=[user.id])
+            #         user = user[0]
+            #         await message.channel.send(user)
+
+            elif message.content.startswith('$kick'):
+                if (message.mentions.__len__()>0):
+                    for user in message.mentions:
+                        user = await message.guild.query_members(user_ids=[user.id])
+                    user = user[0]
+                    await user.kick(reason='Kicked by roBOT!')
+
+            elif message.content.startswith('$configure'):
                 await db.server_config(message.guild.id, message)
-            else:
-                await message.channel.send('<@'+str(message.author.id)+'> lacks admin rights!')
 
-        elif message.content.startswith('_configconfess'):
-            if message.author.guild_permissions.administrator:
+            elif message.content.startswith('$configconfess'):
                 await db.confess_config(message.guild.id, message)
-            else:
-                await message.channel.send('<@'+str(message.author.id)+'> lacks admin rights!')
 
-        elif message.content.startswith('_moderation'):
-            if message.author.guild_permissions.administrator:
+            elif message.content.startswith('$moderation'):
                 await db.moderation_service(message.guild.id, message)
-            else:
-                await message.channel.send('<@'+str(message.author.id)+'> lacks admin rights!')
 
-        elif message.content.startswith('_deconfigure'):
-            if message.author.guild_permissions.administrator:
+            elif message.content.startswith('$deconfigure'):
                 await db.server_deconfig(message.guild.id, message)
-            else:
-                await message.channel.send('<@'+str(message.author.id)+'> lacks admin rights!')
 
-        elif message.content.startswith('_deconfigconfess'):
-            if message.author.guild_permissions.administrator:
+            elif message.content.startswith('$deconfigconfess'):
                 await db.confess_deconfig(message.guild.id, message)
-            else:
-                await message.channel.send('<@'+str(message.author.id)+'> lacks admin rights!')
 
-        elif message.content.lower().startswith('_hi'):
-            embed = discord.Embed(title='Hello comrade!!, Meet myself roBOT!',
-            description= 'an amatuer bot by amatuer Developers!! XD \n The full list of commands \
-                can be found here: \n https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n\
-                have a great time interacting and having fun with me!!\n for details about how to contribute to \
-                    this bot use  \'_contribute\' ', color=discord.Color.blue())
-            await message.channel.send(embed=embed)
+            elif message.content.lower().startswith('$hi'):
+                embed = discord.Embed(title='Hello comrade!!, Meet myself roBOT!',
+                description = 'an amatuer bot by amatuer Developers!! XD \n The full list of commands \
+                    can be found here: \n https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n\
+                    have a great time interacting and having fun with me!!\n for details about how to contribute to \
+                        this bot use  \'_contribute\' ', color=discord.Color.blue())
+                await message.channel.send(embed=embed)
 
-        elif message.content.lower().startswith('_contribute'):
-            embed = discord.Embed(title='Interested about open-source contribution ? ',
-            description='Looks like you\'re interested to help my fellow amatuer creators in order to make\
-                myself more polished and funky !!\n Here\'s the link to repo: https://github.com/danger-ahead/roBOT\
-                    \n Feel free to give your suggestion as issues and submit PR requests with improvements!!\
-                    \n waiting for you PR peeps!! ', color=discord.Color.blue())
-            await message.channel.send(embed=embed)
+            elif message.content.lower().startswith('$contribute'):
+                embed = discord.Embed(title='Interested about open-source contribution ? ',
+                description='Looks like you\'re interested to help my fellow amatuer creators in order to make\
+                    myself more polished and funky !!\n Here\'s the link to repo: https://github.com/danger-ahead/roBOT\
+                        \n Feel free to give your suggestion as issues and submit PR requests with improvements!!\
+                        \n waiting for you PR peeps!! ', color=discord.Color.blue())
+                await message.channel.send(embed=embed)
 
-        elif message.content.startswith('_leave'):
-            if message.author.guild_permissions.administrator:
+            elif message.content.startswith('$leave'):
                 await db.leave_server(message.guild.id, message)
-            else:
-                await message.channel.send('<@'+str(message.author.id)+'> lacks admin rights!')
+
+        else:   #message author doesn't have admin rights
+            await message.channel.send('<@'+str(message.author.id)+'> Do you\'ve admin rights?')
 
     if await db.check_server_moderation(message.guild.id) == 1:
         await moderator.check(message)

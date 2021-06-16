@@ -1,16 +1,18 @@
-| **roBOT** commands  | Description |
+| **roBOT** administrator Commands | Description |
 | :-------------: | :-------------: |
-| _configure | Configures **roBOT** to use a particular channel for admin commands |
-| _deconfigure | Deconfigures **roBOT** from using the configured channel for admin commands |
-| _configconfess | Configures **roBOT** to use a particular channel for the confessions |
-| _deconfigconfess | Deconfigures **roBOT** from using the configured confession channel for the confessions |
-| _moderation | Instructs **roBOT** to activate chat moderation on the server |
-| _rank | Tells the current friendship level of **roBOT** with the user |
-| _hi | Provides the user with a link to find **roBOT**'s commands |
-| _contribute  | Provides the user with a link to **roBOT**'s source code |
-| _leave | Instructs **roBOT** to leave the server (works only in the channel configured with **_configure** command) |
+| $configure | Configures **roBOT** to use a particular channel for admin commands |
+| $deconfigure | Deconfigures **roBOT** from using the configured channel for admin commands |
+| $configconfess | Configures **roBOT** to use a particular channel for the confessions |
+| $deconfigconfess | Deconfigures **roBOT** from using the configured confession channel for the confessions |
+| $kick @< user > | **roBOT** kicks the mentioned user |
+| $moderation | Instructs **roBOT** to activate chat moderation on the server |
+| $rank | Tells the current friendship level of **roBOT** with the user |
+| $hi | Provides the user with a link to find **roBOT**'s commands |
+| $contribute  | Provides the user with a link to **roBOT**'s source code |
+| $leave | Instructs **roBOT** to leave the server (works only in the channel configured with `$configure` command) |
+| $clean | **roBOT** deletes the previous 100 chats from the channel |
 
-| Commands  | Description |
+| Commands | Description |
 | :-------------: | :-------------: |
 | _mean  < word >  | Finds the meaning of the word |
 | _math < problem >  | Solves the Math Problem |
@@ -23,9 +25,8 @@
 | _movie < movie > | Tells the details of the movie |
 | _song < song or artist > | Tells the details of the song or finds the most famous song of the artist |
 | _confess < confession > | **roBOT** deletes the user's confession message and forwards the confession message to configured confession channel anonymously  |
-| _clean | **roBOT** deletes the previous 100 chats from the channel |
 
-| Quiz commands  | Description |
+| Quiz Commands  | Description |
 | :-------------: | :-------------: |
 | _quiz | Starts quiz |
 | _qstop | Stops an ongoing quiz |
@@ -33,11 +34,11 @@
 | _next  | Skips to the next question in quiz |
 | _reset | Resets the quiz |
 
-| Game commands  | Description |
+| Game Commands  | Description |
 | :-------------: | :-------------: |
 | _rolldice | Rolls a dice |
 | _tosscoin | Tosses a coin |
 
-| Poll commands  | Description |
+| Poll Commands  | Description |
 | :-------------: | :-------------: |
 | _poll < topic >,,< choice1 >,,< choice2 >,,...,,< upto choice9 >,,< poll duration > | Creates a poll and the users vote by reacting (clicking) on the respective choice's emoji |
