@@ -5,6 +5,8 @@
 | $configconfess | Configures **roBOT** to use a particular channel for the confessions |
 | $deconfigconfess | Deconfigures **roBOT** from using the configured confession channel for the confessions |
 | $kick @< user > | **roBOT** kicks the mentioned user |
+| $mute @< user > | **roBOT** mutes the mentioned user |
+| $unmute @< user > | **roBOT** unmutes the mentioned user |
 | $moderation | Instructs **roBOT** to activate chat moderation on the server |
 | $rank | Tells the current friendship level of **roBOT** with the user |
 | $hi | Provides the user with a link to find **roBOT**'s commands |
