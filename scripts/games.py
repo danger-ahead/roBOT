@@ -33,7 +33,7 @@ async def roll_a_dice(message):
         embed = discord.Embed(title="Dice!!",
         description="|0 0 0|\n|------|\n|0 0 0|",
         color=discord.Color.blue())
-        await message.channel.send(embed=embed)        
+        await message.channel.send(embed=embed)
 async def toss_coin(message):
     number = random.randint(1, 2)
 
@@ -46,4 +46,4 @@ async def toss_coin(message):
         embed = discord.Embed(title="Toss!!",
         description="Tails",
         color=discord.Color.blue())
-        await message.channel.send(embed=embed)
+    await message.channel.send(embed=embed)

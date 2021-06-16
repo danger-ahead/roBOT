@@ -55,9 +55,7 @@ class Database:
         +str(int(score/15))+ ' friend!',
         color=discord.Color.blue())
         await message.channel.send(embed=embed)
-        
-
-#sets the channel for roBOT's admin commands, also initializes the confess key with 0
+    #sets the channel for roBOT's admin commands, also initializes the confess key with 0
     async def server_config(self, server, message):
         channell = ''
         query = {"_id": server}
