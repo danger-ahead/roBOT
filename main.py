@@ -336,8 +336,12 @@ async def on_message(message):
             report_description = str({report[0]['description']})
             index = report_description.find('\'')
             index2 = report_description.find('\'',2)
-            await message.channel.send(report_description[(index+1):index2]+
-            '\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%')
+            embed = discord.Embed(title="Weather update for : "+city, 
+            description = report_description[(index+1):index2]+
+            '\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%', 
+            color = discord.Color.blue())
+
+            await message.channel.send(embed=embed)
             await message.add_reaction('\U0001f44d')
         else:
             await message.add_reaction('\U0001F44E')
