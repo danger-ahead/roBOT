@@ -403,12 +403,26 @@ async def on_message(message):
                 await message.channel.purge(limit=100)
                 await db.score_up(message, client)
 
-            # elif message.content.startswith('$mute'):
-            #     if (message.mentions.__len__()>0):
-            #         for user in message.mentions:
-            #             user = await message.guild.query_members(user_ids=[user.id])
-            #         user = user[0]
-            #         await message.channel.send(user)
+            elif message.content.startswith('$mute'):
+                if (message.mentions.__len__()>0):
+                    for user in message.mentions:
+                        user = await message.guild.query_members(user_ids=[user.id])
+                    user = user[0]
+
+                    try:
+                        await user.edit(mute = True)
+                    except Exception:
+                        await message.channel.send('User\'s not connected to voice!')
+
+            elif message.content.startswith('$unmute'):
+                if (message.mentions.__len__()>0):
+                    for user in message.mentions:
+                        user = await message.guild.query_members(user_ids=[user.id])
+                    user = user[0]
+                    try:
+                        await user.edit(mute = False)
+                    except Exception:
+                        await message.channel.send('User\'s not connected to voice!')
 
             elif message.content.startswith('$kick'):
                 if (message.mentions.__len__()>0):
