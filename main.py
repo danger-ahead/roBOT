@@ -43,7 +43,7 @@ async def on_message(message):
 
         elif message.content.lower().startswith('_hi'):
                 embed = discord.Embed(title='Hello comrade!!, Meet myself roBOT!',
-                description = 'an amatuer bot by amatuer Developers!! XD \n The full list of commands \
+                description ='an amatuer bot by amatuer Developers!! XD \n The full list of commands \
                     can be found here: \n https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n\
                     have a great time interacting and having fun with me!!\n for details about how to contribute to \
                         this bot use  \'_contribute\' ', color=discord.Color.blue())
@@ -395,8 +395,6 @@ async def on_message(message):
 
     #admin command block
     elif message.content.startswith('$'):
-        
-
         #checks for administrator rights
         if message.author.guild_permissions.administrator:
             if message.content.lower().startswith('$clean'):
@@ -445,9 +443,6 @@ async def on_message(message):
 
             elif message.content.startswith('$deconfigconfess'):
                 await db.confess_deconfig(message.guild.id, message)
-
-            
-
             elif message.content.startswith('$leave'):
                 await db.leave_server(message.guild.id, message)
 
