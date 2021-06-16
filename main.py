@@ -43,10 +43,11 @@ async def on_message(message):
 
         elif message.content.lower().startswith('_hi'):
                 embed = discord.Embed(title='Hello comrade!!, Meet myself roBOT!',
-                description ='an amatuer bot by amatuer Developers!! XD \n The full list of commands \
-                    can be found here: \n https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n\
-                    have a great time interacting and having fun with me!!\n for details about how to contribute to \
-                        this bot use  \'_contribute\' ', color=discord.Color.blue())
+                description='an amatuer bot by amatuer Developers!! XD \
+                \n The full list of commands \
+                can be found here: \n https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n\
+                have a great time interacting and having fun with me!!\n for details about how to contribute to \
+                this bot use  \'_contribute\' ', color=discord.Color.blue())
                 await message.channel.send(embed=embed)
 
         elif message.content.lower().startswith('_contribute'):
