@@ -1,7 +1,8 @@
 import os
 import urllib
 import json
-import requests
+import  requests
+import random
 import discord
 from decouple import config
 from discord import channel
@@ -20,6 +21,13 @@ client = discord.Client()
 quiz = quiz.Quiz(client)
 moderator = moderator.Moderator()
 
+
+def get_quote():
+  response = requests.get("https://zenquotes.io/api/random%22)
+  json_data = json.loads(response.text)
+  quote = json_data[0]['q'] + " -" + json_data[0]['a']
+  return(quote)
+                          
 
 @client.event
 async def on_ready():
@@ -68,10 +76,14 @@ async def on_message(message):
                 description="Looks like you're interested to help my fellow amatuer creators in order to make\
                     myself more polished and funky !!\n Here's the link to repo: https://github.com/danger-ahead/roBOT\
                         \n Feel free to give your suggestion as issues and submit PR requests with improvements!!\
-                        \n waiting for you PR peeps!! ",
-                color=discord.Color.blue(),
-            )
-            await message.channel.send(embed=embed)
+
+                        \n waiting for you PR peeps!! ', color=discord.Color.blue())
+                await message.channel.send(embed=embed)
+                
+        elif message.content.startswith("_inspire"):
+                quote=get_quote();
+                await message.channel.send(quote)
+
 
         elif message.content.lower().startswith("_mean"):
             word_list = message.content.split()
