@@ -1,0 +1,3212 @@
+#
+# $Id: questions.imran.en,v 1.8 2002/07/05 19:09:11 chat Exp $
+#
+# ------------------------------------------------------------------------------
+#
+#  Author:      Imran Ghory
+#  Editor:  	Julika
+#  Last edited: 2000-12-01
+#
+#  There a lot of currency questions, so I commented out lot of them until the
+#  complete set grew up a bit
+#
+# ------------------------------------------------------------------------------
+
+## Demo-Entry:
+#  ----------
+#  Category: History
+#  Question: Chinese philosopher (um 500 v. Chr.) ?
+#  Answer: Konfuzius
+#  Regexp: [ck]onfu(ts|z)ius
+#  Author: anonymous
+#  Level: hard
+#  Comment: demo-entry, ƒ÷‹‰ˆ¸ﬂ ^∞ !"ß$%&/()=? `¥
+#  Score: 5
+#  Tip: Kon......
+#  Tip: ...fuz...
+#  Tip: ......ius
+
+## valid keys:
+#  ----------
+#  Category?                              (should always be on top!)
+#  Question                               (should always stand after Category)
+#  Answer                                 (will be matched if no regexp is provided)
+#  Regexp?                                (use UNIX-style expressions)
+#  Author?                                (the brain behind this question)
+#  Level? [baby|easy|normal|hard|extreme] (difficulty)
+#  Comment?                               (comment line)
+#  Score? [#]                             (credits for answering this question)
+#  Tip*                                   (provide one or more hints)
+#  TipCycle? [#]                          (Specify number of generated tips)
+ 
+## WARNING:
+#  -------
+#  DO NOT ADD COMMENTS BEYOND THIS LINE, since they might get lost.
+#  you may add as much comments as you want into the part above
+#  <!========================================================!>
+
+Category: Architecture
+Question: Which famous building was built by Shah Jehan ?
+Answer: Taj Mahal
+
+Category: Architecture
+Question: Which famous building was built by Shih Huang Ti ?
+Answer: Great Wall of China
+
+Category: Arts
+Question: Who painted the ceiling of the Sistine Chapel ?
+Answer: Michelangelo
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Aquila ?
+Answer: Eagle
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Auriga ?
+Answer: Charioteer
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Camelopardalis ?
+Answer: Giraffe
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Canes Venatici ?
+Answer: Greyhounds
+Regexp: greyhounds?
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Cassiopeia ?
+Answer: Cassiopeia
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Cepheus ?
+Answer: Cepheus
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Coma Berenices ?
+Answer: Berenice's Hair
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Corona Borealis ?
+Answer: Northern Crown
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Cygnus ?
+Answer: Swan
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Delphinus ?
+Answer: Dolphin
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Draco ?
+Answer: Dragon
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Equuleus ?
+Answer: Colt
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Lacerta ?
+Answer: Lizard
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Leo Minor ?
+Answer: Lesser Lion
+Regexp: (lesser|little) lion
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Lyra ?
+Answer: Lyre
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Ophiuchus ?
+Answer: Serpent Bearer
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Sagitta ?
+Answer: Arrow
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Serpens ?
+Answer: Serpent
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Triangulum ?
+Answer: Triangle
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Ursa Major ?
+Answer: Great Bear
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Ursa Minor ?
+Answer: Little Bear
+Regexp: (little|lesser) bear
+
+Category: Astronomy
+Question: What is the meaning of the name of the constellation Vulpecula ?
+Answer: Fox
+
+Category: Astronomy
+Question: Which meteor shower occurs on the 10th October ?
+Answer: Draconids
+
+Category: Astronomy
+Question: Which meteor shower occurs on the 12th August ?
+Answer: Perseids
+
+Category: Astronomy
+Question: Which meteor shower occurs on the 14th November ?
+Answer: Andromedids
+
+Category: Astronomy
+Question: Which meteor shower occurs on the 16th November ?
+Answer: Leonids
+
+Category: Astronomy
+Question: Which meteor shower occurs on the 21st April ?
+Answer: Lyrids
+
+Category: Astronomy
+Question: Which meteor shower occurs on the 21st October ?
+Answer: Orionids
+
+Category: Astronomy
+Question: Which meteor shower occurs on the 4th May ?
+Answer: Eta Aquarids
+
+Category: Astronomy
+Question: Which meteor shower occurs on the 4th November ?
+Answer: Taurids
+
+Category: Astronomy
+Question: Which planet is covered in thick clouds of carbon dioxide and sulphuric acid ?
+Answer: Venus
+
+Category: Astronomy
+Question: Which planet is known as the red planet ?
+Answer: Mars
+
+Category: Astronomy
+Question: Which planet was discovered in 1930 ?
+Answer: Pluto
+
+Category: Astronomy
+Question: Which star is nearest the Earth ?
+Answer: Sun
+
+Category: Astronomy
+Question: Who was the first person to notice "canals" on Mars ?
+Answer: Schiaparelli
+
+Category: Biology
+Question: In which organ is Bile produced ?
+Answer: Liver
+
+Category: Biology
+Question: What breed of dog has an inability to bark ?
+Answer: Basenji
+
+Category: Biology
+Question: What is a Salamander ?
+Answer: Amphibian
+
+Category: Biology
+Question: What is the fastest breed of dog ?
+Answer: Greyhound
+
+Category: Biology
+Question: What is the fastest growing species of grass ?
+Answer: Bamboo
+
+Category: Biology
+Question: What is the most common animal ?
+Answer: Sea worm
+
+Category: Biology
+Question: What is the name of the process used by green plants for obtaining food ?
+Answer: Photosynthesis
+
+Category: Biology
+Question: What is the process of converting glucose to energy in cells called ?
+Answer: Respiration
+
+Category: Biology
+Question: What is the study of insects called ?
+Answer: Entomology
+
+Category: Biology
+Question: What name is given to a male bee ?
+Answer: Drone
+
+Category: Biology
+Question: What name is given to a young frog ?
+Answer: Tadpole
+
+Category: Biology
+Question: What name is given to animals which eat both plants and meat ?
+Answer: Omnivore
+
+Category: Biology
+Question: What name is given to animals which have pouches ?
+Answer: Marsupials
+
+Category: Biology
+Question: What name is given to animals which only eat meat ?
+Answer: Carnivore
+
+Category: Biology
+Question: What name is given to animals which only eat plants ?
+Answer: Herbivore
+
+Category: Biology
+Question: Which bird became extinct in 1861 ?
+Answer: Dodo
+
+Category: Biology
+Question: Which breed of dog has a name derived from the old name for Greece ?
+Answer: Greyhound
+
+Category: Biology
+Question: Which part of a cat's eye reflects light ?
+Answer: Tapetum
+
+Category: Biology
+Question: Which science studies animal behaviour in natural habitats ?
+Answer: Ethology
+
+Category: Biology
+Question: Which sight problem occurs in men far more then in women ?
+Answer: Colour Blindness
+
+Category: Biology
+Question: Which species of Elephant has the largest ears ?
+Answer: African
+
+Category: Chemistry
+Question: What are Helium, Neon, Argon, Krypton and Xenon ?
+Answer: Noble Gases
+
+Category: Chemistry
+Question: What are Petrol, Naphta, Kerosine, Diesel and Oil ?
+Answer: Hydrocarbons
+
+Category: Chemistry
+Question: What element has the periodic table name Au ?
+Answer: Gold
+
+Category: Chemistry
+Question: What element has the periodic table name Na ?
+Answer: Sodium
+
+Category: Chemistry
+Question: What element has the periodic table name Sb ?
+Answer: Antimony
+
+Category: Chemistry
+Question: What element has the periodic table name Sn ?
+Answer: Tin
+
+Category: Chemistry
+Question: What is another name for iron oxide ?
+Answer: Rust
+
+Category: Chemistry
+Question: What is brine ?
+Answer: Salt water
+
+Category: Chemistry
+Question: What name is given to a chemical reaction which gives out heat ?
+Answer: Exothermic
+
+Category: Chemistry
+Question: What name is given to a chemical reaction which takes in heat ?
+Answer: Endothermic
+
+Category: Chemistry
+Question: Which element is also known as Quicksilver ?
+Answer: Mercury
+
+Category: Chemistry
+Question: Who invented dynamite ?
+Answer: Alfred Nobel
+
+Category: Computer
+Question: How many bits are in a nibble ?
+Answer: 4
+Regexp: (four|4)
+
+Category: Computer
+Question: What does ietf stand for ?
+Answer: Internet Engineering Task Force
+
+Category: Computer
+Question: What is MUD an abbreviation for ?
+Answer: Multiple User Dungeon
+
+Category: Computer
+Question: What was Fortran designed for ?
+Answer: Formula Translation
+
+Category: Computer
+Question: Which brothers built a home-made supercomputer to calculate the digits of Pi ?
+Answer: Chudnovsky
+
+Category: Computer
+Question: Who is the Linux operating system named after ?
+Answer: Linus Torvalds
+
+Category: Film
+Question: Who invented James Bond ?
+Answer: Ian Fleming
+
+Category: General Knowledge
+Question: From what is velvet made ?
+Answer: Silk
+
+Category: General Knowledge
+Question: How is the 15th March also known ?
+Answer: Ides of March
+
+Category: General Knowledge
+Question: How is the mathematically related structure of beads strung on parallel wires in a rectangular frame better known ?
+Answer: Abacus
+
+Category: General Knowledge
+Question: How many feet are in a nautical mile ?
+Answer: 6080
+
+Category: General Knowledge
+Question: How many herrings are in a Warp ?
+Answer: Four
+Regexp: (four|4)
+
+Category: General Knowledge
+Question: How many muscles are in a human ?
+Answer: 639
+
+Category: General Knowledge
+Question: How many seconds are in a day ?
+Answer: 86400
+
+Category: General Knowledge
+Question: How was "Abu Yusuf Ya'qub ibn Is-haq ubn as-Sabbah ibn 'omran ibn Ismail al-Kindi" better known  ?
+Answer: The #philosopher of the Arabs#
+
+Category: General Knowledge
+Question: In a period of 400 years how many times does the 1st of January fall on a Sunday ?
+Answer: 58
+
+Category: General Knowledge
+Question: In the Gregorian calendar after 10,000 years by how many days will the calendar be wrong by ?
+Answer: Three
+Regexp: (three|3)
+
+Category: General Knowledge
+Question: In the kama-sutra the art of which game is recommened for women to study ?
+Answer: chess
+
+Category: General Knowledge
+Question: In which field of science is the history of the universe studied ?
+Answer: Cosmology
+
+Category: General Knowledge
+Question: In which month is the Earth nearest the Sun ?
+Answer: January
+
+Category: General Knowledge
+Question: Nutagak, perksertok and pokaktok are Eskimo words for what ?
+Answer: Snow
+
+Category: General Knowledge
+Question: On a chemical what does a skull and cross-bone mean ?
+Answer: Toxic
+
+Category: General Knowledge
+Question: The Triassic, Jurrasic, and Cretaceous periods make up which era ?
+Answer: Mesozoic Era
+
+Category: General Knowledge
+Question: The name "Lego" comes from which Danish words ?
+Answer: leg godt
+
+Category: General Knowledge
+Question: The second Beale code was encoded using what ?
+Answer: The #American Declaration of Independence#
+
+Category: General Knowledge
+Question: The term Bicentennial represents how many years ?
+Answer: 200
+
+Category: General Knowledge
+Question: The term Centennial represents how many years ?
+Answer: 100
+
+Category: General Knowledge
+Question: The term Quadricentennial represents how many years ?
+Answer: 400
+
+Category: General Knowledge
+Question: The term Quartocentennial represents how many years ?
+Answer: 25
+
+Category: General Knowledge
+Question: The term Quincentennial represents how many years ?
+Answer: 500
+
+Category: General Knowledge
+Question: The term Semicentennial represents how many years ?
+Answer: 50
+
+Category: General Knowledge
+Question: The term Septiquinquennial represents how many years ?
+Answer: 75
+
+Category: General Knowledge
+Question: The term Sesquibicentennial represents how many years ?
+Answer: 250
+
+Category: General Knowledge
+Question: The term Sesquincentennial represents how many years ?
+Answer: 150
+
+Category: General Knowledge
+Question: The term Sesquiquadricentennial represents how many years ?
+Answer: 450
+
+Category: General Knowledge
+Question: The term Sesquitercentennial represents how many years ?
+Answer: 350
+
+Category: General Knowledge
+Question: The term Tercentennial represents how many years ?
+Answer: 300
+
+Category: General Knowledge
+Question: Thomas Young the Physicist and Egyptologist spoke how many language when he was 14 ?
+Answer: twelve
+
+Category: General Knowledge
+Question: What are Eastern, Central, Mountain, and Pacific ?
+Answer: American Time Zones
+
+Category: General Knowledge
+Question: What are Russian astronauts called ?
+Answer: Cosmonauts
+
+Category: General Knowledge
+Question: What are noctilucent, cirrus, and cirrostratus categories of ?
+Answer: Clouds
+
+Category: General Knowledge
+Question: What are the height and width of a horse measured in ?
+Answer: Hands
+Regexp: hands?
+
+Category: General Knowledge
+Question: What bird is associated with the Tower of London ?
+Answer: Raven
+
+Category: General Knowledge
+Question: What did AOL claim had been found, on April Fool's Day in 1996 ?
+Answer: Life on Jupiter
+
+Category: General Knowledge
+Question: What did the House of Saxe-Coburg-Gotha change it's name to ?
+Answer: House of Windsor
+
+Category: General Knowledge
+Question: What do the letters F.D. on British coins mean ?
+Answer: Defender of the Faith
+
+Category: General Knowledge
+Question: What does GDP stand for ?
+Answer: Gross Domestic Product
+
+Category: General Knowledge
+Question: What does GNP stand for ?
+Answer: Gross National Product
+
+Category: General Knowledge
+Question: What does NATO stand for ?
+Answer: North Atlantic Treaty Organization
+
+Category: General Knowledge
+Question: What does UNESCO stand for ?
+Answer: United Nation Educational, Scientific and Cultural Organization
+
+Category: General Knowledge
+Question: What does the Latin RIP stand for ?
+Answer: requiescat in pace
+
+Category: General Knowledge
+Question: What does the ancient Greek word "electron" mean ?
+Answer: Amber
+
+Category: General Knowledge
+Question: What does the latin "luna" mean ?
+Answer: Moon
+
+Category: General Knowledge
+Question: What does the latin 'carpe diem' mean ?
+Answer: Seize the day
+
+Category: General Knowledge
+Question: What does the word khaki mean ?
+Answer: Dusty
+
+Category: General Knowledge
+Question: What famous stone structure is located near Salisbury ?
+Answer: Stonehenge
+
+Category: General Knowledge
+Question: What is Harry Houdini famous for being ?
+Answer: Escapologist
+
+Category: General Knowledge
+Question: What is Interpol short for ?
+Answer: International Criminal Police Commission
+
+Category: General Knowledge
+Question: What is LCD an abbreviation of ?
+Answer: Liquid Crystal Display
+
+Category: General Knowledge
+Question: What is e.g. an abbreviation of ?
+Answer: exempli gratia
+
+Category: General Knowledge
+Question: What is it that walks on four feet in the morning, two feet at noon, and three feet in the evening ?
+Answer: Man
+
+Category: General Knowledge
+Question: What is known as the Lost Continent ?
+Answer: Atlantis
+
+Category: General Knowledge
+Question: What is the 30th longest river in the world ?
+Answer: The #Thames#
+
+Category: General Knowledge
+Question: What is the British equivalent of the US Navy rank Rear Admiral (lower half) ?
+Answer: Commodore
+
+Category: General Knowledge
+Question: What is the European equivalnet of a Nonillion ?
+Answer: Quintillion
+
+Category: General Knowledge
+Question: What is the Maths equivalent of the Nobel prize ?
+Answer: Fields Medal
+
+Category: General Knowledge
+Question: What is the full term for the abbreviation "zoo" ?
+Answer: Zoological garden
+
+Category: General Knowledge
+Question: What is the headquarter of the British Metropolitan Police Force ?
+Answer: Scotland Yard
+
+Category: General Knowledge
+Question: What is the lead in pencils made from ?
+Answer: Graphite
+
+Category: General Knowledge
+Question: What is the world's oldest newspaper(the name is swedish) ?
+Answer: Post och Inrikes Tidningar
+
+Category: General Knowledge
+Question: What is the world's oldest song ?
+Answer: Shadouf chant
+
+Category: General Knowledge
+Question: What is the world's oldest university ?
+Answer: Fez University
+
+Category: General Knowledge
+Question: What modern word comes from the Arab "hashishi" ?
+Answer: Assassin
+
+Category: General Knowledge
+Question: What name is given to a male witch ?
+Answer: Warlock
+
+Category: General Knowledge
+Question: What name is given to a settlement which is clustered around a central point ?
+Answer: Nucleated
+
+Category: General Knowledge
+Question: What name is given to farms which specialise in growing crops ?
+Answer: Arable
+
+Category: General Knowledge
+Question: What name is given to farms which specialise in rearing animals ?
+Answer: Pastoral
+
+Category: General Knowledge
+Question: What name is given to the abominable snowman ?
+Answer: Yeti
+
+Category: General Knowledge
+Question: What name is given to those days which have equal hours of daylight and darkness ?
+Answer: Equinox
+
+Category: General Knowledge
+Question: What was invented by Ludovic Zamenhof ?
+Answer: Esperanto
+
+Category: General Knowledge
+Question: What was the name of Aristotle's school ?
+Answer: Lyceum
+
+Category: General Knowledge
+Question: What was the name of the "fake" evolutionary missing link found in Sussex, England ?
+Answer: Piltdown Man
+
+Category: General Knowledge
+Question: Where did the Mafia originate ?
+Answer: Sicily
+
+Category: General Knowledge
+Question: Which American state is known as the Lone Star State ?
+Answer: Texas
+
+Category: General Knowledge
+Question: Which American state passed a bill declaring Pi to be 3 ?
+Answer: Indiana
+
+Category: General Knowledge
+Question: Which English book was written without using the letter 'E' once ?
+Answer: A Void
+
+Category: General Knowledge
+Question: Which French book was written without using the letter 'E' once ?
+Answer: La Disparition
+
+Category: General Knowledge
+Question: Which Japanese suicide technique translates to the English "belly cutting" ?
+Answer: Hara-kiri
+Regexp: hara[- ]?kiri
+
+Category: General Knowledge
+Question: Which famous piece of artwork depcits the Battle of Hastings ?
+Answer: Bayeux Tapestry
+
+Category: General Knowledge
+Question: Which gestalt entity produced the cult TV show Red Dwarf ?
+Answer: (Grant( &| and|,)? Naylor|Naylor( &|and|,) Grant)
+
+Category: General Knowledge
+Question: Which is the largest of the Egyptian Pyramids ?
+Answer: Pyramid of #Cheops#
+
+Category: General Knowledge
+Question: Which word is used to mean, malicious enjoyment at the misfortunes of others ?
+Answer: Schadenfreude
+
+Category: General Knowledge
+Question: Who appears on the 10,000 dollar (US) note?
+Answer: Salmon Chase
+Regexp: (salmon chase|chase)
+
+Category: General Knowledge
+Question: Who appears on the 100,000 dollar (US) note?
+Answer: Woodrow Wilson
+Regexp: (woodrow wilson|wilson)
+
+Category: General Knowledge
+Question: Who appears on the 5,000 dollar (US) note?
+Answer: James Madison
+Regexp: (james madison|madison)
+
+Category: General Knowledge
+Question: Who does the Mona Lisa depict ?
+Answer: Madonna Lisa Gherardini
+
+Category: General Knowledge
+Question: Who does the statue, the Colossus of Rhodes, depict ?
+Answer: Helios
+
+Category: General Knowledge
+Question: Who invented the toothbrush ?
+Answer: William Addis
+
+Category: General Knowledge
+Question: Who is known as the "Father of History" ?
+Answer: Herodotus
+
+Category: General Knowledge
+Question: Who is known as the "Father of Modern Economics" ?
+Answer: Adam Smith
+
+Category: General Knowledge
+Question: Who was America named after ?
+Answer: Amerigo Vespucci
+
+Category: General Knowledge
+Question: Who was responsible for the American style of spelling ?
+Answer: Noah #Webster#
+
+Category: General Knowledge
+Question: Who was the first woman to fly the Atlantic alone ?
+Answer: Amelia #Earhart#
+
+Category: General Knowledge
+Question: Whoose lasting testament was "Cubum autem in duos cubos, aut quadratoquadratum in duos quadratoquadratos, et generaliter nullam in infinitum ultra quadratum potestatem in duos ejusdem nominis fas est dividere: cujus rei demonstrationem mirabilem sane detexi. Hanc marginis exiguitas non caperet." ?
+Answer: Fermat
+
+Category: Geography
+Question: Burma was the former name of which country ?
+Answer: Myanmar
+
+Category: Geography
+Question: Denmark, Norway and Sweden combine to make what ?
+Answer: Scandinavia
+
+Category: Geography
+Question: How many countries have a population over 130 million ?
+Answer: #Seven# (Pakistan, Russia, Brazil, Indonesia, United States, India and China)
+
+Category: Geography
+Question: How many countries have an area less then 10 square miles ?
+Answer: #Four# (Vatican City, Monaco, Nauru and Tuvalu)
+
+Category: Geography
+Question: In which city is the Sistine Chapel ?
+Answer: Vatican City
+
+Category: Geography
+Question: In which continent would you find the Amazon river ?
+Answer: South America
+
+Category: Geography
+Question: In which continent would you find the Amur river ?
+Answer: Asia
+
+Category: Geography
+Question: In which continent would you find the Congo river ?
+Answer: Africa
+
+Category: Geography
+Question: In which continent would you find the Lena river ?
+Answer: Asia
+
+Category: Geography
+Question: In which continent would you find the Mackenzie river ?
+Answer: North America
+
+Category: Geography
+Question: In which continent would you find the Mekong river ?
+Answer: Asia
+
+Category: Geography
+Question: In which continent would you find the Mississippi river ?
+Answer: North America
+
+Category: Geography
+Question: In which continent would you find the Niger river ?
+Answer: Africa
+
+Category: Geography
+Question: In which continent would you find the Nile river ?
+Answer: Africa
+
+Category: Geography
+Question: In which continent would you find the Ob river ?
+Answer: Asia
+
+Category: Geography
+Question: In which continent would you find the Volga river ?
+Answer: Europe
+
+Category: Geography
+Question: In which continent would you find the Yangtze river ?
+Answer: Asia
+
+Category: Geography
+Question: In which continent would you find the Yellow river ?
+Answer: Asia
+
+Category: Geography
+Question: In which continent would you find the Yenisey river ?
+Answer: Asia
+
+Category: Geography
+Question: In which country was natural gas first discovered ?
+Answer: Greece
+
+Category: Geography
+Question: In which country was the first Zoo ?
+Answer: China
+
+Question: How was William Pitt the Elder's son known ?
+Answer: William Pitt the Younger
+
+Category: Geography
+Question: In which country would you find Ayers Rock ?
+Answer: Australia
+
+Category: Geography
+Question: In which country would you find Dunkirk ?
+Answer: France
+
+Category: Geography
+Question: In which state are the Everglades ?
+Answer: Florida
+
+Category: Geography
+Question: On which river was Rome built ?
+Answer: Tiber
+
+Category: Geography
+Question: What is known as the graveyard of the Atlantic ?
+Answer: Sable Island
+
+Category: Geography
+Question: What is the basic unit of currency for Afghanistan ?
+Answer: afghani
+
+Category: Geography
+Question: What is the basic unit of currency for Albania ?
+Answer: lek
+
+Category: Geography
+Question: What is the basic unit of currency for Algeria ?
+Answer: dinar
+
+Category: Geography
+Question: What is the basic unit of currency for Andorra ?
+Answer: peseta
+
+Category: Geography
+Question: What is the basic unit of currency for Angola ?
+Answer: kwanza
+
+Category: Geography
+Question: What is the basic unit of currency for Antigua and Barbuda ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Argentina ?
+Answer: peso
+
+Category: Geography
+Question: What is the basic unit of currency for Armenia ?
+Answer: dram
+
+Category: Geography
+Question: What is the basic unit of currency for Australia ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Austria ?
+Answer: schilling
+
+Category: Geography
+Question: What is the basic unit of currency for Azerbaijan ?
+Answer: manat
+
+Category: Geography
+Question: What is the basic unit of currency for Bahamas ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Bahrain ?
+Answer: dinar
+
+Category: Geography
+Question: What is the basic unit of currency for Bangladesh ?
+Answer: taka
+
+Category: Geography
+Question: What is the basic unit of currency for Barbados ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Belarus ?
+Answer: rubel
+
+Category: Geography
+Question: What is the basic unit of currency for Belgium ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Belize ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Benin ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Bhutan ?
+Answer: ngultrum
+
+Category: Geography
+Question: What is the basic unit of currency for Bolivia ?
+Answer: boliviano
+
+Category: Geography
+Question: What is the basic unit of currency for Bosnia and Herzegovina ?
+Answer: marka
+
+Category: Geography
+Question: What is the basic unit of currency for Botswana ?
+Answer: pula
+
+Category: Geography
+Question: What is the basic unit of currency for Brazil ?
+Answer: real
+
+Category: Geography
+Question: What is the basic unit of currency for Brunei ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Bulgaria ?
+Answer: lev
+
+Category: Geography
+Question: What is the basic unit of currency for Burkina Faso ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Burundi ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Cambodia ?
+Answer: riel
+
+Category: Geography
+Question: What is the basic unit of currency for Cameroon ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Canada ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Cape Verde ?
+Answer: escudo
+
+Category: Geography
+Question: What is the basic unit of currency for Central African Republic ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Chad ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Chile ?
+Answer: peso
+
+Category: Geography
+Question: What is the basic unit of currency for China ?
+Answer: yuan
+
+Category: Geography
+Question: What is the basic unit of currency for Colombia ?
+Answer: peso
+
+Category: Geography
+Question: What is the basic unit of currency for Comoros ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Costa Rica ?
+Answer: colon
+
+Category: Geography
+Question: What is the basic unit of currency for Croatia ?
+Answer: kuna
+
+Category: Geography
+Question: What is the basic unit of currency for Cuba ?
+Answer: peso
+
+Category: Geography
+Question: What is the basic unit of currency for Cyprus ?
+Answer: pound
+
+Category: Geography
+Question: What is the basic unit of currency for Czech Republic ?
+Answer: koruna
+
+Category: Geography
+Question: What is the basic unit of currency for Denmark ?
+Answer: krone
+
+Category: Geography
+Question: What is the basic unit of currency for Djibouti ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Dominica ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Dominican Republic ?
+Answer: peso
+
+Category: Geography
+Question: What is the basic unit of currency for Ecuador ?
+Answer: sucre
+
+Category: Geography
+Question: What is the basic unit of currency for Egypt ?
+Answer: pound
+
+Category: Geography
+Question: What is the basic unit of currency for El Salvador ?
+Answer: colon
+
+Category: Geography
+Question: What is the basic unit of currency for Equatorial Guinea ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Eritrea ?
+Answer: nakfa
+
+Category: Geography
+Question: What is the basic unit of currency for Estonia ?
+Answer: kroon
+
+Category: Geography
+Question: What is the basic unit of currency for Ethiopia ?
+Answer: birr
+
+Category: Geography
+Question: What is the basic unit of currency for Fiji ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Finland ?
+Answer: markka
+
+Category: Geography
+Question: What is the basic unit of currency for France ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Gabon ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Gambia ?
+Answer: dalasi
+
+Category: Geography
+Question: What is the basic unit of currency for Georgia (country)?
+Answer: lari
+
+Category: Geography
+Question: What is the basic unit of currency for Germany ?
+Answer: deutsche mark
+
+Category: Geography
+Question: What is the basic unit of currency for Ghana ?
+Answer: cedi
+
+Category: Geography
+Question: What is the basic unit of currency for Greece ?
+Answer: drachma
+
+Category: Geography
+Question: What is the basic unit of currency for Grenada ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Guatemala ?
+Answer: quetzal
+
+Category: Geography
+Question: What is the basic unit of currency for Guinea ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Guinea-Bissau ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Guyana ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Haiti ?
+Answer: gourde
+
+Category: Geography
+Question: What is the basic unit of currency for Honduras ?
+Answer: lempira
+
+Category: Geography
+Question: What is the basic unit of currency for Hong Kong ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Hungary ?
+Answer: forint
+
+Category: Geography
+Question: What is the basic unit of currency for Iceland ?
+Answer: krona
+
+Category: Geography
+Question: What is the basic unit of currency for India ?
+Answer: rupee
+
+Category: Geography
+Question: What is the basic unit of currency for Indonesia ?
+Answer: rupiah
+
+Category: Geography
+Question: What is the basic unit of currency for Iran ?
+Answer: rial
+
+Category: Geography
+Question: What is the basic unit of currency for Iraq ?
+Answer: dinar
+
+Category: Geography
+Question: What is the basic unit of currency for Ireland ?
+Answer: pound
+
+Category: Geography
+Question: What is the basic unit of currency for Israel ?
+Answer: sheqel
+
+Category: Geography
+Question: What is the basic unit of currency for Italy ?
+Answer: lira
+
+Category: Geography
+Question: What is the basic unit of currency for Ivory Coast ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Jamaica ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Japan ?
+Answer: yen
+
+Category: Geography
+Question: What is the basic unit of currency for Jordan ?
+Answer: dinar
+
+Category: Geography
+Question: What is the basic unit of currency for Kazakhstan ?
+Answer: tenge
+
+Category: Geography
+Question: What is the basic unit of currency for Kenya ?
+Answer: shilling
+
+Category: Geography
+Question: What is the basic unit of currency for Kiribati ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Kuwait ?
+Answer: dinar
+
+Category: Geography
+Question: What is the basic unit of currency for Kyrgyzstan ?
+Answer: som
+
+Category: Geography
+Question: What is the basic unit of currency for Laos ?
+Answer: kip
+
+Category: Geography
+Question: What is the basic unit of currency for Latvia ?
+Answer: lats
+
+Category: Geography
+Question: What is the basic unit of currency for Lebanon ?
+Answer: livre
+
+Category: Geography
+Question: What is the basic unit of currency for Lesotho ?
+Answer: loti
+
+Category: Geography
+Question: What is the basic unit of currency for Liberia ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Libya ?
+Answer: dinar
+
+Category: Geography
+Question: What is the basic unit of currency for Liechtenstein ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Lithuania ?
+Answer: litas
+
+Category: Geography
+Question: What is the basic unit of currency for Luxembourg ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Macao ?
+Answer: pataca
+
+Category: Geography
+Question: What is the basic unit of currency for Macedonia ?
+Answer: denar
+
+Category: Geography
+Question: What is the basic unit of currency for Madagascar ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Malawi ?
+Answer: kwacha
+
+Category: Geography
+Question: What is the basic unit of currency for Malaysia ?
+Answer: ringgit
+
+Category: Geography
+Question: What is the basic unit of currency for Maldives ?
+Answer: rufiyaa
+
+Category: Geography
+Question: What is the basic unit of currency for Mali ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Malta ?
+Answer: lira
+
+Category: Geography
+Question: What is the basic unit of currency for Marshall Islands ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Mauritania ?
+Answer: ouguiya
+
+Category: Geography
+Question: What is the basic unit of currency for Mauritius ?
+Answer: rupee
+
+Category: Geography
+Question: What is the basic unit of currency for Mexico ?
+Answer: peso
+
+Category: Geography
+Question: What is the basic unit of currency for Micronesia ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Moldova ?
+Answer: leu
+
+Category: Geography
+Question: What is the basic unit of currency for Monaco ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Mongolia ?
+Answer: tugrik
+
+Category: Geography
+Question: What is the basic unit of currency for Morocco ?
+Answer: dirham
+
+Category: Geography
+Question: What is the basic unit of currency for Mozambique ?
+Answer: metical
+
+Category: Geography
+Question: What is the basic unit of currency for Myanmar ?
+Answer: kyat
+
+Category: Geography
+Question: What is the basic unit of currency for Namibia ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Nauru ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Nepal ?
+Answer: rupee
+
+Category: Geography
+Question: What is the basic unit of currency for Netherlands ?
+Answer: guilder
+
+Category: Geography
+Question: What is the basic unit of currency for New Zealand ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Nicaragua ?
+Answer: cordoba
+
+Category: Geography
+Question: What is the basic unit of currency for Niger ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Nigeria ?
+Answer: naira
+
+Category: Geography
+Question: What is the basic unit of currency for North Korea ?
+Answer: won
+
+Category: Geography
+Question: What is the basic unit of currency for Norway ?
+Answer: krone
+
+Category: Geography
+Question: What is the basic unit of currency for Oman ?
+Answer: rial
+
+Category: Geography
+Question: What is the basic unit of currency for Pakistan ?
+Answer: rupee
+
+Category: Geography
+Question: What is the basic unit of currency for Palau ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Panama ?
+Answer: balboa
+
+Category: Geography
+Question: What is the basic unit of currency for Papua New Guinea ?
+Answer: kina
+
+Category: Geography
+Question: What is the basic unit of currency for Paraguay ?
+Answer: guarani
+
+Category: Geography
+Question: What is the basic unit of currency for Peru ?
+Answer: sol
+
+Category: Geography
+Question: What is the basic unit of currency for Philippines ?
+Answer: peso
+
+Category: Geography
+Question: What is the basic unit of currency for Poland ?
+Answer: zloty
+
+Category: Geography
+Question: What is the basic unit of currency for Portugal ?
+Answer: escudo
+
+Category: Geography
+Question: What is the basic unit of currency for Qatar ?
+Answer: riyal
+
+Category: Geography
+Question: What is the basic unit of currency for Romania ?
+Answer: leu
+
+Category: Geography
+Question: What is the basic unit of currency for Russia ?
+Answer: rouble
+
+Category: Geography
+Question: What is the basic unit of currency for Rwanda ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Saint Kitts and Nevis ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Saint Lucia ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Saint Vincent and the Grenadines ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Samoa ?
+Answer: tala
+
+Category: Geography
+Question: What is the basic unit of currency for San Marino ?
+Answer: lira
+
+Category: Geography
+Question: What is the basic unit of currency for Saudi Arabia ?
+Answer: riyal
+
+Category: Geography
+Question: What is the basic unit of currency for Senegal ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Seychelles ?
+Answer: rupee
+
+Category: Geography
+Question: What is the basic unit of currency for Sierra Leone ?
+Answer: leone
+
+Category: Geography
+Question: What is the basic unit of currency for Singapore ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Slovakia ?
+Answer: koruna
+
+Category: Geography
+Question: What is the basic unit of currency for Slovenia ?
+Answer: tolar
+
+Category: Geography
+Question: What is the basic unit of currency for Solomon Islands ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Somalia ?
+Answer: shilling
+
+Category: Geography
+Question: What is the basic unit of currency for South Africa ?
+Answer: rand
+
+Category: Geography
+Question: What is the basic unit of currency for South Korea ?
+Answer: won
+
+Category: Geography
+Question: What is the basic unit of currency for Spain ?
+Answer: peseta
+
+Category: Geography
+Question: What is the basic unit of currency for Sri Lanka ?
+Answer: rupee
+
+Category: Geography
+Question: What is the basic unit of currency for Sudan ?
+Answer: dinar
+
+Category: Geography
+Question: What is the basic unit of currency for Suriname ?
+Answer: guilder
+
+Category: Geography
+Question: What is the basic unit of currency for Swaziland ?
+Answer: lilangeni
+
+Category: Geography
+Question: What is the basic unit of currency for Sweden ?
+Answer: krona
+
+Category: Geography
+Question: What is the basic unit of currency for Switzerland ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Syria ?
+Answer: pound
+
+Category: Geography
+Question: What is the basic unit of currency for Taiwan ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Tajikistan ?
+Answer: rouble
+Regexp: (ruble|rouble)
+
+Category: Geography
+Question: What is the basic unit of currency for Tanzania ?
+Answer: shilling
+
+Category: Geography
+Question: What is the basic unit of currency for Thailand ?
+Answer: baht
+
+Category: Geography
+Question: What is the basic unit of currency for Togo ?
+Answer: franc
+
+Category: Geography
+Question: What is the basic unit of currency for Tonga ?
+Answer: pa'anga
+
+Category: Geography
+Question: What is the basic unit of currency for Trinidad and Tobago ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Tunisia ?
+Answer: dinar
+
+Category: Geography
+Question: What is the basic unit of currency for Turkey ?
+Answer: lira
+
+Category: Geography
+Question: What is the basic unit of currency for Turkmenistan ?
+Answer: manat
+
+Category: Geography
+Question: What is the basic unit of currency for Tuvalu ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Uganda ?
+Answer: shilling
+
+Category: Geography
+Question: What is the basic unit of currency for Ukraine ?
+Answer: hryvnia
+Regexp: (hryvnia|grivna)
+
+Category: Geography
+Question: What is the basic unit of currency for United Arab Emirates ?
+Answer: dirham
+
+Category: Geography
+Question: What is the basic unit of currency for United Kingdom ?
+Answer: pound
+
+Category: Geography
+Question: What is the basic unit of currency for United States ?
+Answer: dollar
+
+Category: Geography
+Question: What is the basic unit of currency for Uruguay ?
+Answer: peso
+
+Category: Geography
+Question: What is the basic unit of currency for Uzbekistan ?
+Answer: sum
+
+Category: Geography
+Question: What is the basic unit of currency for Vanuatu ?
+Answer: vatu
+
+Category: Geography
+Question: What is the basic unit of currency for Vatican City ?
+Answer: lira
+
+Category: Geography
+Question: What is the basic unit of currency for Venezuela ?
+Answer: bolivar
+
+Category: Geography
+Question: What is the basic unit of currency for Vietnam ?
+Answer: dong
+
+Category: Geography
+Question: What is the basic unit of currency for Yemen ?
+Answer: rial
+
+Category: Geography
+Question: What is the basic unit of currency for Yugoslavia ?
+Answer: dinar
+
+Category: Geography
+Question: What is the basic unit of currency for Zambia ?
+Answer: kwacha
+
+Question: In Dr Who, what was Tardis an abbreviation of ?
+Answer: Time and relative dimensions in space
+
+Category: Geography
+Question: What is the basic unit of currency for Zimbabwe ?
+Answer: dollar
+
+Category: Geography
+Question: What is the capital of Afghanistan ?
+Answer: Kabul
+
+Category: Geography
+Question: What is the capital of Algeria ?
+Answer: Algiers
+
+Category: Geography
+Question: What is the capital of Andorra ?
+Answer: Andorra la Vella
+Regexp: (andorra la vella|andorre la vieille|andorra la vieja)
+
+Category: Geography
+Question: What is the capital of Angola ?
+Answer: Luanda
+
+Category: Geography
+Question: What is the capital of Antigua and Barbuda ?
+Answer: Saint John's
+Regexp: (saint|st|st\.) ?john's
+
+Category: Geography
+Question: What is the capital of Armenia ?
+Answer: Yerevan
+Regexp: (yerevan|erivan)
+
+Category: Geography
+Question: What is the capital of Australia ?
+Answer: Canberra
+
+Category: Geography
+Question: What is the capital of Austria ?
+Answer: Vienna
+
+Category: Geography
+Question: What is the capital of Azerbaijan ?
+Answer: Baku
+
+Category: Geography
+Question: What is the capital of Bahrain ?
+Answer: Manama
+
+Category: Geography
+Question: What is the capital of Barbados ?
+Answer: Bridgetown
+
+Category: Geography
+Question: What is the capital of Belarus ?
+Answer: Minsk
+
+Category: Geography
+Question: What is the capital of Belgium ?
+Answer: Brussels
+Regexp: (brussels|brussel|bruxelles)
+
+Category: Geography
+Question: What is the capital of Belize ?
+Answer: Belmopan
+
+Category: Geography
+Question: What is the capital of Bhutan ?
+Answer: Thimphu
+
+Category: Geography
+Question: What is the capital of Bolivia ?
+Answer: La Paz
+Regexp: (la paz|sucre)
+Comment: The constitutional capital is Sucre; the administrative capital and seat of government is La Paz.
+
+Category: Geography
+Question: What is the capital of Bosnia and Hercegovina ?
+Answer: Sarajevo
+
+Category: Geography
+Question: What is the capital of Botswana ?
+Answer: Gaborone
+
+Category: Geography
+Question: What is the capital of Brunei ?
+Answer: Bandar Seri Begawan
+
+Category: Geography
+Question: What is the capital of Bulgaria ?
+Answer: Sofia
+
+Category: Geography
+Question: What is the capital of Burkina Faso ?
+Answer: Ouagadougou
+
+Category: Geography
+Question: What is the capital of Burundi ?
+Answer: Bujumbura
+
+Category: Geography
+Question: What is the capital of Cambodia ?
+Answer: Phnom Penh
+
+Category: Geography
+Question: What is the capital of Canada ?
+Answer: Ottawa
+
+Category: Geography
+Question: What is the capital of Cape Verde ?
+Answer: Praia
+
+Category: Geography
+Question: What is the capital of Central African Republic ?
+Answer: Bangui
+
+Category: Geography
+Question: What is the capital of Chad ?
+Answer: N'Djamena
+
+Category: Geography
+Question: What is the capital of China ?
+Answer: Beijing
+
+Category: Geography
+Question: What is the capital of Comoros ?
+Answer: Moroni
+
+Category: Geography
+Question: What is the capital of Congo ?
+Answer: Brazzaville
+
+Category: Geography
+Question: What is the capital of Croatia ?
+Answer: Zagreb
+
+Category: Geography
+Question: What is the capital of Cuba ?
+Answer: Havana
+
+Category: Geography
+Question: What is the capital of Cyprus ?
+Answer: Nicosia
+
+Category: Geography
+Question: What is the capital of Czech Republic ?
+Answer: Prague
+
+Category: Geography
+Question: What is the capital of Democratic Republic of the Congo ?
+Answer: Kinshasa
+
+Category: Geography
+Question: What is the capital of Denmark ?
+Answer: Copenhagen
+
+Category: Geography
+Question: What is the capital of Djibouti ?
+Answer: Djibouti
+
+Category: Geography
+Question: What is the capital of Dominica ?
+Answer: Roseau
+
+Category: Geography
+Question: What is the capital of Dominican Republic ?
+Answer: Santo Domingo
+
+Category: Geography
+Question: What is the capital of Ecuador ?
+Answer: Quito
+
+Category: Geography
+Question: What is the capital of Egypt ?
+Answer: Cairo
+
+Category: Geography
+Question: What is the capital of El Salvador ?
+Answer: San Salvador
+
+Category: Geography
+Question: What is the capital of Equatorial Guinea ?
+Answer: Malabo
+
+Category: Geography
+Question: What is the capital of Eritrea ?
+Answer: Asmara
+
+Category: Geography
+Question: What is the capital of Estonia ?
+Answer: Tallinn
+
+Category: Geography
+Question: What is the capital of Ethiopia ?
+Answer: Addis Ababa
+
+Category: Geography
+Question: What is the capital of Fiji ?
+Answer: Suva
+
+Category: Geography
+Question: What is the capital of Finland ?
+Answer: Helsinki
+
+Category: Geography
+Question: What is the capital of France ?
+Answer: Paris
+
+Category: Geography
+Question: What is the capital of Gabon ?
+Answer: Libreville
+
+Category: Geography
+Question: What is the capital of Gambia ?
+Answer: Banjul
+
+Category: Geography
+Question: What is the capital of Germany ?
+Answer: Berlin
+
+Category: Geography
+Question: What is the capital of Ghana ?
+Answer: Accra
+
+Category: Geography
+Question: What is the capital of Greece ?
+Answer: Athens
+
+Category: Geography
+Question: What is the capital of Grenada ?
+Answer: Saint George's
+Regexp: (saint|st|st\.) ?george's
+
+Category: Geography
+Question: What is the capital of Guatemala ?
+Answer: Guatemala
+
+Category: Geography
+Question: What is the capital of Guinea ?
+Answer: Conakry
+
+Category: Geography
+Question: What is the capital of Guinea-Bissau ?
+Answer: Bissau
+
+Category: Geography
+Question: What is the capital of Guyana ?
+Answer: Georgetown
+
+Category: Geography
+Question: What is the capital of Haiti ?
+Answer: Port-au-Prince
+
+Category: Geography
+Question: What is the capital of Honduras ?
+Answer: Tegucigalpa
+
+Category: Geography
+Question: What is the capital of Hungary ?
+Answer: Budapest
+
+Category: Geography
+Question: What is the capital of Iran ?
+Answer: Tehran
+Regexp: tehe?ran
+
+Category: Geography
+Question: What is the capital of Iraq ?
+Answer: Baghdad
+
+Category: Geography
+Question: What is the capital of Ireland ?
+Answer: Dublin
+
+Category: Geography
+Question: What is the capital of Israel ?
+Answer: Jerusalem
+
+Category: Geography
+Question: What is the capital of Jamaica ?
+Answer: Kingston
+
+Category: Geography
+Question: What is the capital of Japan ?
+Answer: Tokyo
+
+Category: Geography
+Question: What is the capital of Jordan ?
+Answer: Amman
+
+Category: Geography
+Question: What is the capital of Kazakhstan ?
+Answer: Astana
+
+Category: Geography
+Question: What is the capital of Kenya ?
+Answer: Nairobi
+
+Category: Geography
+Question: What is the capital of Kiribati ?
+Answer: Bairiki
+
+Category: Geography
+Question: What is the capital of Kuwait ?
+Answer: Kuwait City
+
+Category: Geography
+Question: What is the capital of Kyrgyzstan ?
+Answer: Bishkek
+
+Category: Geography
+Question: What is the capital of Laos ?
+Answer: Vientiane
+
+Category: Geography
+Question: What is the capital of Latvia ?
+Answer: Riga
+
+Category: Geography
+Question: What is the capital of Lebanon ?
+Answer: Beirut
+
+Category: Geography
+Question: What is the capital of Lesotho ?
+Answer: Maseru
+
+Category: Geography
+Question: What is the capital of Liberia ?
+Answer: Monrovia
+
+Category: Geography
+Question: What is the capital of Libya ?
+Answer: Tripoli
+
+Category: Geography
+Question: What is the capital of Liechtenstein ?
+Answer: Vaduz
+
+Category: Geography
+Question: What is the capital of Lithuania ?
+Answer: Vilnius
+
+Category: Geography
+Question: What is the capital of Luxembourg ?
+Answer: Luxembourg
+
+Category: Geography
+Question: What is the capital of Macedonia ?
+Answer: Skopje
+
+Category: Geography
+Question: What is the capital of Madagascar ?
+Answer: Antananarivo
+
+Category: Geography
+Question: What is the capital of Malawi ?
+Answer: Lilongwe
+
+Category: Geography
+Question: What is the capital of Malaysia ?
+Answer: Kuala Lumpur
+
+Category: Geography
+Question: What is the capital of Maldives ?
+Answer: Male
+
+Category: Geography
+Question: What is the capital of Mali ?
+Answer: Bamako
+
+Category: Geography
+Question: What is the capital of Malta ?
+Answer: Valletta
+
+Category: Geography
+Question: What is the capital of Marshall Islands ?
+Answer: Dalap-Uliga-Davrit
+Regexp: dalap[- ]uliga[- ]davrit
+
+Category: Geography
+Question: What is the capital of Mauritania ?
+Answer: Nouakchott
+
+Category: Geography
+Question: What is the capital of Mauritius ?
+Answer: Port Louis
+
+Category: Geography
+Question: What is the capital of Mexico ?
+Answer: Mexico City
+
+Category: Geography
+Question: What is the capital of Micronesia ?
+Answer: Palikir
+
+Category: Geography
+Question: What is the capital of Moldova ?
+Answer: Chisinau
+Regexp: (chisinau|kishinev)
+
+Category: Geography
+Question: What is the capital of Monaco ?
+Answer: Monaco
+
+Category: Geography
+Question: What is the capital of Mongolia ?
+Answer: Ulaanbaatar
+Regexp: (ulaanbaatar|ulan bator)
+
+Category: Geography
+Question: What is the capital of Morocco ?
+Answer: Rabat
+
+Category: Geography
+Question: What is the capital of Mozambique ?
+Answer: Maputo
+
+Category: Geography
+Question: What is the capital of Namibia ?
+Answer: Windhoek
+
+Category: Geography
+Question: What is the capital of Nauru ?
+Answer: The district of #Yaren#
+
+Category: Geography
+Question: What is the capital of Nepal ?
+Answer: Kathmandu
+Regexp: kath?mandu
+
+Category: Geography
+Question: What is the capital of Nicaragua ?
+Answer: Managua
+
+Category: Geography
+Question: What is the capital of Niger ?
+Answer: Niamey
+
+Category: Geography
+Question: What is the capital of Nigeria ?
+Answer: Abuja
+
+Category: Geography
+Question: What is the capital of North Korea ?
+Answer: Pyongyang
+
+Category: Geography
+Question: What is the capital of Norway ?
+Answer: Oslo
+
+Category: Geography
+Question: What is the capital of Oman ?
+Answer: Muscat
+
+Category: Geography
+Question: What is the capital of Pakistan ?
+Answer: Islamabad
+
+Category: Geography
+Question: What is the capital of Panama ?
+Answer: Panama City
+
+Category: Geography
+Question: What is the capital of Papua New Guinea ?
+Answer: Port Moresby
+
+Category: Geography
+Question: What is the capital of Peru ?
+Answer: Lima
+
+Category: Geography
+Question: What is the capital of Philippines ?
+Answer: Manila
+
+Category: Geography
+Question: What is the capital of Poland ?
+Answer: Warsaw
+
+Category: Geography
+Question: What is the capital of Portugal ?
+Answer: Lisbon
+
+Category: Geography
+Question: What is the capital of Qatar ?
+Answer: Doha
+
+Category: Geography
+Question: What is the capital of Romania ?
+Answer: Bucharest
+
+Category: Geography
+Question: What is the capital of Russia ?
+Answer: Moscow
+
+Category: Geography
+Question: What is the capital of Rwanda ?
+Answer: Kigali
+
+Category: Geography
+Question: What is the capital of Saint Kitts and Nevis ?
+Answer: Basseterre
+
+Category: Geography
+Question: What is the capital of Saint Lucia ?
+Answer: Castries
+
+Category: Geography
+Question: What is the capital of Saint Vincent ?
+Answer: Kingstown
+
+Category: Geography
+Question: What is the capital of Samoa ?
+Answer: Apia
+
+Category: Geography
+Question: What is the capital of San Marino ?
+Answer: San Marino
+
+Category: Geography
+Question: What is the capital of Saudi Arabia ?
+Answer: Riyadh
+
+Category: Geography
+Question: What is the capital of Senegal ?
+Answer: Dakar
+
+Category: Geography
+Question: What is the capital of Seychelles ?
+Answer: Victoria
+
+Category: Geography
+Question: What is the capital of Sierra Leone ?
+Answer: Freetown
+
+Category: Geography
+Question: What is the capital of Singapore ?
+Answer: Singapore
+
+Category: Geography
+Question: What is the capital of Slovakia ?
+Answer: Bratislava
+
+Category: Geography
+Question: What is the capital of Slovenia ?
+Answer: Ljubljana
+
+Category: Geography
+Question: What is the capital of Solomon Islands ?
+Answer: Honiara
+
+Category: Geography
+Question: What is the capital of Somalia ?
+Answer: Mogadishu
+
+Category: Geography
+Question: What is the capital of South Korea ?
+Answer: Seoul
+
+Category: Geography
+Question: What is the capital of Spain ?
+Answer: Madrid
+
+Category: Geography
+Question: What is the capital of Sudan ?
+Answer: Khartoum
+
+Category: Geography
+Question: What is the capital of Suriname ?
+Answer: Paramaribo
+
+Category: Geography
+Question: What is the capital of Swaziland ?
+Answer: Mbabane
+
+Category: Geography
+Question: What is the capital of Sweden ?
+Answer: Stockholm
+
+Category: Geography
+Question: What is the capital of Switzerland ?
+Answer: Bern
+
+Category: Geography
+Question: What is the capital of Syria ?
+Answer: Damascus
+
+Category: Geography
+Question: What is the capital of Taiwan ?
+Answer: Taipei
+Regexp: (t'aipei|taipei)
+
+Category: Geography
+Question: What is the capital of Tajikistan ?
+Answer: Dushanbe
+
+Category: Geography
+Question: What is the capital of Thailand ?
+Answer: Bangkok
+
+Category: Geography
+Question: What is the capital of The Bahamas ?
+Answer: Nassau
+
+Category: Geography
+Question: What is the capital of The Netherlands ?
+Answer: Amsterdam
+
+Category: Geography
+Question: What is the capital of Tonga ?
+Answer: Nuku'alofa
+
+Category: Geography
+Question: What is the capital of Trinidad and Tobago ?
+Answer: Port-of-Spain
+
+Category: Geography
+Question: What is the capital of Tunisia ?
+Answer: Tunis
+
+Category: Geography
+Question: What is the capital of Turkey ?
+Answer: Ankara
+
+Category: Geography
+Question: What is the capital of Turkmenistan ?
+Answer: Ashgabat
+
+Category: Geography
+Question: What is the capital of Tuvalu ?
+Answer: #Fongafale# (Funafuti atoll is the location of the capital Fongafale! So pls don't complain about the correction ;-))
+
+Category: Geography
+Question: What is the capital of Uganda ?
+Answer: Kampala
+
+Category: Geography
+Question: What is the capital of Ukraine ?
+Answer: Kiev
+
+Category: Geography
+Question: What is the capital of United Kingdom ?
+Answer: London
+
+Category: Geography
+Question: What is the capital of United States ?
+Answer: Washington
+
+Category: Geography
+Question: What is the capital of Uruguay ?
+Answer: Montevideo
+
+Category: Geography
+Question: What is the capital of Uzbekistan ?
+Answer: Tashkent
+
+Category: Geography
+Question: What is the capital of Vanuatu ?
+Answer: Port-Vila
+Regexp: (port[- ]vila|vila)
+
+Category: Geography
+Question: What is the capital of Vatican City ?
+Answer: Vatican City
+
+Category: Geography
+Question: What is the capital of Venezuela ?
+Answer: Caracas
+
+Category: Geography
+Question: What is the capital of Vietnam ?
+Answer: Hanoi
+
+Category: Geography
+Question: What is the capital of Yugoslavia ?
+Answer: Belgrade
+
+Category: Geography
+Question: What is the capital of Zambia ?
+Answer: Lusaka
+
+Category: Geography
+Question: What is the capital of the country Georgia ?
+Answer: Tbilisi
+
+Category: Geography
+Question: What is the name for the deepest part of the ocean ?
+Answer: Abyss
+
+Category: Geography
+Question: What is the world's deepest lake ?
+Answer: Lake Baikal
+
+Category: Geography
+Question: What is the world's highest mountain ?
+Answer: Mount #Everest#
+
+Category: Geography
+Question: What is the world's second highest mountain ?
+Answer: K2
+
+Category: Geography
+Question: What tunnel connects France and Italy ?
+Answer: Mont Blanc Tunnel
+Regexp: (mont[- ]blanc tunnel|mont[- ]blanc)
+
+Category: Geography
+Question: Where are the great Walls of Babylon located in the modern day world ?
+Answer: Iraq
+
+Category: Geography
+Question: Where is most of America's gold located ?
+Answer: Fort Knox
+
+Category: Geography
+Question: Which city has the highest population ?
+Answer: Mexico City
+
+Category: Geography
+Question: Which country altered it's timezone in order to be the first to see in the year 2000 ?
+Answer: Tonga
+
+Category: Geography
+Question: Which country has a flag of a red circle on a white background ?
+Answer: Japan
+
+Category: Geography
+Question: Which country has the fourth largest population ?
+Answer: Indonesia
+
+Category: Geography
+Question: Which country is also known as Suomi ?
+Answer: Finland
+
+Category: Geography
+Question: Which country is the smallest population ?
+Answer: Vatican City
+
+Category: Geography
+Question: Which country's ships fly under the Union Jack ?
+Answer: Great Britain
+Regexp: (britain|england)
+
+Category: Geography
+Question: Which element makes up 2.5% of the Earth's crust ?
+Answer: Potassium
+
+Category: Geography
+Question: Which element makes up 2.6% of the Earth's crust ?
+Answer: Magnesium
+
+Category: Geography
+Question: Which element makes up 2.83% of the Earth's crust ?
+Answer: Sodium
+
+Category: Geography
+Question: Which element makes up 27.72% of the Earth's crust ?
+Answer: Silicon
+
+Category: Geography
+Question: Which element makes up 3.63% of the Earth's crust ?
+Answer: Calcium
+
+Category: Geography
+Question: Which element makes up 46.6% of the Earth's crust ?
+Answer: Oxygen
+
+Category: Geography
+Question: Which element makes up 5% of the Earth's crust ?
+Answer: Iron
+
+Category: Geography
+Question: Which element makes up 8.13% of the Earth's crust ?
+Answer: Aluminium
+
+Category: Geography
+Question: Which is the Earth's fifth largest continent ?
+Answer: Antarctica
+
+Category: Geography
+Question: Which is the Earth's fourth largest continent ?
+Answer: South America
+
+Category: Geography
+Question: Which is the Earth's largest continent ?
+Answer: Asia
+
+Category: Geography
+Question: Which is the Earth's second largest continent ?
+Answer: Africa
+
+Category: Geography
+Question: Which is the Earth's second smallest continent ?
+Answer: Europe
+
+Category: Geography
+Question: Which is the Earth's smallest continent ?
+Answer: Australia
+
+Category: Geography
+Question: Which is the Earth's third largest continent ?
+Answer: North America
+
+Category: Geography
+Question: Which island was born near Iceland in 1963 ?
+Answer: Surtsey
+
+Category: Geography
+Question: Which mountains are regarded as the east border of Europe ?
+Answer: Ural
+
+Category: Geology
+Question: What is the name of the layer between the Earth's crust and the Earth's core ?
+Answer: Mantle
+
+Category: Geology
+Question: What name is given to the point where a river starts ?
+Answer: Source
+
+Category: Geology
+Question: What name is given to the point where two rivers join ?
+Answer: Confluence
+
+Category: Geology
+Question: What name is given to the single super-continent that existed 200 million years ago ?
+Answer: Pangaea
+Regexp: panga?ea
+
+Category: Geology
+Question: Which river made The Grand Canyon ?
+Answer: Colorado
+
+Category: History
+Question: Alexander the Great was king of which country ?
+Answer: Macedonia
+
+Category: History
+Question: At the time of Julius Caesar, who was the ruler of Egypt ?
+Answer: Cleopatra
+
+Category: History
+Question: How is the stockmarket collapse of the 24th October 1929 better known ?
+Answer: Black Thursday
+
+Category: History
+Question: How many countries joined the United Nations at it's start ?
+Answer: 51
+
+Category: History
+Question: How many stab wounds did Julius Caesar have when he died ?
+Answer: 23
+Regexp: (23|twenty three)
+
+Category: History
+Question: How many years were between the creation of the Magna Carta and the American Declaration of Independence ?
+Answer: 561
+
+Category: History
+Question: How old was Alexander the Great when he died ?
+Answer: 32
+Regexp: (32|thirty three)
+
+Category: History
+Question: How was the 1839-42 Anglo-Chinese war better known ?
+Answer: The #Opium War#
+
+Category: History
+Question: In 1911 Roald Amundsen became the first person to reach where ?
+Answer: South Pole
+
+Category: History
+Question: In March 1979, where did a major nuclear accident occur ?
+Answer: Three Mile Island
+Regexp: (three|3) mile island
+
+Category: History
+Question: In the 17th century which country started taxing beards ?
+Answer: Russia
+
+Category: History
+Question: In the 1855 Russian War, what were used to transport Torpedos ?
+Answer: Kites
+
+Category: History
+Question: In the 9th century which city had several thousand bookstores ?
+Answer: Baghdad
+
+Category: History
+Question: In the period 978-1016 England was ruled by which "Unready" king ?
+Answer: Ethelred
+
+Category: History
+Question: In the year 2000 which companies CEO was the worlds second richest man ?
+Answer: Oracle
+
+Category: History
+Question: In what type of building did Plato and Aristotle teach ?
+Answer: Gymnasium
+
+Category: History
+Question: In which year was the Rosetta stone written ?
+Answer: 196 BC
+
+Category: History
+Question: The 14th July 1789 marked the start of what ?
+Answer: French Revolution
+
+Category: History
+Question: To which island was Napoleon exiled, after his loss at Waterloo ?
+Answer: St Helena
+Regexp: (st|saint|st\.) ?helena
+
+Category: History
+Question: What city was founded in 753 BC ?
+Answer: Rome
+
+Category: History
+Question: What country did Abel Tasman discover in 1642 ?
+Answer: New Zealand
+
+Category: History
+Question: What did Peter Minuit buy in 1626 ?
+Answer: Manhattan Island
+
+Category: History
+Question: What did Temujin change his name to ?
+Answer: Genghis Khan
+
+Category: History
+Question: What happened at 2:56 on the 21st July 1969 ?
+Answer: First #Manned moon landing#
+
+Category: History
+Question: What product was the first TV advert advertising ?
+Answer: Toothpaste
+
+Category: History
+Question: What purged the Great Plague of London ?
+Answer: Great Fire of London
+
+Category: History
+Question: What was first worn on the 10th October 1886 ?
+Answer: Tuxedo
+
+Category: History
+Question: What was the destination of the ship 'Mary Celeste' on it's final voyage November 1872, where it should never arrive ?
+Answer: Genoa
+
+Category: History
+Question: What was the first newspaper produced in the United States ?
+Answer: Publick Occurences
+
+Category: History
+Question: What was the first postage stamp ?
+Answer: Penny Black
+
+Category: History
+Question: What was the first transatlantic radio message sent ?
+Answer: s
+
+Category: History
+Question: What was the name of the government newspaper in ancient Rome ?
+Answer: #Acat Diurna# (Daily Happenings)
+
+Category: History
+Question: What was the nationality of Marco Polo ?
+Answer: Italian
+
+Category: History
+Question: What was the nationallity of Rasputin ?
+Answer: Russian
+
+Category: History
+Question: What was the predecessor of the United Nations ?
+Answer: League of Nations
+
+Category: History
+Question: Where was the Rosetta stone found ?
+Answer: Cairo
+
+Category: History
+Question: Where were the ancient script of Linear A and Linear B found ?
+Answer: Crete
+
+Category: History
+Question: Which American Military Academt was established in 1802 on the Hudson river ?
+Answer: West Point
+
+Category: History
+Question: Which British prime minister died in 1965 ?
+Answer: Winston Churchill
+
+Category: History
+Question: Which French king was known as the Sun King ?
+Answer: Louis XIV
+
+Category: History
+Question: Which artificial fiber was invented in 1938 ?
+Answer: Nylon
+
+Category: History
+Question: Which country has the oldest national flag ?
+Answer: Denmark
+
+Category: History
+Question: Which famous ship sank in 1912 ?
+Answer: Titanic
+
+Category: History
+Question: Which gangster died on the 25th January 1947 ?
+Answer: Al Capone
+
+Category: History
+Question: Which major international organization was created in 1945 ?
+Answer: United Nations
+
+Category: History
+Question: Who imported the first Go set into Britain ?
+Answer: Marco Polo
+
+Category: History
+Question: Who in 1893 defined vegtables as plants eaten in a meal and fruits as plants eaten as dessert ?
+Answer: United States Supreme Court
+
+Category: History
+Question: Who in 1988 became the first elected female prime minister in an Islamic country ?
+Answer: Benazir Bhutto
+
+Category: History
+Question: Who is famous for historically riding naked on horseback through Coventry, England ?
+Answer: Lady Godiva
+
+Category: History
+Question: Who took the title "Lord Protector of the Commonwelth of England, Scotland, and Ireland" ?
+Answer: Oliver #Cromwell#
+
+Category: History
+Question: Who was Canada's first Prime Minister
+Answer: John A. #Macdonald#
+
+Category: History
+Question: Who was known as "the wizard of Menlo Park" ?
+Answer: Thomas Alva #Edison#
+
+Category: History
+Question: Who was the first dog in space ?
+Answer: Laika
+
+Category: History
+Question: Who was the first female American astronaut ?
+Answer: Sally Ride
+
+Category: History
+Question: Who was the first fully Danish king of England ?
+Answer: Canute the Great
+
+Category: History
+Question: Who was the first man to reach the North Pole ?
+Answer: Robert Edwin #Peary#
+
+Category: Literature
+Question: Douglas Adams is famous for writing what ?
+Answer: The #hitchhiker's guide to the galaxy#
+
+Category: Literature
+Question: How is Samuel Clemens better known ?
+Answer: Mark Twain
+
+Category: Literature
+Question: In which book is Scheherazade a story teller ?
+Answer: Arabian Nights
+
+Category: Literature
+Question: The book "Wamyouruijoshou" was the first to use what word ?
+Answer: Kite
+
+Category: Literature
+Question: What book is the film Blade Runner based on ?
+Answer: Do Androids Dream of Electric Sheep
+
+Category: Literature
+Question: What is the second best-selling book of all time ?
+Answer: Quotations from the Works of Chairman Mao Tse-Tung
+
+Category: Literature
+Question: What series has Robert Jordan written ?
+Answer: Wheel of Time
+
+Category: Literature
+Question: What trilogy did J.R.R. Tolkien write ?
+Answer: Lord of the Rings
+
+Category: Literature
+Question: What word is Isaac Asimov famous for coining ?
+Answer: Robotics
+
+Category: Literature
+Question: Who created Sherlock Holmes ?
+Answer: Sir #Arthur Conan Doyle#
+
+Category: Literature
+Question: Who is associated with the address 221B Baker Street, London ?
+Answer: Sherlock Holmes
+
+Question: Which was the first Pinball game that used flippers ?
+Answer: Humpty Dumpty
+
+Category: Literature
+Question: Who wrote "Ender's Game" ?
+Answer: Orson Scott Card
+
+Category: Literature
+Question: Who wrote "The Wind in the Willows" ?
+Answer: Kenneth Grahame
+
+Category: Literature
+Question: Who wrote 1984 ?
+Answer: George Orwell
+
+Category: Literature
+Question: Who wrote the Belgariad ?
+Answer: Leigh and David #Eddings#
+
+Category: Literature
+Question: Who wrote the Discworld series ?
+Answer: Terry Pratchett
+
+Category: Literature
+Question: Who wrote the book "The Origin of Species" ?
+Answer: Charles Darwin
+
+Category: Literature
+Question: Who wrote the epic poem Odyssey ?
+Answer: Homer
+
+Category: Literature
+Question: Who wrote the novel "The Strange Case of Dr. Jekyll and Mr Hyde" ?
+Answer: Stevenson
+
+Category: Literature
+Question: Who wrote the shortest ever letter ?
+Answer: Victor Hugo
+
+Category: Literature
+Question: Who wrote three books under the title "Das Kapital" ?
+Answer: Karl Marx
+
+Category: Mathematics
+Question: What is the square root of -1 ?
+Answer: i
+
+Category: Mathematics
+Question: Who invented logarithms ?
+Answer: John Napier
+
+Category: Mathematics
+Question: Who proved Fermat's Last Theorem ?
+Answer: Andrew Wiles
+
+Category: Medicine
+Question: How is german measles also known ?
+Answer: Rubella
+
+Category: Medicine
+Question: Who developed the vaccine for smallpox ?
+Answer: Edward Jenner
+
+Category: Medicine
+Question: Who discovered Penicillin ?
+Answer: Alexander Fleming
+
+Category: Medicine
+Question: Who first used antiseptics ?
+Answer: Joseph Lister
+
+Category: Music
+Question: What term is used for the speed at which a piece of music is played ?
+Answer: Tempo
+
+Category: Music
+Question: Who wrote the Nutcracker Suite ?
+Answer: Tchaikovsky
+
+Category: Mythology
+Question: What does the "touch of Midas" turn everything into ?
+Answer: Gold
+
+Category: Mythology
+Question: Who is the Norse Watchman of the Gods ?
+Answer: Heimdall
+
+Category: Mythology
+Question: Who is the Norse god of justice ?
+Answer: Forseti
+
+Category: Mythology
+Question: Who is the Norse god of poetry ?
+Answer: Bragi
+
+Category: Mythology
+Question: Who is the Norse god of the sky and thunder ?
+Answer: Thor
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Cupid ?
+Answer: Eros
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Diana ?
+Answer: Artemis
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Discordia ?
+Answer: Eris
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Juno ?
+Answer: Hera
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Jupiter ?
+Answer: Zeus
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Mars ?
+Answer: Ares
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Mercury ?
+Answer: Hermes
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Minerva ?
+Answer: Athena
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Neptune ?
+Answer: Poseidon
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Pluto ?
+Answer: Hades
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Venus ?
+Answer: Aphrodite
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Vesta ?
+Answer: Hestia
+
+Category: Mythology
+Question: Who is the greek equivalent of the roman god Vulcan ?
+Answer: Hephaistos
+Regexp: heph(ai|ae|ei)st[ou]s
+
+Category: Mythology
+Question: Who was Ancient Egyptian goddess of fertility, love and beauty ?
+Answer: Bastet
+Regexp: bast(et)?
+
+Category: Mythology
+Question: Who was Ancient Egyptian moon god ?
+Answer: Khonsu
+Regexp: kh[oe]nsu
+
+Category: Mythology
+Question: Who was the ancient Egyptian goddess of the sky and queen of heaven ?
+Answer: Hathor
+
+Category: Philosophy
+Question: What is the name of the belief that many gods exist, but only one should be worshipped ?
+Answer: Monolatry
+
+Category: Phrases
+Question: Who said "If you want something said, ask a man. If you want something done, ask a woman." ?
+Answer: Margaret #Thatcher#
+
+Category: Phrases
+Question: Who said "In my free time I do differential and integral calculus"
+Answer: Karl Marx
+
+Category: Phrases
+Question: Who said "The no-mind not-thinks no-thoughts about no-things" ?
+Answer: Buddha
+
+Category: Phrases
+Question: Who said 'Everything must either be or not be, whether in the present or in the future' ?
+Answer: Aristotle
+
+Category: Phrases
+Question: Who said 'Give me a firm place to stand and I will move the Earth' ?
+Answer: Archimedes
+
+Category: Phrases
+Question: Who said 'So far as the laws of mathematics refer to reality they are not certain. And so far as they are certain, they do not refer to reality.' ?
+Answer: Albert #Einstein#
+
+Category: Phrases
+Question: Who said 'The greater our knowledge increases, the more our ignorance unfolds' ?
+Answer: John F. #Kennedy#
+
+Category: Phrases
+Question: Who said 'The way of the warrior is the resolute acceptance of death' ?
+Answer: Miyamoto #Musashi#
+
+Category: Phrases
+Question: Who said the line "Dr Livingstone, I presume!" ?
+Answer: Henry Morton #Stanley#
+
+Category: Physics
+Question: What are the units of measurement for Energy ?
+Answer: Joule
+
+Category: Physics
+Question: What are the units of measurement for Force ?
+Answer: Newton
+
+Category: Physics
+Question: What are the units of measurement for Frequency ?
+Answer: Hertz
+
+Category: Physics
+Question: What are the units of measurement for Power ?
+Answer: Watt
+
+Category: Physics
+Question: What are the units of measurement for Pressure ?
+Answer: Pascal
+
+Category: Physics
+Question: What device is used to measure weather pressure ?
+Answer: Barometer
+
+Category: Physics
+Question: What device used to be described in Greek as "watcher of the small" ?
+Answer: Microscope
+
+Category: Physics
+Question: What device was used to determine a ship's latitude ?
+Answer: Sextant
+
+Category: Physics
+Question: What has superseded Newtonian mechanics of the atomic scale ?
+Answer: Quantum mechanics
+
+Category: Physics
+Question: What is the formal name for when a substance breaks down on heating ?
+Answer: Thermal Decomposition
+
+Category: Physics
+Question: What is the luminous intensity of light measured in ?
+Answer: Candela
+
+Category: Physics
+Question: What is the name for 0.1 Newtons ?
+Answer: Dyne
+
+Category: Physics
+Question: What is the second derivative of distance ?
+Answer: Acceleration
+
+Category: Physics
+Question: What scale is used to measure wind speed ?
+Answer: Beaufort
+
+Category: Physics
+Question: Which scale is based on the speed of sound ?
+Answer: Mach
+
+Category: Politics
+Question: What is PLO an abbreviation for ?
+Answer: Palestine Liberation Organization
+
+Category: Religion
+Question: In China why were kites flown on the ninth day of every month ?
+Answer: To #banish evil#
+
+Category: Religion
+Question: In ancient Egypt which animal was considered sacred ?
+Answer: Cat
+
+Category: Religion
+Question: What is the holy book of Islam ?
+Answer: Koran
+
+Category: Religion
+Question: What religion was founded by Guru Nanak ?
+Answer: Sikhism
+
+Category: Religion
+Question: What religion was founded by Lao-tzu ?
+Answer: Taoism
+
+Category: Religion
+Question: What religion was founded by Siddhartha Gautama ?
+Answer: Buddhism
+
+Category: Religion
+Question: Where was Methodism founded ?
+Answer: Oxford University
+
+Category: Religion
+Question: Which group of people elect the pope ?
+Answer: Cardinals
+
+Category: Religion
+Question: Which tree do Druids regard sacred ?
+Answer: Oak
+
+Category: Science
+Question: Which was the longest dinosaur ?
+Answer: Diplodocus
+
+Category: Software
+Question: Who invented Tetris ?
+Answer: Alexi Pazhitnov
+Regexp: alexe?[iy] pazh?itno[vw]
+
+Category: Sports
+Question: Where were the 1896 Olympics held ?
+Answer: Athens, Greece
+
+Category: Sports
+Question: Where were the 1900 Olympics held ?
+Answer: Paris, France
+
+Category: Sports
+Question: Where were the 1908 Olympics held ?
+Answer: London, England
+
+Category: Sports
+Question: Where were the 1912 Olympics held ?
+Answer: Stockholm, Sweden
+
+Category: Sports
+Question: Where were the 1920 Olympics held ?
+Answer: Antwerp, Belgium
+
+Category: Sports
+Question: Where were the 1924 Olympics held ?
+Answer: Paris, France
+
+Category: Sports
+Question: Where were the 1928 Olympics held ?
+Answer: Amsterdam, The NetherlandsERROR: Ret: amsterdam, (the netherlands|holland)
+
+Category: Sports
+Question: Where were the 1936 Olympics held ?
+Answer: Berlin, Germany
+
+Category: Sports
+Question: Where were the 1948 Olympics held ?
+Answer: London, England
+
+Category: Sports
+Question: Where were the 1952 Olympics held ?
+Answer: Helsinki, Finland
+
+Category: Sports
+Question: Where were the 1956 Olympics held ?
+Answer: Melbourne, Australia
+
+Category: Sports
+Question: Where were the 1960 Olympics held ?
+Answer: Rome, Italy
+
+Category: Sports
+Question: Where were the 1964 Olympics held ?
+Answer: Tokyo, Japan
+
+Category: Sports
+Question: Where were the 1968 Olympics held ?
+Answer: Mexico City, Mexico
+
+Category: Sports
+Question: Where were the 1972 Olympics held ?
+Answer: Munich, West Germany
+
+Category: Sports
+Question: Where were the 1980 Olympics held ?
+Answer: Moscow, U.S.S.R.
+
+Category: Sports
+Question: Where were the 1988 Olympics held ?
+Answer: Seoul, South Korea
+Regexp: seoul, south[- ]korea
+
+Category: Sports
+Question: Where were the 1992 Olympics held ?
+Answer: Barcelona, Spain
+
+Category: Sports&Games
+Question: How is the chess term "shah mat" better known ?
+Answer: Checkmate
+
+Category: Sports&Games
+Question: How many pieces are found in a chess set ?
+Answer: 32
+Regexp: (thirty two|32)
+
+Category: Sports&Games
+Question: Tic-Tac-Toe is based on which game ?
+Answer: Nine men morris
+
+Category: Sports&Games
+Question: What does "Dan" mean ?
+Answer: Grade
+
+Category: Sports&Games
+Question: What is the Chess ranking system called ?
+Answer: Elo
+
+Category: Sports&Games
+Question: What is the name of the board that Baduk is player on ?
+Answer: Goban
+
+Category: Sports&Games
+Question: What sport did James Naismith invent ?
+Answer: Basketball
+
+Category: Sports&Games
+Question: Which game has 361 intersections ?
+Answer: Go
+
+Category: Sports&Games
+Question: With which sport is Babe Ruth associated ?
+Answer: Baseball
+
+Category: Sports&Games
+Question: With which sport is Bjorn Borg associated ?
+Answer: Tennis
+
+Category: Sports&Games
+Question: With which sport is Bobby Moore associated ?
+Answer: Soccer
+
+Category: Sports&Games
+Question: With which sport is Chirs Evert-Lloyd associated ?
+Answer: Tennis
+
+Category: Sports&Games
+Question: With which sport is Jack Nicklaus associated ?
+Answer: Golf
+
+Category: Sports&Games
+Question: With which sport is Muhammad Ali associated ?
+Answer: Boxing
+
+Category: Sports&Games
+Question: With which sport is Pele associated ?
+Answer: Soccer
+
+Category: Technology
+Question: What is the reason behind the layout of the Qwerty keyboard ?
+Answer: To #slow# down typing rates
+
+Category: Technology
+Question: What was launched on the 4th December 1996 ?
+Answer: Mars Pathfinder
+
+Category: Technology
+Question: What was the Earth's first artificial satellite ?
+Answer: Sputnik 1
+
+Category: Technology
+Question: What was the first lighthouse ?
+Answer: Pharos of Alexandria
+
+Category: Technology
+Question: What was the name of the first plane ever to fly ?
+Answer: Flyer
+
+Category: Technology
+Question: Which was the first manned aircraft to exceed the speed of sound ?
+Answer: Bell X-1
+
+Category: Technology
+Question: Who invented the Hovercraft ?
+Answer: Sir #Christopher Cockerell#
+
+Category: Technology
+Question: Who invented the Telephone ?
+Answer: Alexander Graham Bell
+Regexp: (alexander graham bell|bell)

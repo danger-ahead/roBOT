@@ -1,3 +1,5 @@
 *.env
 *.idea
-/roBot
+*.vscode
+/robot
+**/__pycache__
