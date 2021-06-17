@@ -32,7 +32,7 @@ Now tell Git your name and E-mail (used on Github) address.
 
 This is an important step to mark your commits to your name and email.
 
-### Fprk a Project -
+### Fork a Project -
 
 You can use github explore - https://github.com/explore to find a project that interests you and match your skills. Once you find your cool project to workon, you can make a copy of project to your account. This process is called forking a project to your Github account. On Upper right side of project page on Github, you can see -
 
@@ -75,7 +75,7 @@ Open Source projects have a number of contributors who can push code anytime. So
 
 The last command pushes the latest code to your forked repository on Github. The origin is the remote pointing to your forked repository on github.
 
-### Create a new branch for a Feature or Bugfix-
+### Create a new branch for a Feature or Bugfix -
 
 Normally, all repositories have a master branch which is considered to remain stable and all new features should be made in a separate branch and after completion merged into master branch. So we should create a new branch for our feature or bugfix and start working on the issue.
 
@@ -88,7 +88,7 @@ This will create a new branch out of master branch. Now start working on the pro
 
 The first command adds all the files or you can add specific files by removing -a and adding the file names. The second command gives a message to your changes so you can know in future what changes this commit makes. If you are solving an issue on original repository, you should add the issue number like #35 to your commit message. This will show the reference to commits in the issue.
 
-### Rebase your Feature Branch with Upstream-
+### Rebase your Feature Branch with Upstream -
 
 It can happen that your feature takes time to complete and other contributors are constantly pushing code. After completing the feature your feature branch should be rebase on latest changes to upstream master branch.
 
@@ -97,14 +97,14 @@ It can happen that your feature takes time to complete and other contributors ar
 
 Now you get the latest commits from other contributors and check that your commits are compatible with the new commits. If there are any conflicts solve them.
 
-### Squashing your Commits-
+### Squashing your Commits -
 
 You have completed the feature, but you have made a number of commits which make less sense. You should squash your commits to make good commits.
 
 ```$ git rebase -i HEAD~5```    
 This will open an editor which will allow you to squash the commits.
 
-### Push Code and Create a PR-
+### Push Code and Create a PR -
 
 Till this point you have a new branch with the feature or bugfix you want in the project you had forked. Now push your new branch to your remote fork on github.
 
