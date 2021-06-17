@@ -63,7 +63,7 @@ async def on_message(message):
                 title="Hello comrade!!, Meet myself roBOT!",
                 description="an amatuer bot by amatuer Developers!! XD \
                 \n The full list of commands \
-                can be found here: \n https://github.com/RccTechz/roBOT/blob/master/docs/COMMANDS.md \n\
+                can be found here : \n https://github.com/RccTechz/roBOT/blob/master/docs/COMMANDS.md \n\
                 have a great time interacting and having fun with me!!\n for details about how to contribute to \
                 this bot use  '_contribute' ",
                 color=discord.Color.blue(),
