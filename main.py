@@ -66,7 +66,7 @@ async def on_message(message):
             embed = discord.Embed(
                 title="Interested about open-source contribution ? ",
                 description="Looks like you're interested to help my fellow amatuer creators in order to make\
-                    myself more polished and funky !!\n Here's the link to repo: https://github.com/RccTechz/roBOT\
+                    myself more polished and funky !!\n Here's the link to repo: https://github.com/danger-ahead/roBOT\
                         \n Feel free to give your suggestion as issues and submit PR requests with improvements!!\
                         \n waiting for you PR peeps!! ",
                 color=discord.Color.blue(),
