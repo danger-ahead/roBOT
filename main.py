@@ -8,10 +8,10 @@ from discord import channel
 from duckduckgo_search import ddg
 import wikipedia as wiki
 import quiz
-from script import poll
-from script import database
-from script import moderator
-from script import games
+from scripts import poll
+from scripts import database
+from scripts import moderator
+from scripts import games
 
 # creates instances of the different modules in use
 db = database.Database()
