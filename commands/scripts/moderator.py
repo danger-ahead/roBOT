@@ -8,7 +8,7 @@ class Moderator:
 
     def __init__(self):
         # relative path to scripts directory
-        os.chdir("scripts")
+        os.chdir("commands/scripts")
         # opens, reads and adds the contents of the file to a list
         file = open(
             "moderate_words.txt", "r"

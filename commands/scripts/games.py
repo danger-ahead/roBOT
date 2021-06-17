@@ -2,7 +2,7 @@ import random
 import discord
 
 
-async def roll_a_dice(message):
+async def roll_a_dice(discord, message):
     number = random.randint(1, 6)
 
     if number == 1:
@@ -48,8 +48,10 @@ async def roll_a_dice(message):
         )
         await message.channel.send(embed=embed)
 
+    await message.add_reaction("\U0001f44d")
 
-async def toss_coin(message):
+
+async def toss_coin(discord, message):
     number = random.randint(1, 2)
 
     if number == 1:
@@ -62,3 +64,5 @@ async def toss_coin(message):
             title="Toss!!", description="Tails", color=discord.Color.blue()
         )
         await message.channel.send(embed=embed)
+
+    await message.add_reaction("\U0001f44d")
