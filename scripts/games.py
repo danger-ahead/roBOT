@@ -46,4 +46,4 @@ async def toss_coin(message):
         embed = discord.Embed(title="Toss!!",
         description="Tails",
         color=discord.Color.blue())
-    await message.channel.send(embed=embed)
+        await message.channel.send(embed=embed)

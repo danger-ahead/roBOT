@@ -1,4 +1,4 @@
-<p align="center"><img align="justify" src="https://socialify.git.ci/danger-ahead/roBOT/image?description=1&font=Source%20Code%20Pro&forks=1&issues=1&language=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark" alt="roBOT" width="640" height="320" />
+<p align="center"><img align="justify" src="https://socialify.git.ci/RccTechz/roBOT/image?description=1&font=Source%20Code%20Pro&forks=1&issues=1&language=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark" alt="roBOT" width="640" height="320" />
 </p>
 
 <p align="center">
@@ -8,7 +8,7 @@
 
 ## [Add](https://discord.com/api/oauth2/authorize?client_id=843553315442130985&permissions=2148002880&scope=bot) **roBOT** to your server!
 
-## [Screenshots of **roBOT** in action](https://github.com/danger-ahead/roBOT/blob/master/docs/SCREENSHOTS.md)
+## [Screenshots of **roBOT** in action](https://github.com/RccTechz/roBOT/blob/master/docs/SCREENSHOTS.md)
 
 ## Installation 🧐
 - Make sure you’re logged on to the [Discord](https://discord.com).
