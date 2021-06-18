@@ -17,7 +17,7 @@ class Moderator:
         # changes back to project directory`
         os.chdir("..")
         print("Loaded: scripts/moderate_words.txt")
-        print("Running: Moderator module [moderator.py]\n")
+        print("Running: Moderator module [moderator.py]")
 
     async def check(self, message):
         message_word_list = message.content.lower().split(" ")

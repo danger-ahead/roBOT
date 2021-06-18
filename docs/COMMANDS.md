@@ -12,11 +12,6 @@
 | $leave | Instructs **roBOT** to leave the server (works only in the channel configured with `$configure` command) |
 | $clean | **roBOT** deletes the previous 100 chats from the channel |
 
-
-| Commands | Description |
-| :-------------: | :-------------: |
-| _inspire | Provides an inspirational quote which will surely enlighten you |
-
 | Commands | Description |
 | :-------------: | :-------------: |
 | _hi | Provides the user with a link to find **roBOT**'s commands |
@@ -26,6 +21,7 @@
 | _f m < number >  | Tells an interesting fact about the number |
 | _f y < year>  | Tells an interesting fact about the year |
 | _joke | Tells a joke |
+| _inspire | Provides an inspirational quote which will surely enlighten you |
 | _wea < city, country code > | Tells the current weather situations of the city |
 | _wiki < query >  | Searches the Wikipedia for the query |
 | _search < query > | Searches DuckDuckGo for the query |

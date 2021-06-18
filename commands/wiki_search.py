@@ -1,3 +1,7 @@
+"""
+Module containing the functions for _wiki and _search commands.
+"""
+
 from duckduckgo_search import ddg
 import wikipedia as wiki
 

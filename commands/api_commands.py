@@ -1,3 +1,7 @@
+"""
+Module containing the functions for all the commands using different APIs.
+"""
+
 import requests
 import json
 import discord

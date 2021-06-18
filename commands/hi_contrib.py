@@ -1,3 +1,7 @@
+"""
+Module containing the functions for _hi and _contribute commands.
+"""
+
 async def hi(discord, message):
     embed = discord.Embed(
         title="Hello comrade!!, Meet myself roBOT!",
@@ -9,6 +13,7 @@ async def hi(discord, message):
         color=discord.Color.blue(),
     )
     await message.channel.send(embed=embed)
+    await message.add_reaction("\U0001f44d")
 
 
 async def contrib(discord, message):
@@ -21,3 +26,4 @@ async def contrib(discord, message):
         color=discord.Color.blue(),
     )
     await message.channel.send(embed=embed)
+    await message.add_reaction("\U0001f44d")

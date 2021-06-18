@@ -10,7 +10,7 @@ class Poll:
         self.emoji = ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"]
         self.content = ""
         self.content_list = []
-        print("Running: Poll module [poll.py]\n")
+        print("Running: Poll module [poll.py]")
 
     # creates the template of the pole and sends the embed to channel
     async def _create_poll(self, discord, message):
