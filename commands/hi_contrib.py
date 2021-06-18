@@ -2,6 +2,7 @@
 Module containing the functions for _hi and _contribute commands.
 """
 
+
 async def hi(discord, message):
     embed = discord.Embed(
         title="Hello comrade!!, Meet myself roBOT!",

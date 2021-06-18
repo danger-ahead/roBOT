@@ -7,6 +7,7 @@ import json
 import discord
 from decouple import config
 import urllib
+import random
 
 
 async def covrep(discord, message):
@@ -328,3 +329,81 @@ async def inspire(discord, message):
     except Exception:
         await message.add_reaction("\U0001F44E")
         await message.channel.send("Quota exhausted :(\nTry again later!")
+
+
+async def joke(discord, message):
+    querystring = {"api_key": config("RANDOM_STUFF_API")}
+    headers = {
+        "x-rapidapi-key": config("RAPID_API"),
+        "x-rapidapi-host": "random-stuff-api.p.rapidapi.com",
+    }
+    try:
+        response = requests.request(
+            "GET",
+            "https://random-stuff-api.p.rapidapi.com/joke/any",
+            headers=headers,
+            params=querystring,
+        )
+        data = json.loads(response.text)
+        if data["type"] == "single":
+            await message.channel.send(data["joke"])
+        elif data["type"] == "twopart":
+            await message.channel.send(data["setup"] + "\n" + data["delivery"])
+        await message.channel.send("category: " + data["category"])
+        await message.add_reaction("\U0001f44d")
+    except:
+        await message.add_reaction("\U0001F44E")
+
+
+def links():
+    urls = [
+        "https://memes.blademaker.tv/api?lang=en",
+        "https://memes.blademaker.tv/api/dankmemes",
+        "https://memes.blademaker.tv/api/funny",
+        "https://memes.blademaker.tv/api/madlad",
+        "https://memes.blademaker.tv/api/ComedyCemetery",
+        "https://memes.blademaker.tv/api/comedyheaven",
+        "https://memes.blademaker.tv/api/technicallythetruth",
+        "https://memes.blademaker.tv/api/softwaregore",
+        "https://memes.blademaker.tv/api/me_irl",
+        "https://memes.blademaker.tv/api/TIHI",
+        "https://memes.blademaker.tv/api/facepalm",
+        "https://memes.blademaker.tv/api/meme",
+        "https://memes.blademaker.tv/api/comics",
+        "https://memes.blademaker.tv/api/wholesomememes",
+        "https://memes.blademaker.tv/api/goodanimemes",
+    ]
+    url = random.choice(urls)
+    return url
+
+
+async def meme(discord, message):
+    try:
+        # uses https://memes.blademaker.tv/
+        url = links()
+        r = requests.get(url).json()
+        title = r["title"]
+        sub = r["subreddit"]
+        Id = r["id"]
+        title_link = title.replace(" ", "_")
+        reddit_link = (
+            "https://www.reddit.com/r/"
+            + sub
+            + "/comments/"
+            + Id
+            + "/"
+            + title_link
+            + "/"
+        )
+        embed = discord.Embed(
+            title=f"{title}\nsubreddit: {sub}",
+            url=reddit_link,
+            color=discord.Color.blue(),
+        )
+        embed.set_image(url=r["image"])
+
+        await message.channel.send(embed=embed)
+        await message.add_reaction("\U0001f44d")
+
+    except Exception:
+        await message.add_reaction("\U0001f44E")

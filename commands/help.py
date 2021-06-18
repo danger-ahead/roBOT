@@ -2,6 +2,7 @@
 Module containing the function for _help command.
 """
 
+
 async def help(discord, message):
     cmd = message.content.split()
 
