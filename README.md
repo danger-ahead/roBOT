@@ -1,8 +1,6 @@
-<p align="center"><img align="justify" src="https://socialify.git.ci/danger-ahead/roBOT/image?description=1&font=Source%20Code%20Pro&forks=1&issues=1&language=1&owner=1&pattern=Charlie%20Brown&pulls=1&stargazers=1&theme=Dark" alt="roBOT" width="640" height="320" />
-</p>
-
+<h1 align="center">roBOT</h1>
 <p align="center">
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"><img src="https://img.shields.io/badge/discord-py-blue.svg"><img src="https://img.shields.io/badge/python-3.9-blue.svg"><img src="https://www.code-inspector.com/project/23569/score/svg"><img src="https://www.code-inspector.com/project/23569/status/svg">
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"><img src="https://img.shields.io/badge/discord-py-blue.svg"><img src="https://img.shields.io/badge/python-3.9-blue.svg">
   <p align="center">your own locally hosted discord bot :D</p>
 </p>
 
