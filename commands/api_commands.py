@@ -209,10 +209,7 @@ async def math(discord, message):
     )
     if result.status_code == 200:
         await message.add_reaction("\U0001f44d")
-        embed = discord.Embed(
-            title="Result: ", description=result.text, color=discord.Color.blue()
-        )
-        await message.reply(embed=embed)
+        await message.reply("Result: "+result.text)
     else:
         await message.add_reaction("\U0001F44E")
 
@@ -336,24 +333,34 @@ async def inspire(discord, message):
 
 
 async def joke(discord, message):
-    querystring = {"api_key": config("RANDOM_STUFF_API")}
-    headers = {
-        "x-rapidapi-key": config("RAPID_API"),
-        "x-rapidapi-host": "random-stuff-api.p.rapidapi.com",
-    }
     try:
-        response = requests.request(
-            "GET",
-            "https://random-stuff-api.p.rapidapi.com/joke/any",
-            headers=headers,
-            params=querystring,
+        url = "https://official-joke-api.appspot.com/jokes/random"
+        r = requests.get(url).json()
+        setup = r["setup"]
+        punchline = r["punchline"]
+
+        embed = discord.Embed(
+            title=f"{setup}\n\n{punchline}",
+            color=discord.Color.blue(),
         )
-        data = json.loads(response.text)
-        if data["type"] == "single":
-            await message.channel.send(data["joke"])
-        elif data["type"] == "twopart":
-            await message.channel.send(data["setup"] + "\n" + data["delivery"])
-        await message.channel.send("category: " + data["category"])
+        await message.channel.send(embed=embed)
+        await message.add_reaction("\U0001f44d")
+    except:
+        await message.add_reaction("\U0001F44E")
+
+async def programming_joke(discord, message):
+    try:
+        url = "https://official-joke-api.appspot.com/jokes/programming/random"
+        r = requests.get(url).json()[0]
+        setup = r["setup"]
+        punchline = r["punchline"]
+
+        embed = discord.Embed(
+            title="Software Engineer?! Eh.\nProgrammer?! Meeeh.\n\n"\
+            +setup+"\n\n"+punchline,
+            color=discord.Color.blue(),
+        )
+        await message.channel.send(embed=embed)
         await message.add_reaction("\U0001f44d")
     except:
         await message.add_reaction("\U0001F44E")

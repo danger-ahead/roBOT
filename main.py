@@ -50,6 +50,7 @@ async def on_message(message):
             "_confess": "confess_rank.confess",
             "_rank": "confess_rank.rank",
             "_joke": "api_commands.joke",
+            "_wearesoftwareengineers": "api_commands.programming_joke",
             "_meme": "api_commands.meme",
             "_trivia": "api_commands.trivia",
         }

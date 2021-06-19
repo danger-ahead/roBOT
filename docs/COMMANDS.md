@@ -14,6 +14,7 @@
 
 | Commands | Description |
 | :-------------: | :-------------: |
+| **_wearesoftwareengineers** | **FOR ALL THE SOFTWARE ENGINEERS OUT THERE!** |
 | _meme | Sends a meme from reddit |
 | _trivia | Sends a trivia |
 | _mean  < word >  | Finds the meaning of the word |
