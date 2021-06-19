@@ -8,7 +8,7 @@ class Moderator:
 
     def __init__(self):
         # relative path to scripts directory
-        os.chdir("scripts")
+        os.chdir("commands/scripts")
         # opens, reads and adds the contents of the file to a list
         file = open(
             "moderate_words.txt", "r"
@@ -17,7 +17,7 @@ class Moderator:
         # changes back to project directory`
         os.chdir("..")
         print("Loaded: scripts/moderate_words.txt")
-        print("Running: Moderator module [moderator.py]\n")
+        print("Running: Moderator module [moderator.py]")
 
     async def check(self, message):
         message_word_list = message.content.lower().split(" ")
