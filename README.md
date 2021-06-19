@@ -1,7 +1,7 @@
-<h1 align="center">roBOT</h1>
+<h1 align="center">roBOT <img src="https://emoji.discord.st/emojis/eddc749b-9ea3-4304-a37b-65dc7aff36c3.gif" width="30" height="30"/> <img src="https://emoji.discord.st/emojis/b627f592-397a-4c5f-ba53-836cab1c6b24.png" width="60" height="30"/></h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"><img src="https://img.shields.io/badge/discord-py-blue.svg"><img src="https://img.shields.io/badge/python-3.9-blue.svg">
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"> <img src="https://img.shields.io/badge/discord-py-blue.svg"> <img src="https://img.shields.io/badge/python-3.9-blue.svg"> <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/danger-ahead/roBOT"> <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/danger-ahead/roBOT">
   <p align="center">your own locally hosted discord bot :D</p>
 </p>
 
@@ -46,4 +46,4 @@
 ### [Dependencies](https://github.com/danger-ahead/roBOT/blob/master/docs/DEPENDENCIES.md)
 ### Contributions are always welcome. Visit our [contributing guidelines](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTING.md) before making any contributions.
 
-### [**roBOT's** Contributors](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTORS.md)
+### [![GitHub contributors](https://img.shields.io/github/contributors/danger-ahead/roBOT)](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTORS.md)
