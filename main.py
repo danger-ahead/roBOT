@@ -54,6 +54,7 @@ async def on_message(message):
             "_rank": "confess_rank.rank",
             "_joke": "api_commands.joke",
             "_meme": "api_commands.meme",
+            "_trivia": "api_commands.trivia",
         }
 
         if commands.get(message.content[: message.content.find(" ")]) == None:
@@ -91,28 +92,6 @@ async def on_message(message):
             await message.channel.send(
                 "<@" + str(message.author.id) + "> Do you've admin rights?"
             )
-
-    # elif message.content.startswith("_"):
-    #     elif message.content.startswith("_qstop"):
-    #         await quiz.stop(message.channel)
-
-    #     elif message.content.startswith("_reset"):
-    #         await quiz.reset(message.channel)
-
-    #     elif message.content.startswith("_quiz"):
-    #         await quiz.start(message.channel)
-    #         await db.score_up(message, client)
-
-    #     elif message.content.startswith("_scores"):
-    #         await quiz.print_scores(message.channel)
-
-    #     elif message.content.startswith("_next"):
-    #         await quiz.next_question(message.channel)
-
-    #     elif quiz is not None and quiz.started():
-    #         # check if we have a question pending
-    #         await quiz.answer_question(message, channel)
-    #         # check quiz question correct
 
     if await db.check_server_moderation(message.guild.id) == 1:
         await moderator.check(message)

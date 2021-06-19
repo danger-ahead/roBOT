@@ -14,8 +14,8 @@
 
 | Commands | Description |
 | :-------------: | :-------------: |
-| _hi | Provides the user with a link to find **roBOT**'s commands |
-| _contribute  | Provides the user with a link to **roBOT**'s source code |
+| _meme | Sends a meme from reddit |
+| _trivia | Sends a trivia |
 | _mean  < word >  | Finds the meaning of the word |
 | _math < problem >  | Solves the Math Problem |
 | _f m < number >  | Tells an interesting fact about the number |
@@ -28,14 +28,8 @@
 | _movie < movie > | Tells the details of the movie |
 | _song < song or artist > | Tells the details of the song or finds the most famous song of the artist |
 | _confess < confession > | **roBOT** deletes the user's confession message and forwards the confession message to configured confession channel anonymously  |
-
-| Quiz Commands  | Description |
-| :-------------: | :-------------: |
-| _quiz | Starts quiz |
-| _qstop | Stops an ongoing quiz |
-| _scores | Tells the current scores of the quiz participants |
-| _next  | Skips to the next question in quiz |
-| _reset | Resets the quiz |
+| _hi | Provides the user with a link to find **roBOT**'s commands |
+| _contribute  | Provides the user with a link to **roBOT**'s source code |
 
 | Game Commands  | Description |
 | :-------------: | :-------------: |

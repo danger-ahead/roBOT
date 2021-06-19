@@ -15,4 +15,5 @@
 - Uses [OpenWeatherMap API](https://openweathermap.org/api) for fetching weather details.
 - Uses [math.js web service](https://api.mathjs.org/) for solving mathematical expressions.
 - Uses [random-stuff-api](https://rapidapi.com/pgamerxdev/api/random-stuff-api/) for fetching jokes.
-- 
+- Uses [jgoralcz /trivia](https://github.com/jgoralcz/trivia) for trivia.
+- Uses [Huge RedditMemesAPI](https://memes.blademaker.tv/) for memes.

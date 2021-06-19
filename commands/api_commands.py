@@ -8,6 +8,7 @@ import discord
 from decouple import config
 import urllib
 import random
+import asyncio
 
 
 async def covrep(discord, message):
@@ -403,6 +404,59 @@ async def meme(discord, message):
         embed.set_image(url=r["image"])
 
         await message.channel.send(embed=embed)
+        await message.add_reaction("\U0001f44d")
+
+    except Exception:
+        await message.add_reaction("\U0001f44E")
+
+
+async def trivia(discord, message):
+    url = "https://beta-trivia.bongo.best"
+    try:
+        r = requests.get(url).json()[0]
+
+        question = r["question"].replace("&quot;", '"').replace("&#039;", "'")
+        category = r["category"] if r["category"] is not None else "Unknown"
+        correct_answer = r["correct_answer"]
+        all_answers = r["incorrect_answers"]
+        all_answers.append(correct_answer)
+        random.shuffle(all_answers)
+
+        embed = discord.Embed(
+            title=question,
+            description=f"Category: {category}\n\nOptions in 10 seconds...",
+            color=discord.Color.blue(),
+        )
+        msg = await message.channel.send(embed=embed)
+
+        await asyncio.sleep(10)
+
+        i = 1
+        output = ""
+        for answers in all_answers:
+            output += str(i) + ". " + answers + "\n"
+            i += 1
+
+        embed = discord.Embed(
+            title=question,
+            description=f"Category: {category}\n\n"
+            + "Options:\n"
+            + output
+            + "\nCorrect answer in 10 seconds...",
+            color=discord.Color.blue(),
+        )
+        await msg.edit(embed=embed)
+
+        await asyncio.sleep(10)
+
+        embed = discord.Embed(
+            title=question,
+            description=f"Category: {category}\n\n"
+            + "Correct answer: "
+            + correct_answer,
+            color=discord.Color.blue(),
+        )
+        await msg.edit(embed=embed)
         await message.add_reaction("\U0001f44d")
 
     except Exception:

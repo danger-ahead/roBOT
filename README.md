@@ -32,10 +32,9 @@
 ## Working 🤔
 ### **roBOT** reacts with 👍 or 👎 after each successful or unsuccessful command execution
 #### You can use **roBOT** for:
-* Channel moderations
-* Trivia and jokes
-* Play games (tossing a coin, rolling a dice, rock paper scissors, etc)
-* Quiz
+* Channel moderations (looking for offensive words, muting, unmuting, etc)
+* Trivia, memes and jokes
+* Play games (tossing a coin, rolling a dice, etc)
 * Polls
 * Cleaning up a channel's chats
 * Searching (Wikipedia, DuckDuckGo, movies, music, word meanings, etc)
