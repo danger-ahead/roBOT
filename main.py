@@ -1,9 +1,7 @@
-import os
 import discord
 from decouple import config
-from discord import channel
 from commands import *
-from commands.scripts import loader
+from commands.scripts import *
 
 # creates instances of the different modules in use
 loader.db_load()
@@ -15,15 +13,13 @@ db = loader.db_loaded()
 moderator = loader.moderator_loaded()
 poll = loader.poll_loaded()
 client = loader.client_loaded()
-# quiz = quiz.Quiz(client)
-
 
 @client.event
 async def on_ready():
     print("\nWe have logged in as {0.user}".format(client))
 
-    # sets roBOT's status to 'Listening to _hi'
-    activity = discord.Activity(type=discord.ActivityType.listening, name="_hi")
+    # sets roBOT's status to 'Listening to _help'
+    activity = discord.Activity(type=discord.ActivityType.listening, name="_help")
     await client.change_presence(status=discord.Status.online, activity=activity)
 
 
