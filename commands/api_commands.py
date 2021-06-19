@@ -209,7 +209,7 @@ async def math(discord, message):
     )
     if result.status_code == 200:
         await message.add_reaction("\U0001f44d")
-        await message.reply("Result: "+result.text)
+        await message.reply("Result: " + result.text)
     else:
         await message.add_reaction("\U0001F44E")
 
@@ -348,6 +348,7 @@ async def joke(discord, message):
     except:
         await message.add_reaction("\U0001F44E")
 
+
 async def programming_joke(discord, message):
     try:
         url = "https://official-joke-api.appspot.com/jokes/programming/random"
@@ -356,8 +357,10 @@ async def programming_joke(discord, message):
         punchline = r["punchline"]
 
         embed = discord.Embed(
-            title="Software Engineer?! Eh.\nProgrammer?! Meeeh.\n\n"\
-            +setup+"\n\n"+punchline,
+            title="Software Engineer?! Eh.\nProgrammer?! Meeeh.\n\n"
+            + setup
+            + "\n\n"
+            + punchline,
             color=discord.Color.blue(),
         )
         await message.channel.send(embed=embed)

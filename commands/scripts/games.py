@@ -5,25 +5,25 @@ import os
 
 async def roll_a_dice(discord, message):
     number = random.randint(1, 6)
-    cwd = os.getcwd()   #stores current directory before changing
-    os.chdir("scripts/images")  #changes to the images directory
+    cwd = os.getcwd()  # stores current directory before changing
+    os.chdir("scripts/images")  # changes to the images directory
 
     if number == 1:
-        await message.reply(file=discord.File('dice1.jpg'))
+        await message.reply(file=discord.File("dice1.jpg"))
     elif number == 2:
-        await message.reply(file=discord.File('dice2.jpg'))
+        await message.reply(file=discord.File("dice2.jpg"))
     elif number == 3:
-        await message.reply(file=discord.File('dice3.jpg'))
+        await message.reply(file=discord.File("dice3.jpg"))
     elif number == 4:
-        await message.reply(file=discord.File('dice4.jpg'))
+        await message.reply(file=discord.File("dice4.jpg"))
     elif number == 5:
-        await message.reply(file=discord.File('dice5.jpg'))
+        await message.reply(file=discord.File("dice5.jpg"))
     else:
-        await message.reply(file=discord.File('dice6.jpg'))
+        await message.reply(file=discord.File("dice6.jpg"))
 
     await message.add_reaction("\U0001f44d")
 
-    os.chdir(cwd)   #changes back to the previously stored directory
+    os.chdir(cwd)  # changes back to the previously stored directory
 
 
 async def toss_coin(discord, message):
