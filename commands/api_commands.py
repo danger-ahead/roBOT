@@ -210,8 +210,8 @@ async def math(discord, message):
     if result.status_code == 200:
         await message.add_reaction("\U0001f44d")
         embed = discord.Embed(
-                title="Result: ", description=result.text, color=discord.Color.blue()
-            )
+            title="Result: ", description=result.text, color=discord.Color.blue()
+        )
         await message.reply(embed=embed)
     else:
         await message.add_reaction("\U0001F44E")

@@ -14,6 +14,7 @@ moderator = loader.moderator_loaded()
 poll = loader.poll_loaded()
 client = loader.client_loaded()
 
+
 @client.event
 async def on_ready():
     print("\nWe have logged in as {0.user}".format(client))
