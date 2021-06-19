@@ -2,13 +2,13 @@ name: Lint
 
 on:
   # Trigger the workflow on push or pull request,
-  # but only for the main branch
+  # but only for the master branch
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   run-linters:
@@ -25,10 +25,9 @@ jobs:
           python-version: 3.8
 
       - name: Install Python dependencies
-        run: pip install black flake8
+        run: pip install black
 
       - name: Run linters
         uses: wearerequired/lint-action@v1
         with:
           black: true
-          flake8: true
