@@ -24,6 +24,7 @@ def client_loaded():
 
 def client_load():
     global client
+    print("Running: Client")
     client = discord.Client()
 
 
