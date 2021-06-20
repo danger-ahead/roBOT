@@ -9,6 +9,7 @@ class Database:
     """
 
     def __init__(self):
+        # loads the database
         try:
             self.cluster = pm.MongoClient(
                 "mongodb+srv://danger-ahead:"
@@ -28,7 +29,7 @@ class Database:
         score = -1
         query = {"_id": message.author.id}
         user = self.collection.find(query)
-        for result in user:
+        for result in user:  # finds if the user has interacted with the bot earlier
             score = result["score"]
 
         if score > 0:

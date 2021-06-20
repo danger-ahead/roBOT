@@ -3,11 +3,10 @@ from decouple import config
 from commands import *
 from commands.scripts import *
 
-# creates instances of the different modules in use
-loader.db_load()
-loader.moderator_load()
-loader.poll_load()
-loader.client_load()
+loader.db_load()  # loads database
+loader.moderator_load()  # loads moderator
+loader.poll_load()  # loads poll
+loader.client_load()  # loads client
 
 db = loader.db_loaded()
 moderator = loader.moderator_loaded()
@@ -55,13 +54,15 @@ async def on_message(message):
             "_trivia": "api_commands.trivia",
         }
 
+        # if the command message is a single word message, takes the whole message
         if commands.get(message.content[: message.content.find(" ")]) == None:
             command = commands.get(message.content)
+        # if the command message is a multi word message, takes only the 1st word
         else:
             command = commands.get(message.content[: message.content.find(" ")])
 
         exec(str(await eval(command + "(discord, message)")))
-        await db.score_up(message, client)
+        await db.score_up(message, client)  # levels up the author of the message
 
     elif message.content.startswith("$"):
         if message.author.guild_permissions.administrator:
@@ -91,7 +92,9 @@ async def on_message(message):
                 "<@" + str(message.author.id) + "> Do you've admin rights?"
             )
 
+    # check if the server is configured for moderation
     if await db.check_server_moderation(message.guild.id) == 1:
+        # checks the words of the message to moderate
         await moderator.check(message)
 
 
