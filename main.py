@@ -8,10 +8,10 @@ from discord import channel
 from duckduckgo_search import ddg
 import wikipedia as wiki
 import quiz
-from scripts import poll
-from scripts import database
-from scripts import moderator
-from scripts import games
+from script import poll
+from script import database
+from script import moderator
+from script import games
 
 # creates instances of the different modules in use
 db = database.Database()
@@ -334,12 +334,15 @@ async def on_message(message):
                 report = response['weather']
                 humidity = weatherrep['humidity']
                 report_description = str({report[0]['description']})
+                report_ico = report[0]['icon'] #contains icon id (for more details visit https://openweathermap.org/weather-conditions)
+                icon_url = f"https://openweathermap.org/img/wn/{report_ico}@2x.png" # formats icon id in url
                 index = report_description.find('\'')
                 index2 = report_description.find('\'', 2)
                 embed = discord.Embed(title="Weather update for :  "+city,
                 description=report_description[(index+1):index2]+
                 '\nTemp. is '+str('%.2f'%(temperature-273))+'℃'+'\nHumidity is '+str(humidity)+'%',
                 color=discord.Color.blue())
+                embed.set_thumbnail(url=icon_url) #set thumbnail on the embed
                 await message.channel.send(embed=embed)
                 await message.add_reaction('\U0001f44d')
             else:
