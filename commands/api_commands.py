@@ -296,8 +296,10 @@ async def wea(discord, message):
         report = response["weather"]
         humidity = weatherrep["humidity"]
         report_description = str({report[0]["description"]})
-        report_ico = report[0]['icon'] #contains icon id (for more details visit https://openweathermap.org/weather-conditions)
-        icon_url = f"https://openweathermap.org/img/wn/{report_ico}@2x.png" # formats icon id in url
+        report_ico = report[0][
+            "icon"
+        ]  # contains icon id (for more details visit https://openweathermap.org/weather-conditions)
+        icon_url = f"https://openweathermap.org/img/wn/{report_ico}@2x.png"  # formats icon id in url
         index = report_description.find("'")
         index2 = report_description.find("'", 2)
         embed = discord.Embed(
@@ -311,7 +313,7 @@ async def wea(discord, message):
             + "%",
             color=discord.Color.blue(),
         )
-        embed.set_thumbnail(url=icon_url) #set thumbnail on the embed
+        embed.set_thumbnail(url=icon_url)  # set thumbnail on the embed
         await message.channel.send(embed=embed)
         await message.add_reaction("\U0001f44d")
     else:
