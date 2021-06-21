@@ -29,31 +29,6 @@ async def on_message(message):
         return
 
     if message.content.startswith("_"):
-        commands = {
-            "_hi": "hi_contrib.hi",
-            "_contribute": "hi_contrib.contrib",
-            "_covrep": "api_commands.covrep",
-            "_f": "api_commands.f",
-            "_movie": "api_commands.movie",
-            "_song": "api_commands.song",
-            "_search": "wiki_search.search",
-            "_wiki": "wiki_search.wikipedia",
-            "_math": "api_commands.math",
-            "_mean": "api_commands.mean",
-            "_wea": "api_commands.wea",
-            "_inspire": "api_commands.inspire",
-            "_poll": "poll._create_poll",
-            "_rolldice": "games.roll_a_dice",
-            "_tosscoin": "games.toss_coin",
-            "_help": "help.help",
-            "_confess": "confess_rank.confess",
-            "_rank": "confess_rank.rank",
-            "_joke": "api_commands.joke",
-            "_wearesoftwareengineers": "api_commands.programming_joke",
-            "_meme": "api_commands.meme",
-            "_trivia": "api_commands.trivia",
-        }
-
         # if the command message is a single word message, takes the whole message
         if commands.get(message.content[: message.content.find(" ")]) == None:
             command = commands.get(message.content)
@@ -66,19 +41,6 @@ async def on_message(message):
 
     elif message.content.startswith("$"):
         if message.author.guild_permissions.administrator:
-            commands = {
-                "$clean": "admin_commands.clean",
-                "$moderation": "admin_commands.moderation",
-                "$configure": "admin_commands.configure",
-                "$deconfigure": "admin_commands.deconfigure",
-                "$leave": "admin_commands.leave",
-                "$mute": "admin_commands.mute",
-                "$unmute": "admin_commands.unmute",
-                "$kick": "admin_commands.kick",
-                "$configconfess": "admin_commands.configconfess",
-                "$deconfigconfess": "admin_commands.deconfigconfess",
-            }
-
             if commands.get(message.content[: message.content.find(" ")]) == None:
                 command = commands.get(message.content)
             else:
@@ -96,6 +58,42 @@ async def on_message(message):
     if await db.check_server_moderation(message.guild.id) == 1:
         # checks the words of the message to moderate
         await moderator.check(message)
+
+
+commands = {
+    "_hi": "hi_contrib.hi",
+    "_contribute": "hi_contrib.contrib",
+    "_covrep": "api_commands.covrep",
+    "_f": "api_commands.f",
+    "_movie": "api_commands.movie",
+    "_song": "api_commands.song",
+    "_search": "wiki_search.search",
+    "_wiki": "wiki_search.wikipedia",
+    "_math": "api_commands.math",
+    "_mean": "api_commands.mean",
+    "_wea": "api_commands.wea",
+    "_inspire": "api_commands.inspire",
+    "_poll": "poll._create_poll",
+    "_rolldice": "games.roll_a_dice",
+    "_tosscoin": "games.toss_coin",
+    "_help": "help.help",
+    "_confess": "confess_rank.confess",
+    "_rank": "confess_rank.rank",
+    "_joke": "api_commands.joke",
+    "_wearesoftwareengineers": "api_commands.programming_joke",
+    "_meme": "api_commands.meme",
+    "_trivia": "api_commands.trivia",
+    "$clean": "admin_commands.clean",
+    "$moderation": "admin_commands.moderation",
+    "$configure": "admin_commands.configure",
+    "$deconfigure": "admin_commands.deconfigure",
+    "$leave": "admin_commands.leave",
+    "$mute": "admin_commands.mute",
+    "$unmute": "admin_commands.unmute",
+    "$kick": "admin_commands.kick",
+    "$configconfess": "admin_commands.configconfess",
+    "$deconfigconfess": "admin_commands.deconfigconfess",
+}
 
 
 DISCORD_TOKEN = config("TOKEN")
