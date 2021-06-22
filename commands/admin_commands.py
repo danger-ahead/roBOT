@@ -6,6 +6,7 @@ from commands.scripts import loader
 
 db = loader.db_loaded()
 
+
 async def clean(message):
     await message.channel.purge(limit=100)
 

@@ -103,17 +103,16 @@ async def f(discord, message):
             try:
                 embed = discord.Embed(
                     title="Date: " + data["date"],
-                    description= data["text"],
-                    color=discord.Color.blue()
-                    )
+                    description=data["text"],
+                    color=discord.Color.blue(),
+                )
 
                 await message.channel.send(embed=embed)
                 await message.add_reaction("\U0001f44d")
             except:
                 embed = discord.Embed(
-                    description=data["text"],
-                    color=discord.Color.blue()
-                    )
+                    description=data["text"], color=discord.Color.blue()
+                )
 
                 await message.channel.send(embed=embed)
                 await message.add_reaction("\U0001f44d")
@@ -127,10 +126,7 @@ async def f(discord, message):
         response = requests.request("GET", url, headers=headers, params=querystring)
         if response.status_code == 200:
             data = json.loads(response.text)
-            embed = discord.Embed(
-                description=data["text"],
-                color=discord.Color.blue()
-                )
+            embed = discord.Embed(description=data["text"], color=discord.Color.blue())
 
             await message.channel.send(embed=embed)
             await message.add_reaction("\U0001f44d")
