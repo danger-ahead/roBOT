@@ -4,26 +4,28 @@ Module containing functions for all the admin commands.
 
 from commands.scripts import loader
 
-db = loader.db_loaded()
-
 
 async def clean(message):
     await message.channel.purge(limit=100)
 
 
 async def configure(message):
+    db = loader.db_loaded()
     await db.server_config(message.guild.id, message)
 
 
 async def deconfigure(message):
+    db = loader.db_loaded()
     await db.server_deconfig(message.guild.id, message)
 
 
 async def leave(message):
+    db = loader.db_loaded()
     await db.leave_server(message.guild.id, message)
 
 
 async def moderation(message):
+    db = loader.db_loaded()
     await db.moderation_service(message.guild.id, message)
 
 
@@ -59,8 +61,10 @@ async def unmute(message):
 
 
 async def configconfess(message):
+    db = loader.db_loaded()
     await db.confess_config(message.guild.id, message)
 
 
 async def deconfigconfess(message):
+    db = loader.db_loaded()
     await db.confess_deconfig(message.guild.id, message)
