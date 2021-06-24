@@ -515,6 +515,7 @@ async def ptrivia(discord, message):
         random.shuffle(all_answers)
 
         channel = message.channel
+        author = message.author
 
         i = 1
         output = ""
@@ -533,14 +534,15 @@ async def ptrivia(discord, message):
             + category
             + "\n\nOptions:\n"
             + output
-            + "\nType `correctanswer` for the correct answer...\
-            \nType your answer (not case-sensitive)",
+            + "\nType `correctanswer` for the correct answer.\
+            \nType your answer (not case-sensitive).\
+            You\'ve 60 seconds.",
             color=discord.Color.blue(),
         )
         msg = await message.channel.send(embed=embed)
 
         def check(m):
-            return m.channel == channel
+            return m.channel == channel and m.author == author
 
         client = loader.client_loaded()
         all_answers = [x.lower() for x in all_answers]
@@ -554,7 +556,7 @@ async def ptrivia(discord, message):
                 await bot_message.add_reaction("\U0001f44d")
                 await bot_message.reply(correct_answer)
             elif bot_message.content.lower() in all_answers:
-                await bot_message.reply("Wrong answer!")
+                await bot_message.reply("Wrong answer!\nCorrect answer: "+correct_answer)
                 await bot_message.add_reaction("\U0001f44E")
 
         except asyncio.TimeoutError:
