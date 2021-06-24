@@ -83,6 +83,7 @@ commands = {
     "_wearesoftwareengineers": "api_commands.programming_joke",
     "_meme": "api_commands.meme",
     "_trivia": "api_commands.trivia",
+    "_ptrivia": "api_commands.ptrivia",
     "$clean": "admin_commands.clean",
     "$moderation": "admin_commands.moderation",
     "$configure": "admin_commands.configure",

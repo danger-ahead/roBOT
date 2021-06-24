@@ -13,7 +13,7 @@ async def help_call(discord, message):
     embed.add_field(
         name="**Administrator Commands**",
         value="configure, deconfigure, configconfess, deconfigconfess, kick, mute, unmute, moderation, leave, clean, trivia,\
-         inspire, meme, wearesoftwareengineers",
+         ptrivia, inspire, meme, wearesoftwareengineers",
         inline=False,
     )
     embed.add_field(
@@ -186,6 +186,16 @@ async def hi(discord, message):
         color=discord.Color.blue(),
     )
     embed.add_field(name="**Syntax**", value="`_hi`")
+    await message.channel.send(embed=embed)
+
+
+async def ptrivia(discord, message):
+    embed = discord.Embed(
+        title="Interactive Trivia",
+        description="Interactive trivia with user",
+        color=discord.Color.blue(),
+    )
+    embed.add_field(name="**Syntax**", value="`_ptrivia`")
     await message.channel.send(embed=embed)
 
 
@@ -382,6 +392,7 @@ helps = {
     "confess": "confes",
     "rank": "rank",
     "trivia": "trivia",
+    "ptrivia": "ptrivia",
     "reset": "reset",
     "rolldice": "rolldice",
     "tosscoin": "tosscoin",

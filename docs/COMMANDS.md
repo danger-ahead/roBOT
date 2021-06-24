@@ -16,6 +16,7 @@
 | **_wearesoftwareengineers** | **FOR ALL THE SOFTWARE ENGINEERS OUT THERE!** |
 | _meme | Sends a meme from reddit |
 | _trivia | Sends a trivia |
+| _ptrivia | Interactive trivia with user |
 | _mean  < word >  | Finds the meaning of the word |
 | _math < problem >  | Solves the Math Problem |
 | _confess < confession > | **roBOT** deletes the user's confession message and forwards the confession message to configured confession channel anonymously  |

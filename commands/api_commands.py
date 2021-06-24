@@ -9,6 +9,7 @@ from decouple import config
 import urllib
 import random
 import asyncio
+from commands.scripts import loader
 
 
 async def covrep(discord, message):
@@ -446,7 +447,9 @@ async def trivia(discord, message):
 
         question = r["question"].replace("&quot;", '"').replace("&#039;", "'")
         category = r["category"] if r["category"] is not None else "Unknown"
-        correct_answer = r["correct_answer"]
+        correct_answer = (
+            r["correct_answer"].replace("&quot;", '"').replace("&#039;", "'")
+        )
         all_answers = r["incorrect_answers"]
         all_answers.append(correct_answer)
         random.shuffle(all_answers)
@@ -463,7 +466,12 @@ async def trivia(discord, message):
         i = 1
         output = ""
         for answers in all_answers:
-            output += str(i) + ". " + answers + "\n"
+            output += (
+                str(i)
+                + ". "
+                + answers.replace("&quot;", '"').replace("&#039;", "'")
+                + "\n"
+            )
             i += 1
 
         embed = discord.Embed(
@@ -489,4 +497,71 @@ async def trivia(discord, message):
         await message.add_reaction("\U0001f44d")
 
     except Exception:
+        await message.add_reaction("\U0001f44E")
+
+
+async def ptrivia(discord, message):
+    url = "https://beta-trivia.bongo.best"
+    try:
+        r = requests.get(url).json()[0]
+
+        question = r["question"].replace("&quot;", '"').replace("&#039;", "'")
+        category = r["category"] if r["category"] is not None else "Unknown"
+        correct_answer = (
+            r["correct_answer"].replace("&quot;", '"').replace("&#039;", "'")
+        )
+        all_answers = r["incorrect_answers"]
+        all_answers.append(correct_answer)
+        random.shuffle(all_answers)
+
+        channel = message.channel
+
+        i = 1
+        output = ""
+        for answers in all_answers:
+            output += (
+                str(i)
+                + ". "
+                + answers.replace("&quot;", '"').replace("&#039;", "'")
+                + "\n"
+            )
+            i += 1
+
+        embed = discord.Embed(
+            title=question,
+            description="Category: "
+            + category
+            + "\n\nOptions:\n"
+            + output
+            + "\nType `correctanswer` for the correct answer...\
+            \nType your answer (not case-sensitive)",
+            color=discord.Color.blue(),
+        )
+        msg = await message.channel.send(embed=embed)
+
+        def check(m):
+            return m.channel == channel
+
+        client = loader.client_loaded()
+        all_answers = [x.lower() for x in all_answers]
+
+        try:
+            bot_message = await client.wait_for("message", check=check, timeout=60)
+            if bot_message.content.lower() == correct_answer.lower():
+                await bot_message.add_reaction("\U0001f44d")
+                await bot_message.reply("Correct answer!")
+            elif bot_message.content.lower() == "correctanswer":
+                await bot_message.add_reaction("\U0001f44d")
+                await bot_message.reply(correct_answer)
+            elif bot_message.content.lower() in all_answers:
+                await bot_message.reply("Wrong answer!")
+                await bot_message.add_reaction("\U0001f44E")
+
+        except asyncio.TimeoutError:
+            await msg.reply("Times out\n" + "Correct Answer: " + correct_answer)
+
+        await message.add_reaction("\U0001f44d")
+
+    except Exception:
+        await message.reply("Error :/")
         await message.add_reaction("\U0001f44E")
