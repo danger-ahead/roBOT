@@ -22,7 +22,7 @@
 | _f m < number >  | Tells an interesting fact about the number |
 | _f y < year>  | Tells an interesting fact about the year |
 | _joke | Tells a joke |
-| _inspire | Provides an inspirational quote which will surely enlighten you |
+| _inspire | Sends an inspirational quote which will surely enlighten you |
 | _wea < city, country code > | Tells the current weather situations of the city |
 | _wiki < query >  | Searches the Wikipedia for the query |
 | _search < query > | Searches DuckDuckGo for the query |
