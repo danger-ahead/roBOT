@@ -5,7 +5,7 @@
   <p align="center">your own locally hosted discord bot :D</p>
 </p>
 
-[![Discord chat](https://img.shields.io/discord/847319167949340702?color=blue&label=discord%20chat)](https://discord.gg/kBatC2cVJr)
+[![Discord chat](https://img.shields.io/discord/847319167949340702?color=blue&label=join%20discord%20server)](https://discord.gg/kBatC2cVJr)
 
 ## [Add](https://discord.com/api/oauth2/authorize?client_id=843553315442130985&permissions=2148002880&scope=bot) **roBOT** to your server!
 

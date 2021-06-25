@@ -558,6 +558,9 @@ async def ptrivia(discord, message):
             elif bot_message.content.lower() in all_answers:
                 await bot_message.reply("Wrong answer!\nCorrect answer: "+correct_answer)
                 await bot_message.add_reaction("\U0001f44E")
+            else:
+                await bot_message.reply("Invalid option chosen!\nCorrect answer: "+correct_answer)
+                await bot_message.add_reaction("\U0001f44E")
 
         except asyncio.TimeoutError:
             await msg.reply("Times out\n" + "Correct Answer: " + correct_answer)
