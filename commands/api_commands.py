@@ -536,7 +536,7 @@ async def ptrivia(discord, message):
             + output
             + "\nType `correctanswer` for the correct answer.\
             \nType your answer (not case-sensitive).\
-            You\'ve 60 seconds.",
+            You've 60 seconds.",
             color=discord.Color.blue(),
         )
         msg = await message.channel.send(embed=embed)
@@ -556,7 +556,9 @@ async def ptrivia(discord, message):
                 await bot_message.add_reaction("\U0001f44d")
                 await bot_message.reply(correct_answer)
             elif bot_message.content.lower() in all_answers:
-                await bot_message.reply("Wrong answer!\nCorrect answer: "+correct_answer)
+                await bot_message.reply(
+                    "Wrong answer!\nCorrect answer: " + correct_answer
+                )
                 await bot_message.add_reaction("\U0001f44E")
             else:
                 await bot_message.reply("Invalid option chosen!\nCorrect answer: "+correct_answer)
