@@ -43,8 +43,10 @@ async def on_message(message):
         if message.author.guild_permissions.administrator:
             if commands.get(message.content[: message.content.find(" ")]) == None:
                 command = commands.get(message.content)
+                await message.add_reaction("\U0001f44d")
             else:
                 command = commands.get(message.content[: message.content.find(" ")])
+                await message.add_reaction("\U0001f44E") 
 
             exec(str(await eval(command + "(message)")))
             await db.score_up(message, client)
