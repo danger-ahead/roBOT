@@ -54,7 +54,7 @@ async def on_message(message):
             await message.channel.send(
                 "<@" + str(message.author.id) + "> Do you've admin rights?"
             )
-            await message.add_reaction("\U0001f44E") 
+            await message.add_reaction("\U0001f44E")
 
     # check if the server is configured for moderation
     if await db.check_server_moderation(message.guild.id) == 1:
