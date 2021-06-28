@@ -48,11 +48,13 @@ async def on_message(message):
 
             exec(str(await eval(command + "(message)")))
             await db.score_up(message, client)
+            await message.add_reaction("\U0001f44d")
 
         else:  # message author doesn't have admin rights
             await message.channel.send(
                 "<@" + str(message.author.id) + "> Do you've admin rights?"
             )
+            await message.add_reaction("\U0001f44E") 
 
     # check if the server is configured for moderation
     if await db.check_server_moderation(message.guild.id) == 1:
