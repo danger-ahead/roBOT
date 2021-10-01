@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./js/resp.js">
+</head>
+<body>
+    <section class="bg">
+        <nav class="navbar sticky h-nav-resp">
+            <ul class="navlist v-class-resp">
+              <li><a href="./index.html" class="nav-link"> HOME </a> </li>
+              <li><a href="./command.html" class="nav-link"> COMMANDS</a> </li>
+              <li><a href="./query.html" class="nav-link"> QUERY </a> </li>
+           </ul>   
+      
+      
+           <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        
+          </nav>
+          <script src="js/resp.js"></script>
+    <script>
+        $(window).scroll(function(){
+            $('nav').toggleClass('scrolled',$(this).scrollTop()>150);
+        });
+    </script>
+
+<form action="https://formsubmit.co/ " method="POST">
+                            
+                            
+    <input type="text" name="name" placeholder="Name (required)" required>
+    <input type="email" name="email" placeholder="Email Address (required)" required>
+    <input type="text" name="Subject" placeholder="Subject" >
+    <textarea name="Message" placeholder="Message (required)" required></textarea>
+    <input type="hidden" name="_captcha" value="false">
+    
+    <button type="submit">Send</button>
+  </form>
+    </section>
+
+
+    
+</body>
+</html>
