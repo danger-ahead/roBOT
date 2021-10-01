@@ -277,7 +277,11 @@ form > textarea{
     background: url("../images/bg-mob.jpg") center center no-repeat scroll;
     background-size: cover;
   }
-    .navlist{
+  .bg{
+    background: url("../images/bg-mob.jpg") center center no-repeat scroll;
+    background-size: cover;
+  }
+  .navlist{
         flex-direction: column;
       }
     .navbar{
