@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Cut&display=swap');
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.bg{
+    background: rgba(39, 26, 26, 0.784) url("../images/bg.jpg");
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken;
+    font-family: 'Nova Cut', cursive;
+}
+.page{
+  color: aliceblue;
+  text-align: center;
+  justify-content: center;
+  padding: 150px 40px;
+  
+}
+.page h1{
+font-size: 5.8rem;
+}
+
+
+.containeri {
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  width: 180px;
+  height: 60px;
+  position: absolute;
+}
+
+.btn {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #91C9FF;
+  outline: none;
+  transition: 1s ease-in-out;
+}
+
+svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+  pointer-events: none;
+}
+
+.btn:hover {
+  transition: 1s ease-in-out;
+  background: #4F95DA;
+}
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn span {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+  text-decoration: none;
+}
+.btn a{
+  text-decoration: none;
+  color: white;
+  font-family: 'Nova Cut', cursive;
+}
+form {
+  padding-left:25px;
+  padding-right:0px;
+  padding-top: 150px;
+  
+  margin: 12px auto;
+  font-family: 'Nova Cut', cursive;
+  position:relative;
+  
+}
+
+form > div{
+  position:absolute;
+  top:0;
+  left:50%;
+  padding:0 20px;
+  transform:translate(-50%,-50%);
+  background-color:black;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  text-align:center;
+}
+
+form > div > img{
+  filter:invert(1);
+  width:100px;
+}
+
+form > input,
+form > textarea {
+  padding: 12px;
+  margin: 12px auto;
+  border: 1px solid #ccc;
+  color: #ddd;
+  background-color: #222;
+  border-radius: 4px;
+  display: block;
+  width: 40vw;
+  font-family: 'Nova Cut', cursive;
+}
+
+form > textarea{
+  height:100px;
+  resize:none;
+}
+
+form > button[type="submit"] {
+  max-width: 20vw;
+  padding-left: 1%;
+  padding-right: 1%;
+  cursor: pointer;
+  transition: 0.35s;
+}
+
+form > button[type="submit"]:hover {
+  background-color: #555;
+}
+
+form > button,
+form > textarea{
+  padding: 12px;
+  margin: 12px auto;
+  border: 1px solid #ccc;
+  color: #ddd;
+  background-color: #222;
+  border-radius: 4px;
+  display: block;
+  width: 40vw;
+}
+#contact{
+    display: flex;
+}
+
+
+
+
+::selection {
+    background-color: grey;
+  }
+::-webkit-scrollbar {
+        width: 10px;
+        background-color: darkslategrey;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: black;
+      }
+
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    margin: 0%;
+    padding: 0%;
+    justify-content: center;
+    align-items: center;
+    
+}      
+.navbar a{
+    text-decoration: none;
+}
+.navbar li{
+    list-style: none;
+    padding: 10px 20px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+  .nav-link{
+    font-size: 20px;
+  }
+  .navlist {
+      
+      
+      display: flex;
+      align-items: center;
+      
+    }
+  .navlist li{
+      list-style: none;
+      padding: 10px 20px;
+      
+  } 
+  
+  .navlist li a:hover{
+  
+      
+      color: rgb(255, 255, 143);
+  
+  }
+  .navlist li a {
+  
+      text-decoration: none;
+      color:aliceblue;
+      
+  }
+.hidden {
+    display: none;
+  }
+
+  .burger{ 
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 15px;
+  
+  
+  }
+  .line{
+    width: 33px;
+    background-color:aliceblue;
+    height: 4px;
+    margin: 3px 3px;
+  }
+  .ml6 {
+    position: relative;
+    font-weight: 900;
+    font-size: 3.3em;
+  }
+  
+  .ml6 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+  }
+  
+  .ml6 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
+
+/* For tablets */
+@media only screen and (min-device-width: 601px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+
+  #home {
+    background: url("../images/bg-mob.jpg") center center no-repeat scroll;
+    background-size: cover;
+  }
+  .bg{
+    height: 120vh;
+  }
+}
+
+
+@media screen and (max-width: 580px) {
+  
+  #home {
+    background: url("../images/bg-mob.jpg") center center no-repeat scroll;
+    background-size: cover;
+  }
+  .bg{
+    background: url("../images/bg-mob.jpg") center center no-repeat scroll;
+    background-size: cover;
+  }
+  .navlist{
+        flex-direction: column;
+      }
+    .navbar{
+      flex-direction: column;
+      min-width: 360px;
+      width: 100%;
+      transition: all 0.7s ease-out;
+      height: 178px;
+    }
+    .navbar a{
+        color: white;
+    }
+    .burger{
+        display: block;
+        color: aliceblue;
+
+      }
+      .h-nav-resp{
+        height: 45px;
+      }
+      .v-class-resp{
+        opacity: 0;
+      }
+      .sticky{
+          background-color: rgba(39, 26, 26, 0.514);
+          min-width: 360px;
+
+      }
+      .containeri{
+        top: 80%;
+        left: 50%;
+        width: 0px;
+        height: 0px;
+      }
+      .bg{
+        height: 110vh;
+      }
+      .page{
+        padding: 100px 0px;
+      }
+    }
+@media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+
+
+
+  .containeri{
+  width: 200px;
+    height: 0px;
+    
+    left: 50%;
+    top: 39%;
+  }
+  .bg{
+    height: 110px;
+  }
+  
+}
+
+@keyframes scroll {
+    100%{
+     background-position:0px -3000px;
+   }
+  }
