@@ -1,6 +1,3 @@
-"""
-Module containing the functions for all the commands using different APIs.
-"""
 
 import requests
 import json
@@ -135,45 +132,21 @@ async def f(discord, message):
             await message.add_reaction("\U0001F44E")
 
 
-async def movie(discord, message):
+async def math(discord, message):
     hold = message.content.find(" ")
-    querystring = {
-        "query": message.content[(hold + 1) : len(message.content)],
-        "page": "1",
-    }
-
-    headers = {
-        "x-rapidapi-key": config("RAPID_API"),
-        "x-rapidapi-host": "advanced-movie-search.p.rapidapi.com",
-    }
-
-    result = requests.request(
-        "GET",
-        "https://advanced-movie-search.p.rapidapi.com/search/movie",
-        headers=headers,
-        params=querystring,
+    header = {"content-type": "application/json"}
+    querystring = urllib.parse.quote_plus(
+        message.content[(hold + 1) : len(message.content)]
     )
-
-    data = json.loads(result.text)
-    results = data["results"]
-    try:
-        result_first = results[0]
+    result = requests.get(
+        "http://api.mathjs.org/v4/?expr=" + querystring, headers=header
+    )
+    if result.status_code == 200:
         await message.add_reaction("\U0001f44d")
-    except:
+        await message.reply("Result: " + result.text)
+    else:
         await message.add_reaction("\U0001F44E")
-
-    await message.channel.send(
-        "Original title: "
-        + result_first["original_title"]
-        + "\nRelease date: "
-        + result_first["release_date"]
-        + "\nLanguage: "
-        + result_first["original_language"]
-    )
-
-    await message.channel.send(result_first["poster_path"])
-    await message.channel.send("Overview: " + result_first["overview"])
-
+        
 
 async def song(discord, message):
     hold = message.content.find(" ")
@@ -207,22 +180,6 @@ async def song(discord, message):
             )
         await message.add_reaction("\U0001f44d")
     except:
-        await message.add_reaction("\U0001F44E")
-
-
-async def math(discord, message):
-    hold = message.content.find(" ")
-    header = {"content-type": "application/json"}
-    querystring = urllib.parse.quote_plus(
-        message.content[(hold + 1) : len(message.content)]
-    )
-    result = requests.get(
-        "http://api.mathjs.org/v4/?expr=" + querystring, headers=header
-    )
-    if result.status_code == 200:
-        await message.add_reaction("\U0001f44d")
-        await message.reply("Result: " + result.text)
-    else:
         await message.add_reaction("\U0001F44E")
 
 

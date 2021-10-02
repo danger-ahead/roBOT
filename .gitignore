@@ -3,3 +3,4 @@
 *.vscode
 /robot
 **/__pycache__
+test.py
