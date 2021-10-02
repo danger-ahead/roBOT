@@ -1,8 +1,10 @@
-discord.py==1.7.2
-duckduckgo-search==0.4
-python-decouple==3.4
-requests==2.25.1
-wikipedia==1.4.0
-pymongo==3.11.4
-dnspython==1.16.0
-black==21.6b0
+python-dotenv
+git+https://github.com/Pycord-Development/pycord@feature/slash
+jishaku
+duckduckgo-search
+python-decouple
+aiohttp
+# wikipedia==1.4.0
+# pymongo==3.11.4
+# dnspython==1.16.0
+# black==21.6b0
