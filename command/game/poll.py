@@ -40,7 +40,7 @@ class Poll(commands.Cog):
 
 
     # creates the template of the pole and sends the embed to channel
-    @commands.command(name = "create poll", aliases = ['create'])
+    @commands.command(name = "poll", aliases = ['create'])
     async def poll(self, ctx, argument):
         await ctx.message.delete()
         self.content = ctx.message.content[ctx.message.content.find(" ") :]
@@ -57,7 +57,7 @@ class Poll(commands.Cog):
 
             embed = discord.Embed(
                 title="Poll: " + self.content_list[0],
-                description= f"{option} \nBy {ctx.author.mention}>",
+                description= f"{option} \nBy {ctx.author.mention}",
                 color=discord.Color.blue(),
             )
 
