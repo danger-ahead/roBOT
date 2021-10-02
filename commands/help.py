@@ -3,7 +3,6 @@ Module containing the function for _help command.
 """
 import discord
 
-
 async def help_call(discord, message):
     embed = discord.Embed(
         title="HELP",
