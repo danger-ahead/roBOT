@@ -3,6 +3,11 @@ from decouple import config
 from commands import *
 from commands.scripts import *
 
+import os
+import random
+import json
+import requests
+
 loader.db_load()  # loads database
 loader.moderator_load()  # loads moderator
 loader.poll_load()  # loads poll
@@ -84,6 +89,7 @@ commands = {
     "_joke": "api_commands.joke",
     "_wearesoftwareengineers": "api_commands.programming_joke",
     "_meme": "api_commands.meme",
+    "_compliment": "compliment.comp",
     "_trivia": "api_commands.trivia",
     "_ptrivia": "api_commands.ptrivia",
     "$clean": "admin_commands.clean",
@@ -97,7 +103,6 @@ commands = {
     "$configconfess": "admin_commands.configconfess",
     "$deconfigconfess": "admin_commands.deconfigconfess",
 }
-
 
 DISCORD_TOKEN = config("TOKEN")
 client.run(DISCORD_TOKEN)

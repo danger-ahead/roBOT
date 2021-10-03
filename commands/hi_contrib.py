@@ -6,9 +6,9 @@ Module containing the functions for _hi and _contribute commands.
 async def hi(discord, message):
     embed = discord.Embed(
         title="🙏🏻 Hello my friend!!, myself roBOT!",
-        description="an amatuer bot by amatuer Developers!! 😂 \
+        description="An amatuer bot by amatuer Developers!! 😂 \
         \n Want to play with me?\
-        \nVisit: https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \n\
+        \nVisit: https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md \
         to know all commands I understand. \nI hope you're still here. Looking forward to spend some quality time with you.  \
         \nTo know how you can improve my functionality use  '_contribute' ",
         color=discord.Color.blue(),

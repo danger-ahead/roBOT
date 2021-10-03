@@ -3,6 +3,7 @@ __all__ = [
     "api_commands",
     "wiki_search",
     "help",
+    "compliment",
     "confess_rank",
     "admin_commands",
 ]
