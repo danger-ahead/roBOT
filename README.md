@@ -7,11 +7,13 @@
 
 [![Discord chat](https://img.shields.io/discord/847319167949340702?color=blue&label=join%20discord%20server)](https://discord.gg/kBatC2cVJr)
 
-## [Add](https://discord.com/api/oauth2/authorize?client_id=843553315442130985&permissions=2148002880&scope=bot) **roBOT** to your server!
+## [🤖 Add ](https://discord.com/api/oauth2/authorize?client_id=843553315442130985&permissions=2148002880&scope=bot) **roBOT** to your server!
 
-## [Screenshots of **roBOT** in action](https://github.com/danger-ahead/roBOT/blob/master/docs/SCREENSHOTS.md)
+## 📷 Screenshots of **roBOT** in action.
+<p align="center"><img src="https://i.imgur.com/xfEvesZ.png" width="380" height="400"/>   <img src="https://i.imgur.com/5gQH96D.png" width="380" height="400"/></p>
+<p align="center"><img src="https://i.imgur.com/UnF0Br1.png" width="380" height="400"/>   <img src="https://i.imgur.com/WbjWcZP.png" width="380" height="400"/></p>
 
-## Installation 🧐
+## 💽 Installation
 - Make sure you’re logged on to the [Discord](https://discord.com).
 - Navigate to the Discord Developer's [Application Page](https://discord.com/developers/applications).
 - Click on the `New Application` button.
@@ -35,7 +37,7 @@
 
 	`MONGO=MONGODB_KEY` (replace '**MONGODB_KEY**' with your MongoDB key.)
 
-## Working 🤔
+## 👷‍♀️ Working
 ### **roBOT** reacts with 👍 or 👎 after each successful or unsuccessful command execution
 #### You can use **roBOT** for:
 * Channel moderations (looking for offensive words, muting, unmuting, etc)
@@ -51,6 +53,12 @@
 ### [Full list of commands here](https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md)
 
 ### [Dependencies](https://github.com/danger-ahead/roBOT/blob/master/docs/DEPENDENCIES.md)
-### Contributions are always welcome. Visit our [contributing guidelines](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTING.md) before making any contributions.
+
+## 🤝 Contributions
+Contributions are always welcome. Visit our [contributing guidelines](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTING.md) before making any contributions.
 
 ### [![GitHub contributors](https://img.shields.io/github/contributors/danger-ahead/roBOT)](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTORS.md)
+
+## 📄 License
+
+Distributed under the MIT License. See [LICENSE](/LICENSE) for more information.
