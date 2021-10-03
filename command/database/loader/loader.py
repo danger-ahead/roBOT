@@ -4,9 +4,8 @@ Also stores them for use in the whole project directory.
 """
 
 import discord
-from commands.scripts import database
-from commands.scripts import moderator
-from commands.scripts import poll
+from command.database.loader import database
+from  command.game import poll
 
 
 

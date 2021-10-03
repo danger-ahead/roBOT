@@ -1,4 +1,4 @@
-import loader
+from command.database.loader import loader
 from discord.ext import commands
 
 
