@@ -3,6 +3,7 @@ Module containing the function for _help command.
 """
 import discord
 
+
 async def help_call(discord, message):
     embed = discord.Embed(
         title="HELP",
@@ -127,6 +128,7 @@ async def meme(discord, message):
     embed.add_field(name="**Syntax**", value="`_meme`")
     await message.channel.send(embed=embed)
 
+
 async def compliment(discord, message):
     embed = discord.Embed(
         title="Compliment",
@@ -135,6 +137,7 @@ async def compliment(discord, message):
     )
     embed.add_field(name="**Syntax**", value="`_compliment`")
     await message.channel.send(embed=embed)
+
 
 async def unmute(discord, message):
     embed = discord.Embed(
