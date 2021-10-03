@@ -15,7 +15,7 @@ class Poll(commands.Cog):
         cache_msg = await message.channel.fetch_message(embed_message.id)
         store_reaction = [1, 1, 1, 1, 1, 1, 1, 1, 1]
         total = ""
-
+        
         # checks and stores when particular reaction's count goes above 1
         for i in range(len(self.content_list) - 2):
             reaction = discord.utils.get(cache_msg.reactions, emoji=self.emoji[i])

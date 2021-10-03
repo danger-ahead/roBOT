@@ -1,7 +1,9 @@
-import pymongo as pm
-from decouple import config
+import os
+import dotenv
 import discord
+import pymongo as pm
 
+dotenv.load_dotenv()
 
 class Database:
     """
@@ -13,7 +15,7 @@ class Database:
         try:
             self.cluster = pm.MongoClient(
                 "mongodb+srv://danger-ahead:"
-                + config("MONGO")
+                + os.getenv("MONGO")
                 + "@cluster0.z0zou.mongodb.net/test"
             )
 
@@ -24,6 +26,7 @@ class Database:
             print("Running: Database module [database.py]")
         except:
             print("Failed to run Database module [database.py]\n")
+
 
     async def score_up(self, message, client):  # increases the score of the user
         score = -1

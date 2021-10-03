@@ -1,9 +1,8 @@
-python-dotenv
-git+https://github.com/Pycord-Development/pycord@feature/slash
-jishaku
-duckduckgo-search
-python-decouple
 aiohttp
+jishaku
+python-dotenv
+duckduckgo-search
+git+https://github.com/Pycord-Development/pycord@feature/slash
 # wikipedia==1.4.0
 # pymongo==3.11.4
 # dnspython==1.16.0

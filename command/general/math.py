@@ -13,22 +13,19 @@ class Math(commands.Cog):
     """
 
     @commands.command()
-    async def math(self, ctx):
+    async def math(self, ctx, querystring):
         hold = ctx.message.content.find(" ")
         header = {"content-type": "application/json"}
         querystring = urllib.parse.quote_plus(
             ctx.message.content[(hold + 1) : len(ctx.message.content)]
         )
 
-        # result = requests.get(
-        #     "http://api.mathjs.org/v4/?expr=" + querystring, headers=header
-        # )
         async with aiohttp.ClientSession() as session:
             response = await session.get("http://api.mathjs.org/v4/?expr=" + querystring, headers=header)
-            result = response.text()
-        if result.status_code == 200:
+            result = await response.text()
+        if response.status == 200:
+            await ctx.send(f"**Result:** `{result}`")
             await ctx.message.add_reaction("\U0001f44d")
-            await ctx.reply("Result: " + result.text)
         else:
             await ctx.message.add_reaction("\U0001F44E")
 
