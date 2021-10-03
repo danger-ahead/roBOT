@@ -5,5 +5,5 @@ duckduckgo-search
 git+https://github.com/Pycord-Development/pycord@feature/slash
 pymongo==3.11.4
 # wikipedia==1.4.0
-# dnspython==1.16.0
+dnspython==1.16.0
 # black==21.6b0

@@ -1,4 +1,4 @@
-from command.database.loader import loader
+from command.database.loader import db_loaded
 from discord.ext import commands
 
 
@@ -8,7 +8,7 @@ class Rank(commands.Cog):
 
     @commands.command()
     async def rank(self, ctx):
-        db = loader.db_loaded()
+        db = db_loaded()
         await db.rank_query(ctx.message)
         await ctx.message.add_reaction("\U0001f44d")
 

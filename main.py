@@ -3,17 +3,19 @@ import dotenv
 import jishaku
 import discord
 from discord.ext import commands
+from command.database.loader import db_load, db_loaded, client_load, client_loaded
 
 
 # loading env file so that we can use it
 dotenv.load_dotenv()
 
-def main():
-    # enabling intents
-    intents = discord.Intents.all()
 
-    # defining discord client
-    client = commands.Bot(command_prefix = "_", intents=intents)
+def main():
+    db_load()  # loads database
+    db = db_loaded()
+
+    client_load()
+    client = client_loaded()
 
     # to load all cogs
     for folder in os.listdir("command"):

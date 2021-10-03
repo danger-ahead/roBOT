@@ -1,6 +1,6 @@
 import discord
 from command.database.loader import database
-from command.database.loader import loader
+from command.database.loader import db_loaded, client_loaded
 from discord.ext import commands
 
 
@@ -13,8 +13,8 @@ class Confess(commands.Cog):
     @commands.command()
     async def confess(self, ctx):
         await ctx.message.delete()
-        db = loader.db_loaded()
-        client = loader.client_loaded()
+        db = db_loaded()
+        client = client_loaded()
         hold = ctx.message.content.find(" ")  # searches for the first space after the command
         await db.confess(
             client,

@@ -3,6 +3,7 @@ Loader module for initializing the other scripts and modules.
 Also stores them for use in the whole project directory.
 """
 
+from discord.ext import commands
 import discord
 from command.database.loader import database
 from  command.game import poll
@@ -18,6 +19,15 @@ def db_load():
     db = database.Database()
 
 
+# def poll_loaded():
+#     return pl
+
+
+# def poll_load():
+#     global pl
+#     pl = poll.Poll()
+
+# creates instance of client here, so that the instance can be accessed through out the project
 def client_loaded():
     return client
 
@@ -25,28 +35,13 @@ def client_loaded():
 def client_load():
     global client
     print("Running: Client")
-    client = discord.Client()
+    # enabling intents
+    intents = discord.Intents.all()
 
-
-def moderator_loaded():
-    return md
-
-
-def moderator_load():
-    global md
-    md = moderator.Moderator()
-
-
-def poll_loaded():
-    return pl
-
-
-def poll_load():
-    global pl
-    pl = poll.Poll()
+    # defining discord client
+    client = commands.Bot(command_prefix = "_", intents=intents)
 
 
 db = None
+# pl = None
 client = None
-md = None
-pl = None
