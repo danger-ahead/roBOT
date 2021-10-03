@@ -4,3 +4,4 @@
 /robot
 **/__pycache__
 test.py
+.env

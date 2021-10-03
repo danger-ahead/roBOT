@@ -2,10 +2,11 @@ import os
 import dotenv
 import discord
 import pymongo as pm
+from discord.ext import commands
 
 dotenv.load_dotenv()
 
-class Database:
+class Database(commands.Cog):
     """
     Class for all the database functions
     """
