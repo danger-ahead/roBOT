@@ -9,6 +9,7 @@ from commands.scripts import moderator
 from commands.scripts import poll
 
 
+
 def db_loaded():
     return db
 

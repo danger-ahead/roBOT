@@ -7,10 +7,11 @@
 
 [![Discord chat](https://img.shields.io/discord/847319167949340702?color=blue&label=join%20discord%20server)](https://discord.gg/kBatC2cVJr)
 
-### A Branch dedicated to Refactoring whole bot.
+## A Branch dedicated to Refactoring whole bot.
 
 
-**You have to join our [discord server](https://discord.gg/qCcNYQu2kE) if you want to contribute to this branch.** Otherwise no pull requests will be accepted.
+**You have to join our [discord server](https://discord.gg/qCcNYQu2kE) if you want to contribute to this branch.**\
+Otherwise no pull requests will be accepted.
 
 *Note: This branch has breaking changes*
 
