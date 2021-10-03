@@ -127,6 +127,14 @@ async def meme(discord, message):
     embed.add_field(name="**Syntax**", value="`_meme`")
     await message.channel.send(embed=embed)
 
+async def compliment(discord, message):
+    embed = discord.Embed(
+        title="Compliment",
+        description="Gives a random compliment.",
+        color=discord.Color.blue(),
+    )
+    embed.add_field(name="**Syntax**", value="`_compliment`")
+    await message.channel.send(embed=embed)
 
 async def unmute(discord, message):
     embed = discord.Embed(
