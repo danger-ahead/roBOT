@@ -8,7 +8,6 @@ class Meme(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-
     def links(self):
         urls = [
             "https://memes.blademaker.tv/api?lang=en",
@@ -66,6 +65,7 @@ class Meme(commands.Cog):
         except Exception as e:
             await ctx.send(e)
             # await message.add_reaction("\U0001f44E")
+
 
 def setup(client):
     client.add_cog(Meme(client))

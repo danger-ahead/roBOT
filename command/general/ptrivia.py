@@ -4,6 +4,7 @@ import asyncio
 import requests
 from discord.ext import commands
 
+
 class Trivia(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -15,7 +16,6 @@ class Trivia(commands.Cog):
     it was something that u imported from command.script. directory
     ~ EitoZX
     """
-
 
     @commands.command()
     async def ptrivia(self, ctx):
@@ -65,7 +65,9 @@ class Trivia(commands.Cog):
             all_answers = [x.lower() for x in all_answers]
 
             try:
-                bot_message = await self.client.wait_for("message", check=check, timeout=60)
+                bot_message = await self.client.wait_for(
+                    "message", check=check, timeout=60
+                )
                 if bot_message.content.lower() == correct_answer.lower():
                     await bot_message.add_reaction("\U0001f44d")
                     await bot_message.reply("Correct answer!")

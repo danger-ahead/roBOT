@@ -2,6 +2,7 @@ import discord
 import aiohttp
 from discord.ext import commands
 
+
 class Mean(commands.Cog):
     def __init__(self, client):
         self.client = client

@@ -4,10 +4,10 @@ import requests
 import random
 from discord.ext import commands
 
+
 class Ptrivia(commands.Cog):
     def __init__(self, client):
         self.client = client
-
 
     @commands.command()
     async def trivia(self, ctx):

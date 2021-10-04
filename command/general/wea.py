@@ -5,13 +5,12 @@ import requests
 from discord.ext import commands
 
 
-
 dotenv.load_dotenv()
+
 
 class Wea(commands.Cog):
     def __init__(self, client):
         self.client = client
-
 
     @commands.command()
     async def wea(self, ctx):
@@ -20,10 +19,10 @@ class Wea(commands.Cog):
         for i in range(1, len(city_list)):
             city = city + city_list[i] + " "
 
-        newurl = (f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={str(os.getenv('OPEN_WEATHER_TOKEN'))}")
+        newurl = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={str(os.getenv('OPEN_WEATHER_TOKEN'))}"
         response = requests.get(newurl)
         response = response.json()
-        
+
         try:
             weatherrep = response["main"]
             temperature = weatherrep["temp"]
@@ -50,9 +49,10 @@ class Wea(commands.Cog):
             embed.set_thumbnail(url=icon_url)  # set thumbnail on the embed
             await ctx.send(embed=embed)
             await ctx.message.add_reaction("\U0001f44d")
-        
+
         except Exception as e:
             await ctx.message.add_reaction("\U0001F44E")
+
 
 def setup(client):
     client.add_cog(Wea(client))
