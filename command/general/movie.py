@@ -18,10 +18,9 @@ class Movie(commands.Cog):
     """
 
     @commands.command()
-    async def movie(self, ctx):
-        hold = ctx.message.content.find(" ")
+    async def movie(self, ctx, *, hold):
         querystring = {
-            "query": ctx.message.content[(hold + 1) : len(ctx.message.content)],
+            "query": hold,
             "page": "1",
         }
 
