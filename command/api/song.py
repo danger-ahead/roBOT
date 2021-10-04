@@ -12,9 +12,8 @@ class Song(commands.Cog):
 
 
     @commands.command()
-    async def song(self, ctx):
-        hold = ctx.message.content.find(" ")
-        querystring = {"q": ctx.message.content[(hold + 1) : len(ctx.message.content)]}
+    async def song(self, ctx, *, hold):
+        querystring = {"q": hold}
 
         headers = {
             "x-rapidapi-key": str(os.getenv("RAPID_API")),

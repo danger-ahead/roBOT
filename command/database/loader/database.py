@@ -6,7 +6,7 @@ from discord.ext import commands
 
 dotenv.load_dotenv()
 
-class Database(commands.Cog):
+class Database():
     """
     Class for all the database functions
     """
