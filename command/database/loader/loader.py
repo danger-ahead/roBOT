@@ -39,7 +39,7 @@ def client_load():
     intents = discord.Intents.all()
 
     # defining discord client
-    client = commands.Bot(command_prefix = "_", intents=intents)
+    client = commands.Bot(command_prefix = "_", intents=intents, activity=discord.Activity(type=discord.ActivityType.listening, name=f"_help"))
 
 
 db = None

@@ -8,22 +8,18 @@ class Confess(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-
-
     @commands.command()
-    async def confess(self, ctx):
+    async def confess(self, ctx, *, hold):
         await ctx.message.delete()
         db = db_loaded()
         client = client_loaded()
-        hold = ctx.message.content.find(" ")  # searches for the first space after the command
+        print(hold)
         await db.confess(
             client,
             discord,
-            ctx.message.content[(hold + 1) : len(ctx.message.content)],
+            hold,
             ctx.message,
         )
-
-
 
 def setup(client):
     client.add_cog(Confess(client))

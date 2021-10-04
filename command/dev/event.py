@@ -10,8 +10,6 @@ class Start(commands.Cog):
     """
     @commands.Cog.listener()
     async def on_ready(self):
-        
-        await self.client.change_presence(activity = discord.Activity(type = discord.ActivityType.listening, name=f"_help"))
         print(f"{self.client.user} Connected Successfully!")
 
 
