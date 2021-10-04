@@ -19,7 +19,7 @@ class reddit_scraper(commands.Cog):
         self.bot = bot
 
     @commands.command(description="fetch memes from any subreddit", pass_context = True)
-    async def reddit_meme(self, ctx, *args):
+    async def reddit_search(self, ctx, *args):
         submission = await reddit.subreddit('{}'.format(' '.join(args))).Hot()
         em = discord.Embed(title=submission.title, description=submission.selftext[:2048], url = submission.url, color=0xFF4301)        
         em.set_image(url=submission.url)
