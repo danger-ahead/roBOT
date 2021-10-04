@@ -10,7 +10,7 @@
 | $moderation | Instructs **roBOT** to activate chat moderation on the server |
 | $leave | Instructs **roBOT** to leave the server (works only in the channel configured with `$configure` command) |
 | $clean | **roBOT** deletes the previous 100 chats from the channel |
-
+|$slm <seconds>   | ***roBOT** Adds slowmode for specefied seconds and to remove to add 0 in seconds | 
 | Commands | Description |
 | :-------------: | :-------------: |
 | **_wearesoftwareengineers** | **FOR ALL THE SOFTWARE ENGINEERS OUT THERE!** |
