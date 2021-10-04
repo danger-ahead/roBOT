@@ -2,6 +2,7 @@ import json
 import discord
 from discord.ext import commands
 from duckduckgo_search import ddg
+from googlesearch import search
 
 class Search(commands.Cog):
     def __init__(self, client):
@@ -30,6 +31,14 @@ class Search(commands.Cog):
 
         await ctx.send(embed=embed)
         await ctx.message.add_reaction("\U0001f44d")
+
+    @commands.command()
+    async def gsearch(self,ctx,*args):
+        results = search('{}'.format(' '.join(args)),num_results=5, lang="en")
+        em = discord.Embed(title="Google Search", color=0x212121)
+        for links in results:
+            em.add_field(name="Result",value=links, inline=False)
+        await ctx.send(embed=em)
 
 
 def setup(client):
