@@ -8,12 +8,8 @@ class Configure(commands.Cog):
 
     @commands.command()
     async def configure(self, ctx):
-        try:
-            db = db_loaded()
-            await db.server_config(ctx.guild.id, ctx)
-            await ctx.message.add_reaction("\U0001f44d")
-        except:
-            await ctx.message.add_reaction("\U0001f44E")
+        db = db_loaded()
+        await db.server_config(ctx.guild.id, ctx)
 
 
 def setup(client):
