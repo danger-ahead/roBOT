@@ -3,6 +3,7 @@ import dotenv
 import discord
 import requests
 from discord.ext import commands
+from command.database.loader import loader
 
 
 dotenv.load_dotenv()
@@ -49,6 +50,8 @@ class Wea(commands.Cog):
             embed.set_thumbnail(url=icon_url)  # set thumbnail on the embed
             await ctx.send(embed=embed)
             await ctx.message.add_reaction("\U0001f44d")
+            db = loader.db_loaded()
+            await db.score_up(ctx, loader.client_loaded())
 
         except Exception as e:
             await ctx.message.add_reaction("\U0001F44E")

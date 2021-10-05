@@ -2,6 +2,7 @@ import json
 import discord
 from discord.ext import commands
 from duckduckgo_search import ddg
+from command.database.loader import loader
 
 
 class Search(commands.Cog):
@@ -25,6 +26,8 @@ class Search(commands.Cog):
 
         await ctx.send(embed=embed)
         await ctx.message.add_reaction("\U0001f44d")
+        db = loader.db_loaded()
+        await db.score_up(ctx, loader.client_loaded())
 
 
 def setup(client):

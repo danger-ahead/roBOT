@@ -3,6 +3,7 @@ import discord
 import requests
 import random
 from discord.ext import commands
+from command.database.loader import loader
 
 
 class Ptrivia(commands.Cog):
@@ -65,7 +66,8 @@ class Ptrivia(commands.Cog):
             )
             await msg.edit(embed=embed)
             await ctx.message.add_reaction("\U0001f44d")
-
+            db = loader.db_loaded()
+            await db.score_up(ctx, loader.client_loaded())
         except Exception:
             await ctx.message.add_reaction("\U0001f44E")
 

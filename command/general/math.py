@@ -1,6 +1,7 @@
 import aiohttp
 import urllib
 from discord.ext import commands
+from command.database.loader import loader
 
 
 class Math(commands.Cog):
@@ -22,6 +23,8 @@ class Math(commands.Cog):
         if response.status == 200:
             await ctx.send(f"**Result:** `{result}`")
             await ctx.message.add_reaction("\U0001f44d")
+            db = loader.db_loaded()
+            await db.score_up(ctx, loader.client_loaded())
         else:
             await ctx.message.add_reaction("\U0001F44E")
 

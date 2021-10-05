@@ -39,11 +39,12 @@ class reddit_scraper(commands.Cog):
             )
             em.set_image(url=submission.url)
             await ctx.send(embed=em)
-            await ctx.message.add_reaction("👍")
+            await ctx.message.add_reaction("\U0001f44d")
+            db = loader.db_loaded()
+            await db.score_up(ctx, loader.client_loaded())
 
         except Exception as e:
-            await ctx.send(e)
-            await ctx.message.add_reaction("👎")
+            await ctx.message.add_reaction("\U0001f44E")
 
         finally:
             await reddit.close()

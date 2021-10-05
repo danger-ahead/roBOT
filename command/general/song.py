@@ -3,6 +3,7 @@ import json
 import dotenv
 import requests
 from discord.ext import commands
+from command.database.loader import loader
 
 dotenv.load_dotenv()
 
@@ -42,6 +43,8 @@ class Song(commands.Cog):
                     + y["url"]
                 )
             await ctx.message.add_reaction("\U0001f44d")
+            db = loader.db_loaded()
+            await db.score_up(ctx, loader.client_loaded())
         except:
             await ctx.message.add_reaction("\U0001F44E")
 

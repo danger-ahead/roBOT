@@ -6,6 +6,7 @@ class Mute_Unmute(commands.Cog):
         self.client = client
 
     @commands.command()
+    @commands.has_permissions(mute_members=True)
     async def mute(self, ctx):
         if ctx.message.mentions.__len__() > 0:
             for user in ctx.message.mentions:
@@ -18,6 +19,7 @@ class Mute_Unmute(commands.Cog):
                 pass
 
     @commands.command()
+    @commands.has_permissions(mute_members=True)
     async def unmute(self, ctx):
         if ctx.message.mentions.__len__() > 0:
             for user in ctx.message.mentions:
@@ -28,6 +30,13 @@ class Mute_Unmute(commands.Cog):
                 await user.edit(mute=False)
             except Exception:
                 pass
+
+    @mute.error
+    @unmute.error
+    async def mute_unmute_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.message.reply("You don't have permission to use this command")
+            await ctx.message.add_reaction("👎")
 
 
 def setup(client):

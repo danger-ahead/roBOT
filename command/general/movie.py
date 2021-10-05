@@ -4,6 +4,7 @@ import dotenv
 import discord
 import aiohttp
 from discord.ext import commands
+from command.database.loader import loader
 
 dotenv.load_dotenv()
 
@@ -35,24 +36,24 @@ class Movie(commands.Cog):
             result_first = data["results"][0]
 
         try:
+            embed = discord.Embed(
+                title=result_first["original_title"],
+                colour=discord.Color.blurple(),
+                description=f"""
+                
+                **Release Date:** {result_first["release_date"]}
+                **Original Language:** {result_first["original_language"]}
+
+                **Overview:** {result_first["overview"]}
+                """,
+            )
+            embed.set_image(url=result_first["poster_path"])
+            await ctx.send(embed=embed)
             await ctx.message.add_reaction("\U0001f44d")
+            db = loader.db_loaded()
+            await db.score_up(ctx, loader.client_loaded())
         except:
             await ctx.message.add_reaction("\U0001F44E")
-
-        embed = discord.Embed(
-            title=result_first["original_title"],
-            colour=discord.Color.blurple(),
-            description=f"""
-            
-            **Release Date:** {result_first["release_date"]}
-            **Original Language:** {result_first["original_language"]}
-
-            **Overview:** {result_first["overview"]}
-            """,
-        )
-        embed.set_image(url=result_first["poster_path"])
-
-        await ctx.send(embed=embed)
 
 
 def setup(client):

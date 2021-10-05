@@ -4,7 +4,7 @@ import dotenv
 import discord
 import requests
 from discord.ext import commands
-
+from command.database.loader import loader
 
 dotenv.load_dotenv()
 
@@ -56,6 +56,8 @@ class F(commands.Cog):
 
                         await ctx.send(embed=embed)
                         await ctx.message.add_reaction("\U0001f44d")
+                    db = loader.db_loaded()
+                    await db.score_up(ctx, loader.client_loaded())
                 else:
                     await ctx.message.add_reaction("\U0001F44E")
 
@@ -74,6 +76,8 @@ class F(commands.Cog):
 
                     await ctx.send(embed=embed)
                     await ctx.message.add_reaction("\U0001f44d")
+                    db = loader.db_loaded()
+                    await db.score_up(ctx, loader.client_loaded())
                 else:
                     await ctx.message.add_reaction("\U0001F44E")
 

@@ -3,6 +3,7 @@ import discord
 import asyncio
 import requests
 from discord.ext import commands
+from command.database.loader import loader
 
 
 class Trivia(commands.Cog):
@@ -89,6 +90,8 @@ class Trivia(commands.Cog):
                 await msg.reply("Times out\n" + "Correct Answer: " + correct_answer)
 
             await ctx.message.add_reaction("\U0001f44d")
+            db = loader.db_loaded()
+            await db.score_up(ctx, loader.client_loaded())
 
         except Exception:
             await ctx.reply("Error :/")

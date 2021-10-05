@@ -2,6 +2,7 @@ import random
 import discord
 from discord.ext import commands
 import aiohttp
+from command.database.loader import loader
 
 
 class Meme(commands.Cog):
@@ -61,10 +62,11 @@ class Meme(commands.Cog):
 
             await ctx.send(embed=embed)
             await ctx.message.add_reaction("\U0001f44d")
+            db = loader.db_loaded()
+            await db.score_up(ctx, loader.client_loaded())
 
         except Exception as e:
-            await ctx.send(e)
-            # await message.add_reaction("\U0001f44E")
+            await message.add_reaction("\U0001f44E")
 
 
 def setup(client):
