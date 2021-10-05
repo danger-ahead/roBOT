@@ -8,6 +8,7 @@ from discord.ext import commands
 
 dotenv.load_dotenv()
 
+
 class F(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -18,7 +19,6 @@ class F(commands.Cog):
     and what does this command do
     
     """
-
 
     @commands.command()
     async def f(self, ctx):
@@ -35,7 +35,9 @@ class F(commands.Cog):
                 year = lst[2]
                 url = "https://numbersapi.p.rapidapi.com/" + year + "/year"
 
-                response = requests.request("GET", url, headers=headers, params=querystring)
+                response = requests.request(
+                    "GET", url, headers=headers, params=querystring
+                )
                 if response.status_code == 200:
                     data = json.loads(response.text)
                     try:
@@ -61,10 +63,14 @@ class F(commands.Cog):
                 math = lst[2]
                 url = "https://numbersapi.p.rapidapi.com/" + math + "/math"
 
-                response = requests.request("GET", url, headers=headers, params=querystring)
+                response = requests.request(
+                    "GET", url, headers=headers, params=querystring
+                )
                 if response.status_code == 200:
                     data = json.loads(response.text)
-                    embed = discord.Embed(description=data["text"], color=discord.Color.blue())
+                    embed = discord.Embed(
+                        description=data["text"], color=discord.Color.blue()
+                    )
 
                     await ctx.send(embed=embed)
                     await ctx.message.add_reaction("\U0001f44d")

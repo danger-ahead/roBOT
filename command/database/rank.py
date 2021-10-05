@@ -8,9 +8,12 @@ class Rank(commands.Cog):
 
     @commands.command()
     async def rank(self, ctx):
-        db = db_loaded()
-        await db.rank_query(ctx.message)
-        await ctx.message.add_reaction("\U0001f44d")
+        try:
+            db = db_loaded()
+            await db.rank_query(ctx.message)
+            await ctx.message.add_reaction("\U0001f44d")
+        except:
+            await ctx.message.add_reaction("\U0001f44E")
 
 
 def setup(client):

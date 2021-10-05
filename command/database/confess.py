@@ -21,5 +21,6 @@ class Confess(commands.Cog):
             ctx.message,
         )
 
+
 def setup(client):
     client.add_cog(Confess(client))

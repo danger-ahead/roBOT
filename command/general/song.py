@@ -6,10 +6,10 @@ from discord.ext import commands
 
 dotenv.load_dotenv()
 
+
 class Song(commands.Cog):
     def __init__(self, client):
         self.client = client
-
 
     @commands.command()
     async def song(self, ctx, *, hold):
@@ -44,6 +44,7 @@ class Song(commands.Cog):
             await ctx.message.add_reaction("\U0001f44d")
         except:
             await ctx.message.add_reaction("\U0001F44E")
+
 
 def setup(client):
     client.add_cog(Song(client))

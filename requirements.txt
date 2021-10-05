@@ -1,11 +1,10 @@
 aiohttp
+asyncpraw==7.4.0
+dnspython==1.16.0
+duckduckgo-search
 jishaku
 python-dotenv
-duckduckgo-search
-git+https://github.com/Pycord-Development/pycord@feature/slash
 pymongo==3.11.4
 wikipedia==1.4.0
-dnspython==1.16.0
 # black==21.6b0
-googlesearch_python==1.0.1
-asyncpraw==7.4.0
+git+https://github.com/Pycord-Development/pycord

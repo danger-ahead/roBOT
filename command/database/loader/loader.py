@@ -6,8 +6,7 @@ Also stores them for use in the whole project directory.
 from discord.ext import commands
 import discord
 from command.database.loader import database
-from  command.game import poll
-
+from command.game import poll
 
 
 def db_loaded():
@@ -39,7 +38,11 @@ def client_load():
     intents = discord.Intents.all()
 
     # defining discord client
-    client = commands.Bot(command_prefix = "_", intents=intents, activity=discord.Activity(type=discord.ActivityType.listening, name=f"_help"))
+    client = commands.Bot(
+        command_prefix="_",
+        intents=intents,
+        activity=discord.Activity(type=discord.ActivityType.listening, name=f"_help"),
+    )
 
 
 db = None
