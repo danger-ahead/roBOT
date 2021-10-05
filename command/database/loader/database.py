@@ -6,7 +6,8 @@ from discord.ext import commands
 
 dotenv.load_dotenv()
 
-class Database():
+
+class Database:
     """
     Class for all the database functions
     """
@@ -27,7 +28,6 @@ class Database():
             print("Running: Database module [database.py]")
         except:
             print("Failed to run Database module [database.py]\n")
-
 
     async def score_up(self, message, client):  # increases the score of the user
         score = -1
@@ -88,11 +88,13 @@ class Database():
             await message.channel.send(
                 "I'm already configured on <#" + str(channell) + ">"
             )
+            await message.add_reaction("\U0001f44E")
         else:
             self.collection2.insert_one(
                 {"_id": server, "channel": message.channel.id, "confess": 0, "mod": 0}
             )
             await message.channel.send("I just got configured!")
+            await message.add_reaction("\U0001f44d")
 
     async def server_deconfig(
         self, server, message
@@ -106,12 +108,14 @@ class Database():
         if channell == message.channel.id:
             self.collection2.delete_one({"_id": server})
             await message.channel.send("I've been deconfigured!")
+            await message.add_reaction("\U0001f44d")
         elif channell == "":
             await message.channel.send("Configure me first!")
         elif channell != message.channel.id:
             await message.channel.send(
                 "I'm configured on <#" + str(channell) + "> \nI can't deconfigure here!"
             )
+            await message.add_reaction("\U0001f44E")
 
     async def confess_config(
         self, server, message

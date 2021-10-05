@@ -3,12 +3,13 @@ import random
 import discord
 from discord.ext import commands
 
+
 class Roll(commands.Cog):
     def __init__(self, client):
         self.client = client
 
     # this is roll a dice command
-    @commands.command(aliases = ['roll', 'dice'])
+    @commands.command(aliases=["roll", "dice"])
     async def roll_a_dice(self, ctx):
         number = random.randint(1, 6)
         cwd = os.getcwd()  # stores current directory before changing
@@ -30,6 +31,7 @@ class Roll(commands.Cog):
         await ctx.message.add_reaction("\U0001f44d")
 
         os.chdir(cwd)  # changes back to the previously stored directory
+
 
 def setup(client):
     client.add_cog(Roll(client))
