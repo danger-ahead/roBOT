@@ -2,7 +2,7 @@ import os
 import json
 import dotenv
 import discord
-import requests
+import aiohttp
 from discord.ext import commands
 from command.database.loader import loader
 
@@ -13,12 +13,6 @@ class F(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    """
-    ISSUE:
-    idk how to use this
-    and what does this command do
-    
-    """
 
     @commands.command()
     async def f(self, ctx):
@@ -34,55 +28,54 @@ class F(commands.Cog):
             if lst[1].find("y") != -1:
                 year = lst[2]
                 url = "https://numbersapi.p.rapidapi.com/" + year + "/year"
+            
+                async with aiohttp.ClientSession() as session:
+                    response = await session.get(url, headers=headers, params=querystring
+                    )
+                    if response.status == 200:
+                        data = await response.json()
+                        try:
+                            embed = discord.Embed(
+                                title="Date: " + data["date"],
+                                description=data["text"],
+                                color=discord.Color.blue(),
+                            )
 
-                response = requests.request(
-                    "GET", url, headers=headers, params=querystring
-                )
-                if response.status_code == 200:
-                    data = json.loads(response.text)
-                    try:
-                        embed = discord.Embed(
-                            title="Date: " + data["date"],
-                            description=data["text"],
-                            color=discord.Color.blue(),
-                        )
+                            await ctx.send(embed=embed)
+                            await ctx.message.add_reaction("\U0001f44d")
+                        except:
+                            embed = discord.Embed(
+                                description=data["text"], color=discord.Color.blue()
+                            )
 
-                        await ctx.send(embed=embed)
-                        await ctx.message.add_reaction("\U0001f44d")
-                    except:
+                            await ctx.send(embed=embed)
+                            await ctx.message.add_reaction("\U0001f44d")
+                        db = loader.db_loaded()
+                        await db.score_up(ctx, loader.client_loaded())
+                    else:
+                        await ctx.message.add_reaction("\U0001F44E")
+
+            if lst[1].find("m") != -1:
+                math = lst[2]
+                url = "https://numbersapi.p.rapidapi.com/" + math + "/math"
+                async with aiohttp.ClientSession() as session:
+                    response = await session.get(url, headers=headers, params=querystring
+                    )
+                    if response.status == 200:
+                        data = await response.json()
                         embed = discord.Embed(
                             description=data["text"], color=discord.Color.blue()
                         )
 
                         await ctx.send(embed=embed)
                         await ctx.message.add_reaction("\U0001f44d")
-                    db = loader.db_loaded()
-                    await db.score_up(ctx, loader.client_loaded())
-                else:
-                    await ctx.message.add_reaction("\U0001F44E")
+                        db = loader.db_loaded()
+                        await db.score_up(ctx, loader.client_loaded())
+                    else:
+                        await ctx.message.add_reaction("\U0001F44E")
 
-            if lst[1].find("m") != -1:
-                math = lst[2]
-                url = "https://numbersapi.p.rapidapi.com/" + math + "/math"
-
-                response = requests.request(
-                    "GET", url, headers=headers, params=querystring
-                )
-                if response.status_code == 200:
-                    data = json.loads(response.text)
-                    embed = discord.Embed(
-                        description=data["text"], color=discord.Color.blue()
-                    )
-
-                    await ctx.send(embed=embed)
-                    await ctx.message.add_reaction("\U0001f44d")
-                    db = loader.db_loaded()
-                    await db.score_up(ctx, loader.client_loaded())
-                else:
-                    await ctx.message.add_reaction("\U0001F44E")
-
-        except Exception as e:
-            await ctx.send(e)
+        except:
+            await ctx.message.add_reaction("\U0001f44E")
 
 
 def setup(client):

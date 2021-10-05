@@ -1,7 +1,7 @@
 import os
 import dotenv
 import discord
-import requests
+import aiohttp
 from discord.ext import commands
 from command.database.loader import loader
 
@@ -21,40 +21,42 @@ class Wea(commands.Cog):
             city = city + city_list[i] + " "
 
         newurl = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={str(os.getenv('OPEN_WEATHER_TOKEN'))}"
-        response = requests.get(newurl)
-        response = response.json()
+        async with aiohttp.ClientSession() as session:
 
-        try:
-            weatherrep = response["main"]
-            temperature = weatherrep["temp"]
-            report = response["weather"]
-            humidity = weatherrep["humidity"]
-            report_description = str({report[0]["description"]})
-            report_ico = report[0][
-                "icon"
-            ]  # contains icon id (for more details visit https://openweathermap.org/weather-conditions)
-            icon_url = f"https://openweathermap.org/img/wn/{report_ico}@2x.png"  # formats icon id in url
-            index = report_description.find("'")
-            index2 = report_description.find("'", 2)
-            embed = discord.Embed(
-                title="Weather update for :  " + city,
-                description=report_description[(index + 1) : index2]
-                + "\nTemp. is "
-                + str("%.2f" % (temperature - 273))
-                + "℃"
-                + "\nHumidity is "
-                + str(humidity)
-                + "%",
-                color=discord.Color.blue(),
-            )
-            embed.set_thumbnail(url=icon_url)  # set thumbnail on the embed
-            await ctx.send(embed=embed)
-            await ctx.message.add_reaction("\U0001f44d")
-            db = loader.db_loaded()
-            await db.score_up(ctx, loader.client_loaded())
+            response = await session.get(newurl)
+            response = await response.json()
 
-        except Exception as e:
-            await ctx.message.add_reaction("\U0001F44E")
+            try:
+                weatherrep = response["main"]
+                temperature = weatherrep["temp"]
+                report = response["weather"]
+                humidity = weatherrep["humidity"]
+                report_description = str({report[0]["description"]})
+                report_ico = report[0][
+                    "icon"
+                ]  # contains icon id (for more details visit https://openweathermap.org/weather-conditions)
+                icon_url = f"https://openweathermap.org/img/wn/{report_ico}@2x.png"  # formats icon id in url
+                index = report_description.find("'")
+                index2 = report_description.find("'", 2)
+                embed = discord.Embed(
+                    title="Weather update for :  " + city,
+                    description=report_description[(index + 1) : index2]
+                    + "\nTemp. is "
+                    + str("%.2f" % (temperature - 273))
+                    + "℃"
+                    + "\nHumidity is "
+                    + str(humidity)
+                    + "%",
+                    color=discord.Color.blue(),
+                )
+                embed.set_thumbnail(url=icon_url)  # set thumbnail on the embed
+                await ctx.send(embed=embed)
+                await ctx.message.add_reaction("\U0001f44d")
+                db = loader.db_loaded()
+                await db.score_up(ctx, loader.client_loaded())
+
+            except:
+                await ctx.message.add_reaction("\U0001F44E")
 
 
 def setup(client):
