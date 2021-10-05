@@ -1,7 +1,7 @@
 *.env
 *.idea
 *.vscode
-/robot
+venv
 **/__pycache__
 test.py
 .env

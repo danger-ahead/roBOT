@@ -7,9 +7,19 @@ class Configure(commands.Cog):
         self.client = client
 
     @commands.command()
+    @commands.has_permissions(administrator=True)
     async def configure(self, ctx):
+
         db = db_loaded()
         await db.server_config(ctx.guild.id, ctx)
+
+    @configure.error
+    async def configure_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.message.reply(
+                "You need **administrator** permission to use this command"
+            )
+            await ctx.message.add_reaction("👎")
 
 
 def setup(client):
