@@ -7,13 +7,18 @@ class Configure(commands.Cog):
         self.client = client
 
     @commands.command()
+    @commands.has_permissions(administrator = True)
     async def configure(self, ctx):
-        try:
-            db = db_loaded()
-            await db.server_config(ctx.guild.id, ctx)
-            await ctx.message.add_reaction("\U0001f44d")
-        except:
-            await ctx.message.add_reaction("\U0001f44E")
+
+        db = db_loaded()
+        await db.server_config(ctx.guild.id, ctx)
+        await ctx.message.add_reaction("👍")
+
+    @configure.error
+    async def configure_error(self, ctx, error):
+        if isinstance(error, commands.MissingPermissions):
+            await ctx.send("You need **administrator** permission to use this command")
+            await ctx.message.add_reaction("👎")
 
 
 def setup(client):
