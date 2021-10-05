@@ -13,22 +13,24 @@ class reddit_scraper(commands.Cog):
         self.bot = bot
 
     @commands.command(description="fetch memes from any subreddit")
-    async def reddit(self, ctx, subreddit : str = 'meme', limit = 25):
+    async def reddit(self, ctx, subreddit: str = "meme", limit=25):
         # adding this limitation below to prevent api abuse.
         if limit > 100:
             limit = 100
-            
+
         reddit = asyncpraw.Reddit(
             # add in your client id and client secret in .env file
-            client_id = os.getenv('CLIENT_ID'),
-            client_secret = os.getenv("CLIENT_SECRET"),
+            client_id=os.getenv("CLIENT_ID"),
+            client_secret=os.getenv("CLIENT_SECRET"),
             user_agent="roBOT",
         )
 
         try:
             subreddit = await reddit.subreddit(subreddit)
-            submission = random.choice([meme async for meme in subreddit.hot(limit = limit)])
-            
+            submission = random.choice(
+                [meme async for meme in subreddit.hot(limit=limit)]
+            )
+
             em = discord.Embed(
                 title=submission.title,
                 description=submission.selftext[:2048],

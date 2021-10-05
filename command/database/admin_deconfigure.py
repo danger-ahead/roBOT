@@ -7,12 +7,11 @@ class Deconfigure(commands.Cog):
         self.client = client
 
     @commands.command()
-    @commands.has_permissions(administrator = True)
+    @commands.has_permissions(administrator=True)
     async def deconfigure(self, ctx):
 
         db = db_loaded()
         await db.server_deconfig(ctx.guild.id, ctx)
-        await ctx.message.add_reaction("👍")
 
     @deconfigure.error
     async def configure_error(self, ctx, error):
