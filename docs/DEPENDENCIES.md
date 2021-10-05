@@ -22,3 +22,4 @@
 - Uses [jgoralcz /trivia](https://github.com/jgoralcz/trivia) for trivia.
 - Uses [Huge RedditMemesAPI](https://memes.blademaker.tv/) for memes.
 - Uses [PokeAPI](https://pokeapi.co/) for pokemon data.
+- Uses [Jikan API](https://jikan.moe/) the unofficial MAL API for fetching data on anime shows and manga.
