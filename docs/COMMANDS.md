@@ -25,13 +25,17 @@
 | _joke | Tells a joke |
 | _inspire | Sends an inspirational quote which will surely enlighten you |
 | _wea < city, country code > | Tells the current weather situations of the city |
-| _wiki < query >  | Searches the Wikipedia for the query |
+| _wikipedia_search < query >  | Searches the Wikipedia for the query |
 | _search < query > | Searches DuckDuckGo for the query |
 | _movie < movie > | Tells the details of the movie |
 | _song < song or artist > | Tells the details of the song or finds the most famous song of the artist |
 | _rank | Tells the current friendship level of **roBOT** with the user |
 | _hi | Provides the user with a link to find **roBOT**'s commands |
 | _contribute  | Provides the user with a link to **roBOT**'s source code |
+| _anime < Name > | Fetches MAL entry for specified anime |
+| _manga < Name > | Fetches MAL entry for specified manga |
+| _reddit < subreddit > | Fetches hottest post from specified subreddit |
+| _pokedex < pokemon_name > | Fetches specified Pokemon data like base stats abilities in-game sprite etc. |
 
 | Game Commands  | Description |
 | :-------------: | :-------------: |
