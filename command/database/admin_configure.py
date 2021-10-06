@@ -7,7 +7,7 @@ class Configure(commands.Cog):
         self.client = client
 
     @commands.command()
-    @commands.has_permissions(administrator=True)
+    @commands.has_permissions(manage_guild=True)
     async def configure(self, ctx):
 
         db = db_loaded()
@@ -16,9 +16,7 @@ class Configure(commands.Cog):
     @configure.error
     async def configure_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
-            await ctx.message.reply(
-                "You need **administrator** permission to use this command"
-            )
+            await ctx.message.reply("You don't have permission to use this command")
             await ctx.message.add_reaction("👎")
 
 

@@ -7,7 +7,7 @@ class Deconfigure(commands.Cog):
         self.client = client
 
     @commands.command()
-    @commands.has_permissions(administrator=True)
+    @commands.has_permissions(manage_guild=True)
     async def deconfigure(self, ctx):
 
         db = db_loaded()
@@ -16,7 +16,7 @@ class Deconfigure(commands.Cog):
     @deconfigure.error
     async def configure_error(self, ctx, error):
         if isinstance(error, commands.MissingPermissions):
-            await ctx.send("You need **administrator** permission to use this command")
+            await ctx.message.reply("You don't have permission to use this command")
             await ctx.message.add_reaction("👎")
 
 

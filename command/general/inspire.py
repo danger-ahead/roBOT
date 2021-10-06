@@ -1,5 +1,6 @@
 import aiohttp
 from discord.ext import commands
+from command.database.loader import loader
 
 
 class Inspire(commands.Cog):
@@ -21,6 +22,8 @@ class Inspire(commands.Cog):
             quote = await Inspire.get_quote(self)
             await ctx.send(quote)
             await ctx.message.add_reaction("\U0001f44d")
+            db = loader.db_loaded()
+            await db.score_up(ctx, loader.client_loaded())
         except Exception as e:
             await ctx.message.add_reaction("\U0001F44E")
             await ctx.send("Quota exhausted :(\nTry again later!")

@@ -13,7 +13,6 @@ class Confess(commands.Cog):
         await ctx.message.delete()
         db = db_loaded()
         client = client_loaded()
-        print(hold)
         await db.confess(
             client,
             discord,

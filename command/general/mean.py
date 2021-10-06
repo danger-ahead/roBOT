@@ -1,6 +1,7 @@
 import discord
 import aiohttp
 from discord.ext import commands
+from command.database.loader import loader
 
 
 class Mean(commands.Cog):
@@ -63,6 +64,8 @@ class Mean(commands.Cog):
                         title=word, description=output, color=discord.Color.blue()
                     )
                     await ctx.send(embed=embed)
+                    db = loader.db_loaded()
+                    await db.score_up(ctx, loader.client_loaded())
                 else:
                     await ctx.message.add_reaction("\U0001F44E")
 
