@@ -23,3 +23,4 @@
 - Uses [Huge RedditMemesAPI](https://memes.blademaker.tv/) for memes.
 - Uses [PokeAPI](https://pokeapi.co/) for pokemon data.
 - Uses [Jikan API](https://jikan.moe/) the unofficial MAL API for fetching data on anime shows and manga.
+- Uses [StackAPI](https://stackapi.readthedocs.io/en/latest/index.html) to fetch stackoverflow questions by ID (can only fetch using id due to api limitations will update in the future).

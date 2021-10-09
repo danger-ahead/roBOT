@@ -36,6 +36,7 @@
 | _manga < Name > | Fetches MAL entry for specified manga |
 | _reddit < subreddit > | Fetches hottest post from specified subreddit |
 | _pokedex < pokemon_name > | Fetches specified Pokemon data like base stats abilities in-game sprite etc. |
+| _stack_search < question ID > | Fetches StackOverflow Question by ID |
 
 | Game Commands  | Description |
 | :-------------: | :-------------: |

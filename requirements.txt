@@ -8,3 +8,4 @@ pymongo==3.11.4
 wikipedia==1.4.0
 # black==21.6b0
 git+https://github.com/Pycord-Development/pycord
+stackapi == 0.2.0
