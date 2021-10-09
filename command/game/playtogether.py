@@ -18,7 +18,6 @@ class Playdown(discord.ui.Select):
         )
 
     async def callback(self, interaction: discord.Interaction):
-        print("called")
         await interaction.response.defer()
         assert self.view is not None
         view: playView = self.view
