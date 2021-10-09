@@ -13,7 +13,6 @@ class F(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-
     @commands.command()
     async def f(self, ctx):
         try:
@@ -28,9 +27,10 @@ class F(commands.Cog):
             if lst[1].find("y") != -1:
                 year = lst[2]
                 url = "https://numbersapi.p.rapidapi.com/" + year + "/year"
-            
+
                 async with aiohttp.ClientSession() as session:
-                    response = await session.get(url, headers=headers, params=querystring
+                    response = await session.get(
+                        url, headers=headers, params=querystring
                     )
                     if response.status == 200:
                         data = await response.json()
@@ -59,7 +59,8 @@ class F(commands.Cog):
                 math = lst[2]
                 url = "https://numbersapi.p.rapidapi.com/" + math + "/math"
                 async with aiohttp.ClientSession() as session:
-                    response = await session.get(url, headers=headers, params=querystring
+                    response = await session.get(
+                        url, headers=headers, params=querystring
                     )
                     if response.status == 200:
                         data = await response.json()

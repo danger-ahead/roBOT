@@ -12,7 +12,7 @@ class Song(commands.Cog):
         self.client = client
 
     @commands.command()
-    async def song(self, ctx, *, hold = 'song'):
+    async def song(self, ctx, *, hold="song"):
         querystring = {"q": hold}
 
         headers = {

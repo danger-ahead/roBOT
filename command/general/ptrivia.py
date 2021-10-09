@@ -10,7 +10,6 @@ class Trivia(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-
     @commands.command()
     async def ptrivia(self, ctx):
         url = "https://beta-trivia.bongo.best"
@@ -20,7 +19,7 @@ class Trivia(commands.Cog):
                 r = await session.get(url)
                 r = await r.json()
                 r = r[0]
-                
+
                 question = r["question"].replace("&quot;", '"').replace("&#039;", "'")
                 category = r["category"] if r["category"] is not None else "Unknown"
                 correct_answer = (
@@ -92,7 +91,7 @@ class Trivia(commands.Cog):
 
         except:
             await ctx.message.add_reaction("\U0001f44E")
-            
+
 
 def setup(client):
     client.add_cog(Trivia(client))
