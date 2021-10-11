@@ -1,3 +1,7 @@
+import discord
+from discord.ext import commands
+import datetime
+
 class Lock_Unlock(commands.Cog):
 
     def __init__(self, client):
