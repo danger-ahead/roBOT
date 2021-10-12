@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import datetime
+import datetim
 
 class Lock_Unlock(commands.Cog):
 
