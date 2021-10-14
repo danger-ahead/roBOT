@@ -8,7 +8,7 @@ class Lock_Unlock(commands.Cog):
         self.client = client
 
 @commands.command(name="lockchannel", aliases=['lock'])
-    @commands.has_guild_permissions(manage_guild=True)
+    @commands.has_guild_permissions(manage_channels = True)
     async def lockchannel(self, ctx, channel: discord.TextChannel = None):
         if channel is None:
             channel = ctx.channel
@@ -22,7 +22,7 @@ class Lock_Unlock(commands.Cog):
         await ctx.send(f"🔒The channel {channel.mention} has been locked")
 
     @commands.command(name="unlockchannel", aliases=['unlock'])
-    @commands.has_guild_permissions(manage_guild=True)
+    @commands.has_guild_permissions(manage_channels = True)
     async def unlockchannel(self, ctx, channel: discord.TextChannel = None):
         if channel is None:
             channel = ctx.channel
