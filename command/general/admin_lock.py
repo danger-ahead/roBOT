@@ -31,12 +31,5 @@ class Lock_Unlock(commands.Cog):
 
         await ctx.send(f"🔓The channel {channel.mention} has been unlocked")
 
-    @commands.command(name="slowmode", aliases=['slm'])
-    @commands.has_guild_permissions(manage_guild=True)
-    async def setdelay(self, ctx, seconds: int):
-        await ctx.channel.edit(slowmode_delay=seconds)
-        await ctx.send(f"Set the slowmode in this channel to **{seconds}** seconds!")
-
-
 def setup(client):
     client.add_cog(Lock_Unlock(client))
