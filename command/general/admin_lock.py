@@ -3,11 +3,10 @@ from discord.ext import commands
 import datetim
 
 class Lock_Unlock(commands.Cog):
-
     def __init__(self, client):
         self.client = client
 
-@commands.command(name="lockchannel", aliases=['lock'])
+    @commands.command(name="lockchannel", aliases=['lock'])
     @commands.has_guild_permissions(manage_channels = True)
     async def lockchannel(self, ctx, channel: discord.TextChannel = None):
         if channel is None:
