@@ -7,6 +7,8 @@
 | $kick @< user > | **roBOT** kicks the mentioned user |
 | $mute @< user > | **roBOT** mutes the mentioned user |
 | $unmute @< user > | **roBOT** unmutes the mentioned user |
+| $lock  | **roBOT** Will lock the channel so only people with manage_channel permission and higher will be able to type |
+| $unlock | **roBOT** Will unlock the channel   |
 | $moderation | Instructs **roBOT** to activate chat moderation on the server |
 | $leave | Instructs **roBOT** to leave the server (works only in the channel configured with `$configure` command) |
 | $clean | **roBOT** deletes the previous 100 chats from the channel |
