@@ -1,58 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Command</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/command.css">
-    <link rel="stylesheet" href="./js/resp.js">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/command.css" />
+    <link rel="stylesheet" href="./js/resp.js" />
+  </head>
+  <body>
     <section class="bg">
-        <nav class="navbar sticky h-nav-resp">
-            <ul class="navlist v-class-resp">
-              <li><a href="./index.html" class="nav-link"> HOME </a> </li>
-              <li><a href="./command.html" class="nav-link"> COMMANDS</a> </li>
-              <li><a href="./query.html" class="nav-link"> QUERY </a> </li>
-           </ul>   
-      
-      
-           <div class="burger">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-          </div>
-        
-          </nav>
-          <script src="js/resp.js"></script>
-    <script>
-        $(window).scroll(function(){
-            $('nav').toggleClass('scrolled',$(this).scrollTop()>150);
+      <nav class="navbar sticky h-nav-resp">
+        <ul class="navlist v-class-resp">
+          <li><a href="./index.html" class="nav-link"> HOME </a></li>
+          <li><a href="./command.html" class="nav-link"> COMMANDS</a></li>
+          <li><a href="./query.html" class="nav-link"> QUERY </a></li>
+        </ul>
+      </nav>
+      <script src="js/resp.js"></script>
+      <script>
+        $(window).scroll(function () {
+          $("nav").toggleClass("scrolled", $(this).scrollTop() > 150);
         });
-    </script>
-<div class="container">
-<div class="container1">
-	<!-- code here -->
-	<a class="post" href="#">
-			<h2 class="post-title">command</h2>
-	</a>
-</div>
-<div class="container2">
-	<!-- code here -->
-	<a class="post" href="#">
-			<h2 class="post-title">command</h2>
-	</a>
-</div>
-<div class="container3">
-	<!-- code here -->
-	<a class="post" href="#">
-			<h2 class="post-title">command</h2>
-	</a>
-</div>
-</div>
+      </script>
+      <div class="container">
+        <div class="container1 commands">
+          <a class="post" href="#">
+            <h2 class="post-title">commands</h2>
+          </a>
+          <p class="each_command">_meme</p>
+          <p class="each_command">_compliment</p>
+          <p class="each_command">_trivia</p>
+          <p class="each_command">_ptrivia</p>
+          <p class="each_command">_mean &#60;word&#62; </p>
+          <p class="each_command">_math &#60;problem&#62;</p>
+          <p class="each_command">_confess &#60;confession&#62;</p>
+          <p class="each_command">_f m &#60;number&#62;</p>
+          <p class="each_command">_f y &#60;year&#62;</p>
+          <p class="each_command">_joke</p>
+          <p class="each_command">_inspire</p>
+          <p class="each_command">_wea &#60;city, country code&#62;</p>
+          <p class="each_command">_wiki &#60;query&#62;</p>
+          <p class="each_command">_search &#60;query&#62;</p>
+          <p class="each_command">_movie &#60;movie&#62;</p>
+          <p class="each_command">_song &#60;song or artist&#62;</p>
+          <p class="each_command">_rank</p>
+          <p class="each_command">_hi</p>
+          <p class="each_command">_contribute</p>
+          <p class="each_command">_rolldice</p>
+          <p class="each_command">_tosscoin</p>
+        </div>
+        <div class="container2 commands">
+          <a class="post" href="#">
+            <h2 class="post-title">descriptions</h2>
+          </a>
+          <p class="each_command">Sends a meme from reddit</p>
+          <p class="each_command">Gives a random complement</p>
+          <p class="each_command">Sends a trivia</p>
+          <p class="each_command">Interactive trivia with user</p>
+          <p class="each_command">Finds the meaning of the word</p>
+          <p class="each_command">Solves the math problem</p>
+          <p class="each_command">Deletes the user's confession and forwards the message to configured confession channel</p>
+          <p class="each_command">Tells an intersting fact about the number</p>
+          <p class="each_command">Tells an intersting fact about the year</p>
+          <p class="each_command">Tells a joke</p>
+          <p class="each_command">Sends an inspirational quote which will surely enlighten you</p>
+          <p class="each_command">Tells the current weather condition of the city</p>
+          <p class="each_command">Searches the wikipedia for the query</p>
+          <p class="each_command">Searches DuckDuckGo for the query</p>
+          <p class="each_command">Tells the details of the movie</p>
+          <p class="each_command">Tells the detail about the song or finds the most famous song of the artist</p>
+          <p class="each_command">Tells the current friendship level of roBOT with you</p>
+          <p class="each_command">Provides you with a link to find roBOT's commands</p>
+          <p class="each_command">Provides you a link to roBOT's source code</p>
+          <p class="each_command">Rolls a dice</p>
+          <p class="each_command">Tosses a coin</p>
+        </div>
+      </div>
     </section>
-    
-</body>
+  </body>
 </html>
