@@ -7,12 +7,58 @@
 
 [![Discord chat](https://img.shields.io/discord/847319167949340702?color=blue&label=join%20discord%20server)](https://discord.gg/kBatC2cVJr)
 
-## A Branch dedicated to Refactoring whole bot.
+## [🤖 Add ](https://discord.com/api/oauth2/authorize?client_id=843553315442130985&permissions=2148002880&scope=bot) **roBOT** to your server!
 
+## 📷 Screenshots of **roBOT** in action.
+<p align="center"><img src="https://i.imgur.com/xfEvesZ.png" width="380" height="400"/>   <img src="https://i.imgur.com/5gQH96D.png" width="380" height="400"/></p>
+<p align="center"><img src="https://i.imgur.com/UnF0Br1.png" width="380" height="400"/>   <img src="https://i.imgur.com/WbjWcZP.png" width="380" height="400"/></p>
 
-**You have to join our [discord server](https://discord.gg/qCcNYQu2kE) if you want to contribute to this branch.**\
-Otherwise no pull requests will be accepted.
+## 💽 Installation
+- Make sure you’re logged on to the [Discord](https://discord.com).
+- Navigate to the Discord Developer's [Application Page](https://discord.com/developers/applications).
+- Click on the `New Application` button.
+- Give the Application a Name and click on `Create`.
+- Go to the `Bot` Tab and then click `Add Bot`. You will have to confirm by clicking `Yes, do it!`.
+- Keep the default settings for Public Bot (checked) and Require OAuth2 Code Grant (unchecked).
+- `Copy` the token from 'Bot' Tab. (Don't share it with anybody)
+- Go to the `OAuth2` Tab. Then select `Bot` under the `scopes` section.
+- Now choose the `Administrator` permission.
+- Copy the URL by clicking `Copy` button above the permissions.
+- Paste the URL into your browser, choose a server to invite the bot to, and click `Authorize`.(To add the bot, your account needs `Manage Server` permissions.)
+- Now you've created the bot user and added it into a server. Now start writing the Python code for the bot.
+- Run `pip install -r requirements.txt`
+- In the .env  file, paste the required keys as:
 
 *Note: This branch has breaking changes*
 
-*For more information related to roBOT: please refer to [README](https://github.com/danger-ahead/roBOT/blob/master/README.md) of master branch.*
+	`RAPID_API=YOUR_API_KEY` (replace '**YOUR_API_KEY**' with your API key)
+
+	`OPEN_WEATHER_TOKEN=YOUR_TOKEN` (replace '**YOUR_TOKEN**' with your API key)
+
+	`MONGO=MONGODB_KEY` (replace '**MONGODB_KEY**' with your MongoDB key.)
+
+## 👷‍♀️ Working
+### **roBOT** reacts with 👍 or 👎 after each successful or unsuccessful command execution
+#### You can use **roBOT** for:
+* Channel moderations (looking for offensive words, muting, unmuting, etc)
+* Trivia, memes and jokes
+* Play games (tossing a coin, rolling a dice, etc)
+* Polls
+* Cleaning up a channel's chats
+* Searching (Wikipedia, DuckDuckGo, movies, music, word meanings, etc)
+* Solving Math problems
+* Updates on COVID-19 or weather
+
+(the list will only keep expanding 😜)...
+### [Full list of commands here](https://github.com/danger-ahead/roBOT/blob/master/docs/COMMANDS.md)
+
+### [Dependencies](https://github.com/danger-ahead/roBOT/blob/master/docs/DEPENDENCIES.md)
+
+## 🤝 Contributions
+Contributions are always welcome. Visit our [contributing guidelines](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTING.md) before making any contributions.
+
+### [![GitHub contributors](https://img.shields.io/github/contributors/danger-ahead/roBOT)](https://github.com/danger-ahead/roBOT/blob/master/docs/CONTRIBUTORS.md)
+
+## 📄 License
+
+Distributed under the MIT License. See [LICENSE](/LICENSE) for more information.

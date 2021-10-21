@@ -1,101 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>roBOT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
 
-    
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./js/resp.js">
-    <link rel="shortcut icon" href="./images/favi.png" sizes="32*32" type="image/png">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./js/resp.js" />
+    <link
+      rel="shortcut icon"
+      href="./images/favi.png"
+      sizes="32*32"
+      type="image/png"
+    />
     <script src="./js/misc.js"></script>
-</head>
-<body>
-  <section class="bg">
-  <nav class="navbar sticky h-nav-resp">
-      <ul class="navlist v-class-resp">
-        <li><a href="./index.html" class="nav-link"> HOME </a> </li>
-        <li><a href="./command.html" class="nav-link"> COMMANDS</a> </li>
-        <li><a href="./query.html" class="nav-link"> QUERY </a> </li>
-     </ul>   
+  </head>
+  <body>
+    <section class="bg">
+      <nav class="navbar sticky h-nav-resp">
+        <ul class="navlist v-class-resp">
+          <li><a href="./index.html" class="nav-link"> HOME </a></li>
+          <li><a href="./command.html" class="nav-link"> COMMANDS</a></li>
+          <li><a href="./query.html" class="nav-link"> QUERY </a></li>
+        </ul>
 
+        <div class="burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </nav>
 
-     <div class="burger">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-  
-    </nav>
-
-    <script src="js/resp.js"></script>
-    <script>
-        $(window).scroll(function(){
-            $('nav').toggleClass('scrolled',$(this).scrollTop()>150);
+      <script src="js/resp.js"></script>
+      <script>
+        $(window).scroll(function () {
+          $("nav").toggleClass("scrolled", $(this).scrollTop() > 150);
         });
-    </script>
+      </script>
 
-    
-
-
-    <div class='page'>
-        Your robot at your service.
-      
+      <div class="page">
+        <div class="main_name" >
         <h1 class="ml6">
           <span class="text-wrapper">
-            <span class="letters">roBOT</span>
+            <span class="letters" style="font-family: 'Roboto', sans-serif"
+              >roBOT</span
+            >
           </span>
         </h1>
-        
+        <h3 >
+          Hello I am a discord bot, people say I am really useful. I request
+          everyone to try me out once. I would love to serve everyone.
+        </h3>
+      </div>
+        <img style="float: right; margin-right: 5%;" src="./images/discord_bot_new.png" alt="">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-        <br>
-        
-        <script>// Wrap every letter in a span
-          var textWrapper = document.querySelector('.ml6 .letters');
-          textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
-          
-          anime.timeline({loop: true})
+
+        <script>
+          // Wrap every letter in a span
+          var textWrapper = document.querySelector(".ml6 .letters");
+          textWrapper.innerHTML = textWrapper.textContent.replace(
+            /\S/g,
+            "<span class='letter'>$&</span>"
+          );
+
+          anime
+            .timeline({ loop: true })
             .add({
-              targets: '.ml6 .letter',
+              targets: ".ml6 .letter",
               translateY: ["1.1em", 0],
               translateZ: 0,
               duration: 750,
-              delay: (el, i) => 50 * i
-            }).add({
-              targets: '.ml6',
+              delay: (el, i) => 50 * i,
+            })
+            .add({
+              targets: ".ml6",
               opacity: 0,
               duration: 1000,
               easing: "easeOutExpo",
-              delay: 1000
-            });</script>
-<br>
-<br>
+              delay: 1000,
+            });
+        </script>
+        <br />
+        <br />
 
-<div class="containeri">
-  <div class="center">
-    <button class="btn" onclick="invite()">
-      <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
-        <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-        <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-      </svg>
-      <span><a>Invite</a></span>
-    </button>
-  </div>
-</div>
+        <div class="containeri">
+          <div class="center">
+            <button class="btn" onclick="invite()">
+              <svg
+                width="180px"
+                height="60px"
+                viewBox="0 0 180 60"
+                class="border"
+              >
+                <polyline
+                  points="179,1 179,59 1,59 1,1 179,1"
+                  class="bg-line"
+                />
+                <polyline
+                  points="179,1 179,59 1,59 1,1 179,1"
+                  class="hl-line"
+                />
+              </svg>
+              <span><a>Invite</a></span>
+            </button>
+          </div>
+        </div>
       </div>
-      <br>
-      <br>
-
-      
-     
-    
-
-        
+      <br />
+      <br />
     </section>
-
-  
-    
-</body>
+  </body>
 </html>

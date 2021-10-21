@@ -17,6 +17,7 @@
 | :-------------: | :-------------: |
 | **_wearesoftwareengineers** | **FOR ALL THE SOFTWARE ENGINEERS OUT THERE!** |
 | _meme | Sends a meme from reddit |
+| _compliment | Gives you a random compliment |
 | _trivia | Sends a trivia |
 | _ptrivia | Interactive trivia with user |
 | _mean  < word >  | Finds the meaning of the word |
