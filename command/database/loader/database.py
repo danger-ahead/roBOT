@@ -1,6 +1,10 @@
-import pymongo as pm
-from decouple import config
+import os
+import dotenv
 import discord
+import pymongo as pm
+from discord.ext import commands
+
+dotenv.load_dotenv()
 
 
 class Database:
@@ -13,7 +17,7 @@ class Database:
         try:
             self.cluster = pm.MongoClient(
                 "mongodb+srv://danger-ahead:"
-                + config("MONGO")
+                + os.getenv("MONGO")
                 + "@cluster0.z0zou.mongodb.net/test"
             )
 
@@ -73,7 +77,7 @@ class Database:
         await message.channel.send(embed=embed)
 
     # sets the channel for roBOT's admin commands, also initializes the confess key with 0
-    async def server_config(self, server, message):
+    async def server_config(self, server, ctx):
         channell = ""
         query = {"_id": server}
         user = self.collection2.find(query)
@@ -81,17 +85,17 @@ class Database:
             channell = result["channel"]
 
         if channell != "":
-            await message.channel.send(
-                "I'm already configured on <#" + str(channell) + ">"
-            )
+            await ctx.channel.send("I'm already configured on <#" + str(channell) + ">")
+            await ctx.message.add_reaction("\U0001f44E")
         else:
             self.collection2.insert_one(
-                {"_id": server, "channel": message.channel.id, "confess": 0, "mod": 0}
+                {"_id": server, "channel": ctx.channel.id, "confess": 0, "mod": 0}
             )
-            await message.channel.send("I just got configured!")
+            await ctx.channel.send("I just got configured!")
+            await ctx.message.add_reaction("\U0001f44d")
 
     async def server_deconfig(
-        self, server, message
+        self, server, ctx
     ):  # deletes the discord server's details
         channell = ""
         query = {"_id": server}
@@ -99,19 +103,15 @@ class Database:
         for result in user:
             channell = result["channel"]
 
-        if channell == message.channel.id:
+        if channell == ctx.channel.id:
             self.collection2.delete_one({"_id": server})
-            await message.channel.send("I've been deconfigured!")
+            await ctx.channel.send("I've been deconfigured!")
+            await ctx.message.add_reaction("\U0001f44d")
         elif channell == "":
-            await message.channel.send("Configure me first!")
-        elif channell != message.channel.id:
-            await message.channel.send(
-                "I'm configured on <#" + str(channell) + "> \nI can't deconfigure here!"
-            )
+            await ctx.channel.send("Configure me first!")
+            await ctx.message.add_reaction("\U0001f44E")
 
-    async def confess_config(
-        self, server, message
-    ):  # configures the confession channel
+    async def confess_config(self, server, ctx):  # configures the confession channel
         confess = 0
         query = {"_id": server}
         user = self.collection2.find(query)
@@ -119,18 +119,18 @@ class Database:
             confess = result["confess"]
 
         if confess != 0:
-            await message.channel.send(
-                "I'm already configured on <#" + str(confess) + ">"
-            )
+            await ctx.channel.send("I'm already configured on <#" + str(confess) + ">")
+            await ctx.message.add_reaction("\U0001f44E")
         else:
             self.collection2.update_one(
                 {"_id": server},
-                {"$set": {"_id": server, "confess": message.channel.id}},
+                {"$set": {"_id": server, "confess": ctx.channel.id}},
             )
-            await message.channel.send("I just got the confession channel configured!")
+            await ctx.channel.send("I just got the confession channel configured!")
+            await ctx.message.add_reaction("\U0001f44d")
 
     async def confess_deconfig(
-        self, server, message
+        self, server, ctx
     ):  # sets the confession channel's id to 0
         confess = 0
         query = {"_id": server}
@@ -139,38 +139,16 @@ class Database:
             confess = result["confess"]
             channell = result["channel"]
 
-        if confess == message.channel.id:
+        if confess == ctx.channel.id:
             self.collection2.update_one(
                 {"_id": server},
                 {"$set": {"_id": server, "channel": channell, "confess": 0}},
             )
-            await message.channel.send("My confession channel has been deconfigured!")
+            await ctx.channel.send("My confession channel has been deconfigured!")
+            await ctx.message.add_reaction("\U0001f44d")
         elif confess == 0:
-            await message.channel.send("Configure my confession channel first!")
-        elif confess != message.channel.id:
-            await message.channel.send(
-                "My confession channel is configured on <#"
-                + str(confess)
-                + "> \nI can't deconfigure here!"
-            )
-
-    # function for leaving the server on command from pre-configured channel
-    async def leave_server(self, server, message):
-        channell = ""
-        query = {"_id": server}
-        user = self.collection2.find(query)
-        for result in user:
-            channell = result["channel"]
-
-        if channell == message.channel.id:
-            await message.channel.send("Don't want me? Fine!")
-            await message.guild.leave()
-        elif channell == "":
-            await message.channel.send("Configure me first!")
-        else:
-            await message.channel.send(
-                "I'll only leave if instructed from <#" + str(channell) + ">"
-            )
+            await ctx.channel.send("Configure my confession channel first!")
+            await ctx.message.add_reaction("\U0001f44E")
 
     # function for forwarding the confession
     async def confess(self, client, discord, confession, message):

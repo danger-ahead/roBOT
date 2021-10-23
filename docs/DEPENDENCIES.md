@@ -6,6 +6,10 @@
 	- [wikipedia](https://pypi.org/project/wikipedia/)
 	- [dnspython](https://pypi.org/project/dnspython/)
 	- [pymongo](https://pypi.org/project/pymongo/)
+	- [jishaku](https://github.com/Gorialis/jishaku)
+	- [asyncpraw](https://asyncpraw.readthedocs.io/en/stable/)
+	- [Pycord](https://github.com/Pycord-Development/pycord)
+
 
 - Uses [Numbers](https://rapidapi.com/divad12/api/numbers-1) for displaying year and math facts.
 - Uses [Advanced Movie Search](https://rapidapi.com/jakash1997/api/advanced-movie-search ) for fetching movie details.
@@ -17,3 +21,6 @@
 - Uses [15Dkatz / official_joke_api](https://github.com/15Dkatz/official_joke_api) for jokes.
 - Uses [jgoralcz /trivia](https://github.com/jgoralcz/trivia) for trivia.
 - Uses [Huge RedditMemesAPI](https://memes.blademaker.tv/) for memes.
+- Uses [PokeAPI](https://pokeapi.co/) for pokemon data.
+- Uses [Jikan API](https://jikan.moe/) the unofficial MAL API for fetching data on anime shows and manga.
+- Uses [StackAPI](https://stackapi.readthedocs.io/en/latest/index.html) to fetch stackoverflow questions by ID (can only fetch using id due to api limitations will update in the future).
