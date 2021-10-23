@@ -1,5 +1,5 @@
 - Python Packages required:
-	- [discord.py](https://pypi.org/project/discord.py/)
+	- [airi.py](https://pypi.org/project/airi.py/)
 	- [duckduckgo-search](https://pypi.org/project/duckduckgo-search/)
 	- [requests](https://pypi.org/project/requests/)
 	- [python-decouple](https://pypi.org/project/python-decouple/)
@@ -8,7 +8,8 @@
 	- [pymongo](https://pypi.org/project/pymongo/)
 	- [jishaku](https://github.com/Gorialis/jishaku)
 	- [asyncpraw](https://asyncpraw.readthedocs.io/en/stable/)
-	- [Pycord](https://github.com/Pycord-Development/pycord)
+	- [py-cord](https://github.com/Pycord-Development/pycord)
+	
 
 
 - Uses [Numbers](https://rapidapi.com/divad12/api/numbers-1) for displaying year and math facts.
@@ -23,4 +24,5 @@
 - Uses [Huge RedditMemesAPI](https://memes.blademaker.tv/) for memes.
 - Uses [PokeAPI](https://pokeapi.co/) for pokemon data.
 - Uses [Jikan API](https://jikan.moe/) the unofficial MAL API for fetching data on anime shows and manga.
+- Uses [airi.py](https://pypi.org/project/airi.py/) to access Airi API to get anime fact.
 - Uses [StackAPI](https://stackapi.readthedocs.io/en/latest/index.html) to fetch stackoverflow questions by ID (can only fetch using id due to api limitations will update in the future).
