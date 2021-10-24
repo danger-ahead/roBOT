@@ -77,7 +77,7 @@ class CommandErrorHandler(commands.Cog):
         elif isinstance(error, commands.CommandOnCooldown):
             await ctx.send(f'Retry after {error.retry_after} seconds...')
 
-        # All the list of errors are written in https://discordpy.readthedocs.io/en/stable/ext/commands/api.html#exceptions
+        # All the list of errors are written in https://pycord.readthedocs.io/en/stable/api.html#exceptions
         # And they can be added to be handeled in elif after this line
         
 
