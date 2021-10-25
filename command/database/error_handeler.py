@@ -6,8 +6,8 @@ from discord.ext import commands
 
 class CommandErrorHandler(commands.Cog):
 
-    def __init__(self, bot):
-        self.bot = bot
+    def __init__(self, client):
+        self.client = client
 
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
@@ -87,5 +87,5 @@ class CommandErrorHandler(commands.Cog):
             traceback.print_exception(type(error), error, error.__traceback__, file=sys.stderr)
 
 
-def setup(bot):
-    bot.add_cog(CommandErrorHandler(bot))
+def setup(client):
+    client.add_cog(CommandErrorHandler(client))
